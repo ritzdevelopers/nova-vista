@@ -12,7 +12,7 @@ export default function AboutSection() {
                     {/* Image */}
                     <div className="flex justify-center">
                         <Image
-                            src="/static/about-section-image.png"
+                            src="/static/aboutsectionimage.png"
                             alt="About Image"
                             width={600}
                             height={600}
