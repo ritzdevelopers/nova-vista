@@ -66,7 +66,7 @@ export default function ProgramTraining() {
       <Header />
       <section
         className="w-full bg-[#fafafa] py-12 sm:py-16"
-        style={{ fontFamily: 'Montserrat' }}
+      
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <h2
@@ -112,7 +112,7 @@ export default function ProgramTraining() {
                     {workshop.subtitle}
                   </p>
                   <div className="mt-4 h-px w-full bg-gray-200" />
-                  <ul className="mt-4 text-sm text-gray-600 space-y-2 list-disc pl-5">
+                  <ul className="mt-4 text-sm text-gray-600 space-y-2 list-none pl-4">
                     {workshop.items.map((item) => (
                       <li key={item}>{item}</li>
                     ))}

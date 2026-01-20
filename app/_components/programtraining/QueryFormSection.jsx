@@ -50,25 +50,21 @@ export default function QueryFormSection() {
             </form>
           </div>
 
-          <div className="">
+          <div className="flex flex-col items-start text-left">
             <h4
-              className="text-lg font-semibold mb-2"
-              style={{
-                case: 'titleCase',
-                lineHeight: '100%',
-              }}
+              className="text-2xl font-semibold mb-2 tracking-wide text-left"
             >
               Nomination Fee
             </h4>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-gray-600 mb-4 tracking-wide">
               120 USD or Equivalent In Your Currency.
             </p>
             <img
               src="/static/scanner.png"
               alt="QR Code"
-              className="w-full max-w-[280px] mb-6 object-contain"
+              className="w-full max-w-[220px] mb-6 object-contain items-start block ml-0 mr-auto"
             />
-            <div className="bg-white rounded shadow-sm p-4 text-sm">
+            <div className="bg-white rounded shadow-sm p-4 text-sm w-full max-w-sm text-left">
               <p className="text-[#1B78A1] font-semibold mb-3">
                 DEMO NATIONAL BANK
               </p>
