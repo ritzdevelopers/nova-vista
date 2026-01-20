@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function QueryFormSection() {
   return (
-    <section className="w-full bg-white py-16">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="w-full bg-white py-12 sm:py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 items-start">
-          <div className="bg-[#0B6E99] text-white  p-6 sm:p-8">
+          <div className="bg-[#0B6E99] text-white p-6 sm:p-8">
             <p className="text-sm tracking-wide mb-2">Have A Query?</p>
             <h3 className="text-[28px] md:text-[36px] font-semibold mb-6">
               Submit Your Nomination
@@ -43,7 +43,7 @@ export default function QueryFormSection() {
               ></textarea>
               <button
                 type="submit"
-                className="bg-[#062b3b] text-white py-3 w-[180px] hover:bg-gray-800 transition"
+                className="bg-[#062b3b] text-white py-3 w-full sm:w-[180px] hover:bg-gray-800 transition"
               >
                 Submit
               </button>
@@ -51,17 +51,22 @@ export default function QueryFormSection() {
           </div>
 
           <div className="">
-            <h4 className="text-lg font-semibold mb-2 w-[280px] h-[50px]"style={{
-              case:"titleCase",
-              lineHeight:'100%',
-            }}>Nomination Fee</h4>
+            <h4
+              className="text-lg font-semibold mb-2"
+              style={{
+                case: 'titleCase',
+                lineHeight: '100%',
+              }}
+            >
+              Nomination Fee
+            </h4>
             <p className="text-sm text-gray-600 mb-4">
               120 USD or Equivalent In Your Currency.
             </p>
             <img
               src="/static/scanner.png"
               alt="QR Code"
-              className="w-full max-w-[280px] mb-6 object-contain pr-[20px]"
+              className="w-full max-w-[280px] mb-6 object-contain"
             />
             <div className="bg-white rounded shadow-sm p-4 text-sm">
               <p className="text-[#1B78A1] font-semibold mb-3">
