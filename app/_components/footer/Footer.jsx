@@ -104,13 +104,14 @@ export default function Footer() {
                         </h3>
 
                         <div className="space-y-3 text-sm">
-                            <div className="flex gap-3">
-                                <MapPin size={16} className="mt-1" />
-                                <p>
-                                    Nova Vista Education, 6th Floor, Nukleus,
-                                    Plot 29, Sector 142, Noida, Uttar Pradesh
-                                </p>
-                            </div>
+                           <div className="flex gap-3">
+  <MapPin className="w-[20px] h-[20px] mt-1 shrink-0" />
+  <p>
+    Nova Vista Education, 6th Floor, Nukleus,
+    Plot 29, Sector 142, Noida, Uttar Pradesh
+  </p>
+</div>
+
 
                             <div className="flex gap-3 items-center">
                                 <Phone size={16} />
