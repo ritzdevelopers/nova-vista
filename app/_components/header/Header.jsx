@@ -45,16 +45,17 @@ export default function Header() {
                         >
                             About
                         </li>
-                        <li
-                            className="cursor-pointer hover:text-[#012A3C]"
-                            onClick={() => scrollToSection("services")}
-                        >
-                            Services
+                        <li className="cursor-pointer hover:text-[#012A3C]">
+                            Service
                         </li>
                         <li
                             className="cursor-pointer hover:text-[#012A3C]"
-                            onClick={() => scrollToSection("contact")}
+                            onClick={() => scrollToSection("advisory")}
                         >
+                            Advisory board
+                        </li>
+
+                        <li className="cursor-pointer hover:text-[#012A3C]">
                             Contact
                         </li>
                     </ul>
@@ -109,8 +110,11 @@ export default function Header() {
                 <ul className="flex flex-col gap-1 px-6 py-6  text-lg transition-opacity duration-300 delay-100">
                     <li onClick={() => setOpen(false)}>Home</li>
                     <li onClick={() => scrollToSection("about")}>About</li>
-                    <li onClick={() => scrollToSection("services")}>Services</li>
-                    <li onClick={() => scrollToSection("contact")}>Contact</li>
+                    <li onClick={() => scrollToSection("services")}>
+                        Services
+                    </li>
+                    <li onClick={() => setOpen(false)}>Advisory board</li>
+                    <li onClick={() => setOpen(false)}>Contact</li>
                 </ul>
 
                 <hr />
@@ -131,7 +135,6 @@ export default function Header() {
                                 info@novavistaeducation.com
                             </p>
                         </div>
-
 
                         <div className="flex items-start gap-3">
                             <Image
