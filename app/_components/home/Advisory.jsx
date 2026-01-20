@@ -8,7 +8,7 @@ export default function Advisory() {
             <div className="absolute top-0 left-0 w-full h-[60%] lg:bg-black bg-white z-0"></div>
 
             {/* Content */}
-            <div className="relative z-10 px-4 sm:px-6 max-w-7xl mx-auto">
+            <div className="relative z-10 px-4 sm:px-6 ">
                 <h2 className="md:text-[36px] text-[28px] text-black lg:text-black xl:text-white text-center mb-6">
                     Advisory Board
                 </h2>
