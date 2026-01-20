@@ -1,10 +1,18 @@
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
+import ServiceSection from "./ServiceSection";
+import Advisory from "./Advisory";
+import ContactSection from "./ContactSection";
+import Footer from "./Footer";
 export default function Home() {
-  return (
-    <div>
-      <HeroSection />
-      <AboutSection />
-    </div>
-  );
+    return (
+        <div>
+            <HeroSection />
+            <AboutSection />
+            <ServiceSection />
+            <Advisory />
+            <ContactSection />
+            <Footer/>
+        </div>
+    );
 }
