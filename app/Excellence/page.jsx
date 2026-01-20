@@ -7,9 +7,9 @@ export default function Excellence() {
     return (
         <>
             <Header />
-            <section className="w-full bg-white py-12">
-                <div className="max-w-7xl px-4 ">
-                    <h2 className="text-center text-[18px]  md:text-[26px] font-semibold pt-5 mb-5">
+            <section className="w-full bg-white">
+                <div className="max-w-7xl mx-auto px-4 flex justify-center items-center">
+                    <h2 className="text-center text-[22px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold tracking-wide leading-tight text-[#111111] my-8 w-full">
                         Certificate, Diploma, Degree Programs From
                     </h2>
                 </div>
