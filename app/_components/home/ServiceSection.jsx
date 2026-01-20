@@ -96,9 +96,9 @@ export default function ServiceSection() {
                                 <h3 className="text-xl font-semibold mb-4 md:text-[24px] text-[18px]">
                                     Professional Training Programs
                                 </h3>
-                                <button className="bg-white text-[#0B5C7A] px-4 py-2  hover:bg-gray-100 transition md:text-[16px] text-[12px]">
+                                <Link  href={"/ProgramTraining"} className="bg-white text-[#0B5C7A] px-4 py-2  hover:bg-gray-100 transition md:text-[16px] text-[12px]">
                                     Click Here
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

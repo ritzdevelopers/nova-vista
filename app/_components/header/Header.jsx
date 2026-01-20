@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import TopHeader from "./TopHeader";
+import Link from "next/link";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -23,6 +24,7 @@ export default function Header() {
             {/* Main Header */}
             <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-4 md:px-4 xl:px-0 relative">
                 {/* Logo */}
+                <Link href={"/"}>
                 <div className="h-[56px] w-[220px] flex items-center">
                     <Image
                         src="/logos/nova-vista-logo.svg"
@@ -32,32 +34,44 @@ export default function Header() {
                         priority
                     />
                 </div>
+                </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:block">
                     <ul className="flex gap-10 font-medium">
+                        <Link href={"/"}>
                         <li className="cursor-pointer hover:text-[#012A3C]">
                             Home
                         </li>
+                        </Link>
+                      <Link href={"/Excellence"}>
                         <li
                             className="cursor-pointer hover:text-[#012A3C]"
-                            onClick={() => scrollToSection("about")}
+                            // onClick={() => scrollToSection("about")}
                         >
                             About
                         </li>
+                        </Link>
+                        
+                        <Link href={"/ProgramTraining"}>
                         <li className="cursor-pointer hover:text-[#012A3C]">
                             Service
                         </li>
+                        </Link>
+                      
+                      
                         <li
                             className="cursor-pointer hover:text-[#012A3C]"
                             onClick={() => scrollToSection("advisory")}
                         >
                             Advisory board
                         </li>
-
-                        <li className="cursor-pointer hover:text-[#012A3C]">
+                    
+                        
+                        <li className="cursor-pointer hover:text-[#012A3C]" onClick={() => scrollToSection("contact")}> 
                             Contact
                         </li>
+                        
                     </ul>
                 </div>
 
@@ -109,10 +123,12 @@ export default function Header() {
                 {/* Navigation */}
                 <ul className="flex flex-col gap-1 px-6 py-6  text-lg transition-opacity duration-300 delay-100">
                     <li onClick={() => setOpen(false)}>Home</li>
-                    <li onClick={() => scrollToSection("about")}>About</li>
-                    <li onClick={() => scrollToSection("services")}>
-                        Services
-                    </li>
+                    <Link href={"/Excellence"} onClick={() => setOpen(false)}>
+                        <li>About</li>
+                    </Link>
+                    <Link href={"/ProgramTraining"} onClick={() => setOpen(false)}>
+                        <li>Services</li>
+                    </Link>
                     <li onClick={() => setOpen(false)}>Advisory board</li>
                     <li onClick={() => setOpen(false)}>Contact</li>
                 </ul>
