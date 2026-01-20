@@ -8,57 +8,67 @@ export default function Excellence() {
         <>
             <Header />
             <section className="w-full bg-white py-12">
-                <div className="max-w-7xl mx-auto px-4">
-                    {/* Heading */}
-                    <h2 className="text-center text-[18px]  md:text-[26px] font-semibold mb-10">
+                <div className="max-w-7xl px-4 ">
+                    <h2 className="text-center text-[18px]  md:text-[26px] font-semibold pt-5 mb-5">
                         Certificate, Diploma, Degree Programs From
                     </h2>
+                </div>
+                <div className="bg-[#F6F6F6] px-4">
+                    {/* Heading */}
+                    <div className="max-w-7xl mx-auto">
+                        {/* Logos Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 pb-8 pt-8">
+                            {/* Card */}
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                                <Image
+                                    src="/logos/arni.png"
+                                    alt="ARN University"
+                                    width={200}
+                                    height={80}
+                                    className="w-auto h-auto object-contain"
+                                />
+                            </div>
 
-                    {/* Logos Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-10">
-                        {/* Card */}
-                        <div className="flex items-center  justify-center bg-white shadow-md rounded-lg p-6 h-[180px]">
-                            <img
-                                src="/logos/arni.png"
-                                alt="ARN University"
-                                className="max-h-14 object-contain"
-                            />
-                        </div>
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                                <Image
+                                    src="/logos/integral.png"
+                                    alt="Integral University"
+                                    width={200}
+                                    height={80}
+                                    className="w-auto h-auto object-contain"
+                                />
+                            </div>
 
-                        <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[180px]">
-                            <img
-                                src="/logos/integral.png"
-                                alt="Integral University"
-                                className="max-h-14 object-contain"
-                            />
-                        </div>
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                                <Image
+                                    src="/logos/nau.png"
+                                    alt="NAU University"
+                                    width={200}
+                                    height={80}
+                                    className="w-auto h-auto object-contain"
+                                />
+                            </div>
 
-                        <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[180px]">
-                            <img
-                                src="/logos/nau.png"
-                                alt="NAU University"
-                                className="max-h-14 object-contain"
-                            />
-                        </div>
-
-                        <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[180px]">
-                            <img
-                                src="/logos/royalamericanuniversity.png"
-                                alt="Royal American University"
-                                className="max-h-14 object-contain"
-                            />
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                                <Image
+                                    src="/logos/royalamericanuniversity.png"
+                                    alt="Royal American University"
+                                    width={200}
+                                    height={80}
+                                    className="w-auto h-auto object-contain"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
                 <section className="w-full bg-white py-12">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex items-center mb-6">
-                            <h2 className="text-[28px] md:text-[36px] font-bold text-gray-800 mr-4">
+                            <h2 className="text-[22px] font-semibold md:text-[28px]  text-gray-800 mr-4">
                                 Academic
                             </h2>
                             <div className="flex-grow h-[2px] bg-gray-300"></div>
                         </div>
-
 
                         {/* ================= GRID CONTENT ================= */}
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -68,7 +78,7 @@ export default function Excellence() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
                                     {/* Box 1: Pre-Schools */}
                                     <div className="bg-white shadow-lg rounded-lg p-6  h-full">
-                                        <h3 className="text-[20px] font-bold text-[#1B78A1] mb-4 uppercase">
+                                        <h3 className="text-[18px] font-semibold text-[#1B78A1] mb-4 uppercase">
                                             PRE-SCHOOLS
                                         </h3>
                                         <ul className="text-[15px] text-gray-600 space-y-2">
@@ -88,7 +98,7 @@ export default function Excellence() {
 
                                     {/* Box 2: Senior Secondary */}
                                     <div className="bg-white shadow-lg rounded-lg p-6  h-full">
-                                        <h3 className="text-[20px] font-bold text-[#1B78A1] mb-4 uppercase">
+                                        <h3 className="text-[18px] font-semibold text-[#1B78A1] mb-4 uppercase">
                                             SENIOR SECONDARY SCHOOLS
                                         </h3>
                                         <ul className="text-[15px] text-gray-600 space-y-2">
@@ -114,7 +124,7 @@ export default function Excellence() {
 
                                 {/* Bottom Row: Specialized Courses */}
                                 <div className="bg-white shadow-lg rounded-lg p-6 ]">
-                                    <h3 className="text-[20px] font-bold text-[#1B78A1] mb-4 uppercase">
+                                    <h3 className="text-[18px] font-semibold text-[#1B78A1] mb-4 uppercase">
                                         SPECIALIZED COURSES
                                     </h3>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-[15px] text-gray-600">
@@ -198,44 +208,101 @@ export default function Excellence() {
                                     </div>
                                 </div>
 
-                                {/* ================= INDIVIDUAL SECTION ================= */}
-                                <div>
-                                    <div className="flex items-center mb-6 mt-4">
-                                        <h2 className="text-[28px] md:text-[36px] font-bold text-gray-800 mr-4">
-                                            Individual
-                                        </h2>
-                                        <div className="flex-grow h-[2px] bg-gray-300"></div>
+                                {/* ================= INDIVIDUAL & MISCELLANEOUS (SIDE BY SIDE) ================= */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {/* Individual */}
+                                    <div>
+                                        <div className="flex items-center mb-10 mt-4">
+                                            <h2 className="text-[22px] font-semibold md:text-[28px] text-gray-800 mr-4">
+                                                Individual
+                                            </h2>
+                                            <div className="flex-grow h-[2px] bg-gray-300"></div>
+                                        </div>
+
+                                        <div className="bg-white shadow-lg rounded-lg mb-6 px-6 ">
+                                            <h3 className="text-[20px] font-semibold text-[#1B78A1] uppercase">
+                                                Individual
+                                            </h3>
+                                            <ul className="text-[15px] text-gray-600 space-y-2 pb-5">
+                                                <li>
+                                                    – Business Leader of the
+                                                    Year
+                                                </li>
+                                                <li>
+                                                    – Women Business Leader of
+                                                    the Year
+                                                </li>
+                                                <li>– Hall of Fame Award</li>
+                                                <li>– CEO of the Year</li>
+                                                <li>– CFO of the Year</li>
+                                                <li>
+                                                    – Education Leadership Award
+                                                </li>
+                                                <li>
+                                                    – Educational Entrepreneur
+                                                </li>
+                                                <li>
+                                                    – Award for Outstanding
+                                                    Contribution to Education
+                                                </li>
+                                                <li>
+                                                    – Visionary Leader Award
+                                                </li>
+                                                <li>– Best Director Award</li>
+                                                <li>– Residential</li>
+                                                <li>– Environment Friendly</li>
+                                                <li>
+                                                    – Property Consultant Of The
+                                                    Year
+                                                </li>
+                                                <li>– Most Preferred Brand</li>
+                                                <li>
+                                                    – Integrated Township Of The
+                                                    Year
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
 
-                                    <div className="bg-white shadow-lg rounded-lg p-6">
-                                        <h3 className="text-[20px] font-bold text-[#1B78A1] mb-4 uppercase">
-                                            Individual
-                                        </h3>
-                                        <ul className="text-[15px] text-gray-600 space-y-2">
-                                            <li>– Business Leader of the Year</li>
-                                            <li>– Women Business Leader of the Year</li>
-                                            <li>– Hall of Fame Award</li>
-                                            <li>– CEO of the Year</li>
-                                            <li>– CFO of the Year</li>
-                                            <li>– Education Leadership Award</li>
-                                            <li>– Educational Entrepreneur</li>
-                                            <li>– Award for Outstanding Contribution to Education</li>
-                                            <li>– Visionary Leader Award</li>
-                                            <li>– Best Director Award</li>
-                                            <li>– Residential</li>
-                                            <li>– Environment Friendly</li>
-                                            <li>– Property Consultant Of The Year</li>
-                                            <li>– Most Preferred Brand</li>
-                                            <li>– Integrated Township Of The Year</li>
-                                        </ul>
+                                    {/* Miscellaneous */}
+                                    <div>
+                                        <div className="flex items-center mb-6 mt-4">
+                                            <h2 className="text-[22px] font-semibold md:text-[28px] text-gray-800 mr-4">
+                                                Miscellaneous
+                                            </h2>
+                                            <div className="flex-grow h-[2px] bg-gray-300"></div>
+                                        </div>
+
+                                        <div className="bg-white shadow-lg rounded-lg p-6">
+                                            <h3 className="text-[18px] font-semibold text-[#1B78A1] mb-4 uppercase">
+                                                Miscellaneous
+                                            </h3>
+                                            <ul className="text-[15px] text-gray-600 space-y-2">
+                                                <li>
+                                                    – Best Education Consultants
+                                                </li>
+                                                <li>
+                                                    – Best Overseas Education
+                                                    Consultants
+                                                </li>
+                                                <li>
+                                                    – Best Education Technology
+                                                    Company
+                                                </li>
+                                                <li>
+                                                    – Best Teachers/Researchers
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             {/* ================= RIGHT COLUMN (1/3) ================= */}
                             <div className="lg:col-span-1 flex flex-col gap-6">
-                                <div className="bg-white shadow-lg rounded-lg p-6  h-auto">
-                                    <h3 className="text-[20px] font-bold text-[#1B78A1] mb-4 uppercase ">
+                                {/* Higher Education */}
+                                <div className="bg-white shadow-lg rounded-lg p-6 h-auto">
+                                    <h3 className="text-[18px] font-semibold text-[#1B78A1] mb-4 uppercase ">
                                         HIGHER EDUCATION
                                     </h3>
                                     <ul className="text-[15px] text-gray-600 space-y-3">
@@ -277,46 +344,32 @@ export default function Excellence() {
                                     </ul>
                                 </div>
 
-                                {/* ================= MISCELLANEOUS SECTION ================= */}
-                                <div>
-                                    <div className="flex items-center mb-6 mt-4">
-                                        <h2 className="text-[28px] md:text-[36px] font-bold text-gray-800 mr-4">
-                                            Miscellaneous
-                                        </h2>
-                                        <div className="flex-grow h-[2px] bg-gray-300"></div>
-                                    </div>
-
-                                    <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
-                                        <h3 className="text-[20px] font-bold text-[#1B78A1] mb-4 uppercase">
-                                            Miscellaneous
-                                        </h3>
-                                        <ul className="text-[15px] text-gray-600 space-y-2">
-                                            <li>– Best Education Consultants</li>
-                                            <li>– Best Overseas Education Consultants</li>
-                                            <li>– Best Education Technology Company</li>
-                                            <li>– Best Teachers/Researchers</li>
-                                        </ul>
-                                    </div>
-
-                                    {/* Coaching Institutes (Stacked below proper) */}
-                                    <div className="bg-white shadow-lg rounded-lg p-6">
-                                        <h3 className="text-[20px] font-bold text-[#1B78A1] mb-4 uppercase">
-                                            COACHING INSTITUTES
-                                        </h3>
-                                        <ul className="text-[15px] text-gray-600 space-y-2">
-                                            <li>– Best Engineering Entrance Institute</li>
-                                            <li>– Best Medical Entrance Institute</li>
-                                            <li>– Best Civil Services Entrance Institute</li>
-                                            <li>– Best Bank/PO Entrance</li>
-                                            <li>– Best Acting/Drama Institute</li>
-                                            <li>– Best Dance Institute</li>
-                                            <li>– Best Music Training Institute</li>
-                                            <li>– Best Sports Coaching</li>
-                                            <li>– Best Yoga Coaching Institute</li>
-                                            <li>– Best Photography Classes</li>
-                                            <li>– Best Cooking Classes</li>
-                                        </ul>
-                                    </div>
+                                {/* Coaching Institutes */}
+                                <div className="bg-white shadow-lg rounded-lg p-6">
+                                    <h3 className="text-[18px] font-semibold text-[#1B78A1] mb-4 uppercase">
+                                        COACHING INSTITUTES
+                                    </h3>
+                                    <ul className="text-[15px] text-gray-600 space-y-2">
+                                        <li>
+                                            – Best Engineering Entrance
+                                            Institute
+                                        </li>
+                                        <li>
+                                            – Best Medical Entrance Institute
+                                        </li>
+                                        <li>
+                                            – Best Civil Services Entrance
+                                            Institute
+                                        </li>
+                                        <li>– Best Bank/PO Entrance</li>
+                                        <li>– Best Acting/Drama Institute</li>
+                                        <li>– Best Dance Institute</li>
+                                        <li>– Best Music Training Institute</li>
+                                        <li>– Best Sports Coaching</li>
+                                        <li>– Best Yoga Coaching Institute</li>
+                                        <li>– Best Photography Classes</li>
+                                        <li>– Best Cooking Classes</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
