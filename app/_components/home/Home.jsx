@@ -3,7 +3,7 @@ import AboutSection from "./AboutSection";
 import ServiceSection from "./ServiceSection";
 import Advisory from "./Advisory";
 import ContactSection from "./ContactSection";
-import Footer from "./Footer";
+import Footer from "../footer/Footer";
 export default function Home() {
     return (
         <div>
@@ -12,7 +12,7 @@ export default function Home() {
             <ServiceSection />
             <Advisory />
             <ContactSection />
-            <Footer/>
+            <Footer />
         </div>
     );
 }
