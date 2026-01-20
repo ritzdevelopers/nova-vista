@@ -70,7 +70,7 @@ export default function ProgramTraining() {
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <h2
-            className="text-center text-3xl sm:text-4xl font-semibold tracking-wide text-[#11111]"
+            className="text-center text-4xl sm:text-4xl font-semibold tracking-wide text-[#11111]"
             style={{
               case: 'titleCase',
               lineHeight: '100%',
@@ -93,7 +93,7 @@ export default function ProgramTraining() {
                   borderWidth: '1px',
                 }}
               >
-                <div className="h-[220px] sm:h-[240px] md:h-[260px] w-auto">
+                <div className="h-[220px] sm:h-[240px] md:h-[260px] w-auto font-medium">
                   <img
                     src={workshop.image}
                     alt={workshop.title}
@@ -105,7 +105,7 @@ export default function ProgramTraining() {
                     {workshop.title}
                   </h3>
                   <p
-                    className="mt-2 text-center text-sm text-[#11111199]"
+                    className="mt-2 text-center text-sm text-[#11111199] font-light"
                     style={{
                       case: 'titleCase',
                       lineHeight: '100%',
@@ -114,7 +114,7 @@ export default function ProgramTraining() {
                     {workshop.subtitle}
                   </p>
                   <div className="mt-4 h-px w-full bg-gray-200" />
-                  <ul className="mt-4 text-sm text-gray-600 space-y-2 list-none pl-4">
+                  <ul className="mt-4 text-sm text-[#00000099] space-y-2 list-none pl-4 font-light">
                     {workshop.items.map((item) => (
                       <li key={item}>{item}</li>
                     ))}

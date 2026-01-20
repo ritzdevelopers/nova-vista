@@ -39,7 +39,7 @@ export default function Header() {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:block">
-                    <ul className="flex gap-3 md:gap-4 lg:gap-6 xl:gap-10 font-medium text-xs md:text-sm lg:text-base">
+                    <ul className="flex gap-3 md:gap-4 lg:gap-6 xl:gap-10 font-light text-xs md:text-sm lg:text-base">
                         <Link href={"/"}>
                         <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap">
                             Home

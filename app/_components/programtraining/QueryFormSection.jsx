@@ -10,7 +10,7 @@ export default function QueryFormSection() {
             <h3 className="text-[28px] md:text-[36px] font-semibold mb-6">
               Submit Your Nomination
             </h3>
-            <form className="grid grid-cols-1 gap-4">
+            <form className="grid grid-cols-1 gap-4 text-[#00000099] font-light">
               <input
                 type="text"
                 placeholder="Name of Applicant"
@@ -43,7 +43,7 @@ export default function QueryFormSection() {
               ></textarea>
               <button
                 type="submit"
-                className="bg-[#062b3b] text-white py-3 w-full sm:w-[180px] hover:bg-gray-800 transition"
+                className="bg-[#012A3C] text-white pt-[21px] pr-[14px] pb-[21px] pl-[14px] w-full sm:w-[180px] hover:bg-gray-800 transition font-medium"
               >
                 Submit
               </button>
