@@ -37,21 +37,9 @@ export default function Header() {
                         </div>
                     </Link>
 
-            {/* Main Header */}
-            <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-4 sm:px-6 lg:px-8 xl:px-0 relative">
-                {/* Logo */}
-                <Link href={"/"}>
-                <div className="h-[48px] sm:h-[56px] w-[180px] sm:w-[220px] flex items-center shrink-0">
-                    <Image
-                        src="/logos/nova-vista-logo.svg"
-                        alt="logo"
-                        width={220}
-                        height={56}
-                        priority
-                        className="w-full h-auto"
-                    />
-                </div>
-                </Link>
+        
+           
+                
 
                 {/* Desktop Menu */}
                 <div className="hidden md:block">
