@@ -13,7 +13,7 @@ export default function TopHeader() {
                             width={16}
                             height={16}
                         />
-                        <p className="text-[14px]">
+                        <p className="text-[14px] text-gray-500">
                             info@novavistaeducation.com
                         </p>
                     </div>
@@ -25,7 +25,7 @@ export default function TopHeader() {
                             width={16}
                             height={16}
                         />
-                        <p className="text-[14px]">
+                        <p className="text-[14px] text-gray-500">
                             6th Floor, Nukles, Plot 29, Sector 142, Noida
                         </p>
                     </div>
