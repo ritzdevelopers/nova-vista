@@ -81,7 +81,7 @@ export default function Excellence() {
                                         <h3 className="text-[18px] font-semibold text-[#1B78A1] mb-4 uppercase">
                                             PRE-SCHOOLS
                                         </h3>
-                                        <ul className="text-[15px] text-gray-600 space-y-2">
+                                        <ul className="text-[15px] font-regu text-gray-600 space-y-2">
                                             <li>
                                                 – India’s Best Playschool Chain
                                             </li>
@@ -212,18 +212,18 @@ export default function Excellence() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {/* Individual */}
                                     <div>
-                                        <div className="flex items-center mb-10 mt-4">
-                                            <h2 className="text-[22px] font-semibold md:text-[28px] text-gray-800 mr-4">
+                                        <div className="flex items-center mb-6 mt-4">
+                                            <h2 className="text-[22px] font-semibold md:text-[28px]  text-gray-800 mr-4">
                                                 Individual
                                             </h2>
                                             <div className="flex-grow h-[2px] bg-gray-300"></div>
                                         </div>
 
-                                        <div className="bg-white shadow-lg rounded-lg mb-6 px-6 ">
+                                        <div className="bg-white shadow-lg rounded-lg mb-6 px-6 py-6 ">
                                             <h3 className="text-[20px] font-semibold text-[#1B78A1] uppercase">
                                                 Individual
                                             </h3>
-                                            <ul className="text-[15px] text-gray-600 space-y-2 pb-5">
+                                            <ul className="text-[15px] text-gray-600 space-y-2  mt-4">
                                                 <li>
                                                     – Business Leader of the
                                                     Year

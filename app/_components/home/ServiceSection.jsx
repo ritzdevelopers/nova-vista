@@ -111,59 +111,50 @@ export default function ServiceSection() {
                     <div className="max-w-7xl mx-auto mt-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                             {/* First Image */}
-                            <div
-                                className="relative overflow-hidden rounded-xl 
-                h-[200px] sm:h-auto shadow-lg"
-                            >
-                                <Image
-                                    src="/static/school.png"
-                                    width={600}
-                                    height={400}
-                                    alt="school"
-                                    className="w-full h-full sm:h-auto object-cover 
+                            <div className="relative overflow-hidden rounded-xl 
+                h-[200px] sm:h-auto shadow-lg">
+    <Image
+        src="/static/school.png"
+        width={600}
+        height={400}
+        alt="school"
+        className="w-full h-full sm:h-auto object-cover 
                    transform transition-transform duration-300 hover:scale-95"
-                                />
+    />
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
 
-                                <p
-                                    className="absolute bottom-2 
+    <p className="absolute bottom-2 
                   text-[18px] md:text-[24px] 
                   leading-6 md:leading-7 
-                  text-white px-4 sm:px-6 py-5"
-                                >
-                                    Establishment of
-                                    Schools/Colleges/Universities & Off-Shore
-                                    Campuses
-                                </p>
-                            </div>
+                  text-white px-4 sm:px-6 py-5">
+        Establishment of Schools/Colleges/Universities & Off-Shore Campuses
+    </p>
+</div>
+
 
                             {/* Second Image */}
-                            <div
-                                className="relative overflow-hidden rounded-xl 
-                h-[200px] sm:h-auto shadow-lg"
-                            >
-                                <Image
-                                    src="/static/laptop.png"
-                                    width={600}
-                                    height={400}
-                                    alt="laptop"
-                                    className="w-full h-full sm:h-auto object-cover 
+                            <div className="relative overflow-hidden rounded-xl 
+                h-[200px] sm:h-auto shadow-lg">
+    <Image
+        src="/static/laptop.png"
+        width={600}
+        height={400}
+        alt="laptop"
+        className="w-full h-full sm:h-auto object-cover 
                    transform transition-transform duration-300 hover:scale-95"
-                                />
+    />
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
 
-                                <p
-                                    className="absolute bottom-2 
+    <p className="absolute bottom-2 
                   text-[18px] md:text-[24px] 
                   leading-6 md:leading-7 
-                  text-white px-4 sm:px-6 py-5 mb-2"
-                                >
-                                    Twinning, Exchange and dual certification
-                                    programs
-                                </p>
-                            </div>
+                  text-white px-4 sm:px-6 py-5 mb-2">
+        Twinning, Exchange and dual certification programs
+    </p>
+</div>
+
                         </div>
                     </div>
                 </div>
