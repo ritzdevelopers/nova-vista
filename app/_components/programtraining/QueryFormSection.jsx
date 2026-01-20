@@ -52,11 +52,11 @@ export default function QueryFormSection() {
 
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <h4
-              className="text-2xl font-semibold mb-2 tracking-wide"
+              className="text-[18px] font-semibold mb-2 tracking-wide"
             >
               Nomination Fee
             </h4>
-            <p className="text-sm text-gray-600 mb-4 tracking-wide max-w-md mx-auto lg:mx-0">
+            <p className="text-[14px] text-[#00000099] mb-4 tracking-wide max-w-md mx-auto lg:mx-0">
               120 USD or Equivalent In Your Currency.
             </p>
             <img
@@ -65,20 +65,20 @@ export default function QueryFormSection() {
               className="w-full max-w-[220px] mb-6 object-contain block mx-auto lg:ml-0 lg:mr-auto"
             />
             <div className="bg-white rounded shadow-sm p-4 text-sm w-full max-w-sm text-left mx-auto lg:mx-0">
-              <p className="text-[#1B78A1] font-semibold mb-3">
+              <p className="text-[#1B78A1] font-semibold mb-3 text-[18px]">
                 DEMO NATIONAL BANK
               </p>
-              <p className="mb-2">
-                <span className="font-semibold">ACCOUNT:</span> Nova Vista
+              <p className="mb-2 text-[#00000099]">
+                <span className="font-medium text-black">ACCOUNT:</span> Nova Vista
               </p>
-              <p className="mb-2">
-                <span className="font-semibold">ACCOUNT NUMBER:</span> Ixx-xxx-xxx-xxx
+              <p className="mb-2 text-[#00000099]">
+                <span className="font-medium text-black">ACCOUNT NUMBER:</span> Ixx-xxx-xxx-xxx
               </p>
-              <p className="mb-2">
-                <span className="font-semibold">IFSC CODE:</span> 111xxxxxx
+              <p className="mb-2 text-[#00000099]">
+                <span className="font-medium text-black">IFSC CODE:</span> 111xxxxxx
               </p>
-              <p>
-                <span className="font-semibold">SWIFT CODE:</span> ABCDEFGH
+              <p className="text-[#00000099]">
+                <span className="font-medium text-black">SWIFT CODE:</span> ABCDEFGH
               </p>
             </div>
           </div>
