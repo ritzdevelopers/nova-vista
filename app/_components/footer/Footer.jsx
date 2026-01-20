@@ -15,10 +15,10 @@ export default function Footer() {
     return (
         <footer className="bg-[#062b3b] text-gray-300">
             <div className="max-w-7xl mx-auto px-6 py-14">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                     {/* LEFT */}
-                    <div>
-                        <div className="h-[56px] w-[220px] flex items-center">
+                    <div className="flex flex-col items-center text-center sm:col-span-2 lg:col-span-1 sm:items-start sm:text-left md:items-center md:text-center lg:items-start lg:text-left">
+                        <div className="h-[56px] w-[220px] flex items-center justify-center sm:justify-start md:justify-center lg:justify-start">
                             <Image
                                 src="/logos/whitelogo.png"
                                 alt="logo"
@@ -33,7 +33,7 @@ export default function Footer() {
                             enhancement.
                         </p>
 
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 justify-center sm:justify-start md:justify-center lg:justify-start">
                             <a className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Linkedin size={16} />
                             </a>
@@ -53,7 +53,7 @@ export default function Footer() {
                     </div>
 
                     {/* QUICK LINKS */}
-                    <div>
+                    <div className="text-center sm:text-left md:text-center lg:text-left">
                         <h3 className="text-white font-semibold mb-4">
                             Quick Links
                         </h3>
@@ -77,7 +77,7 @@ export default function Footer() {
                     </div>
 
                     {/* PROGRAMS */}
-                    <div>
+                    <div className="text-center sm:text-left md:text-center lg:text-left">
                         <h3 className="text-white font-semibold mb-4">
                             Programs
                         </h3>
@@ -98,26 +98,26 @@ export default function Footer() {
                     </div>
 
                     {/* CONTACT */}
-                    <div>
+                    <div className="text-center sm:col-span-2 lg:col-span-1 sm:text-center lg:text-left">
                         <h3 className="text-white font-semibold mb-4">
                             Contact Us
                         </h3>
 
                         <div className="space-y-3 text-sm">
-                            <div className="flex gap-3">
+                            <div className="flex gap-3 justify-center lg:justify-start">
                                 <MapPin size={16} className="mt-1" />
-                                <p>
+                                <p className="text-left">
                                     Nova Vista Education, 6th Floor, Nukleus,
                                     Plot 29, Sector 142, Noida, Uttar Pradesh
                                 </p>
                             </div>
 
-                            <div className="flex gap-3 items-center">
+                            <div className="flex gap-3 items-center justify-center lg:justify-start">
                                 <Phone size={16} />
                                 <p>+91 99587 77855</p>
                             </div>
 
-                            <div className="flex gap-3 items-center">
+                            <div className="flex gap-3 items-center justify-center lg:justify-start">
                                 <Mail size={16} />
                                 <p>info@novavistaeducation.com</p>
                             </div>

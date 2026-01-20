@@ -78,11 +78,13 @@ export default function ProgramTraining() {
           >
             WORKSHOPS
           </h2>
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {workshops.map((workshop, index) => (
               <article
                 key={workshop.title}
-                className="bg-white shadow-lg border border-gray-100 overflow-hidden h-full"
+                className={`bg-white shadow-lg border border-gray-100 overflow-hidden h-full ${
+                  index === 2 ? "md:col-span-2 md:mx-auto md:w-[70%] xl:col-span-1 xl:w-auto" : ""
+                }`}
                 style={{
                   borderTopLeftRadius: index === 0 ? '60px' : '0px',
                   borderBottomRightRadius: index === 0 ? '60px' : '0px',
@@ -91,7 +93,7 @@ export default function ProgramTraining() {
                   borderWidth: '1px',
                 }}
               >
-                <div className="h-[304px] w-auto">
+                <div className="h-[220px] sm:h-[240px] md:h-[260px] w-auto">
                   <img
                     src={workshop.image}
                     alt={workshop.title}

@@ -22,31 +22,32 @@ export default function Header() {
             <TopHeader />
 
             {/* Main Header */}
-            <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-4 md:px-4 xl:px-0 relative">
+            <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-4 sm:px-6 lg:px-8 xl:px-0 relative">
                 {/* Logo */}
                 <Link href={"/"}>
-                <div className="h-[56px] w-[220px] flex items-center">
+                <div className="h-[48px] sm:h-[56px] w-[180px] sm:w-[220px] flex items-center shrink-0">
                     <Image
                         src="/logos/nova-vista-logo.svg"
                         alt="logo"
                         width={220}
                         height={56}
                         priority
+                        className="w-full h-auto"
                     />
                 </div>
                 </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:block">
-                    <ul className="flex gap-10 font-medium">
+                    <ul className="flex gap-3 md:gap-4 lg:gap-6 xl:gap-10 font-medium text-xs md:text-sm lg:text-base">
                         <Link href={"/"}>
-                        <li className="cursor-pointer hover:text-[#012A3C]">
+                        <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap">
                             Home
                         </li>
                         </Link>
                       <Link href={"/Excellence"}>
                         <li
-                            className="cursor-pointer hover:text-[#012A3C]"
+                            className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap"
                             // onClick={() => scrollToSection("about")}
                         >
                             About
@@ -54,21 +55,21 @@ export default function Header() {
                         </Link>
                         
                         <Link href={"/ProgramTraining"}>
-                        <li className="cursor-pointer hover:text-[#012A3C]">
+                        <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap">
                             Service
                         </li>
                         </Link>
                       
                       
                         <li
-                            className="cursor-pointer hover:text-[#012A3C]"
+                            className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap"
                             onClick={() => scrollToSection("advisory")}
                         >
                             Advisory board
                         </li>
                     
                         
-                        <li className="cursor-pointer hover:text-[#012A3C]" onClick={() => scrollToSection("contact")}> 
+                        <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap" onClick={() => scrollToSection("contact")}> 
                             Contact
                         </li>
                         
@@ -76,12 +77,13 @@ export default function Header() {
                 </div>
 
                 {/* Desktop Right Logo */}
-                <div className="hidden md:block">
+                <div className="hidden md:block shrink-0">
                     <Image
                         src="/logos/nova-msme.png"
                         alt="Nova-MSME"
                         width={140}
                         height={56}
+                        className="w-auto h-[32px] md:h-[40px] lg:h-[48px] xl:h-[56px]"
                     />
                 </div>
 
