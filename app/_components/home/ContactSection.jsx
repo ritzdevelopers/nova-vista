@@ -19,7 +19,7 @@ export default function ContactSection() {
                     <div className="hidden lg:block absolute inset-0 bg-black/20"></div>
 
                     {/* Form Overlay – Desktop */}
-                    <div className="hidden lg:flex absolute inset-0 items-center justify-center  justify-end px-6">
+                    <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6">
                         <ContactForm />
                     </div>
                 </div>
