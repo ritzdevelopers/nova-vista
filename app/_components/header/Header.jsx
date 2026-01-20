@@ -17,9 +17,10 @@ export default function Header() {
     };
 
     return (
-        <div>
+        <>
             {/* Top Header (Desktop Only) */}
             <TopHeader />
+            <div className="sticky top-0 z-40 bg-white">
 
             {/* Main Header */}
             <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-4 sm:px-6 lg:px-8 xl:px-0 relative">
@@ -39,7 +40,7 @@ export default function Header() {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:block">
-                    <ul className="flex gap-3 md:gap-4 lg:gap-6 xl:gap-10 font-light text-xs md:text-sm lg:text-base">
+                    <ul className="flex gap-3 md:gap-4 lg:gap-6 xl:gap-10 text-xs md:text-sm lg:text-base font-medium">
                         <Link href={"/"}>
                         <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap">
                             Home
@@ -179,7 +180,8 @@ export default function Header() {
                         height={48}
                     />
                 </div>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
