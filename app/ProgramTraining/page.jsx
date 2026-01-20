@@ -91,7 +91,7 @@ export default function ProgramTraining() {
                   borderWidth: '1px',
                 }}
               >
-                <div className="h-48 w-full">
+                <div className="h-[304px] w-auto">
                   <img
                     src={workshop.image}
                     alt={workshop.title}
