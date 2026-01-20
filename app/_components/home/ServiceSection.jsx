@@ -86,9 +86,10 @@ export default function ServiceSection() {
                                 <h3 className="md:text-[24px] text-[18px] font-semibold mb-4">
                                     Excellence Awards
                                 </h3>
-                                <button className="bg-white text-[#0B5C7A] px-4 py-2  md:text-[16px] text-[12px] hover:bg-gray-100 transition">
+                                
+                                    <Link  href={"/Excellence"} className="bg-white text-[#0B5C7A] px-4 py-2  md:text-[16px] text-[12px] hover:bg-gray-100 transition">
                                     Click To Know Award Categories
-                                </button>
+                                </Link>
                             </div>
 
                             <div className="bg-[#0B5C7A] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center h-full">
