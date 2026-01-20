@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Header from "../_components/header/Header";
 import Footer from "../_components/footer/Footer";
+import QueryFormSection from "../_components/programtraining/QueryFormSection";
+import JuryMember from "./JuryMember";
 
 export default function Excellence() {
     return (
@@ -61,6 +63,7 @@ export default function Excellence() {
                         </div>
                     </div>
                 </div>
+                <img src="/static/award.png" alt="Awards" className="w-[860px] h-[484px] mx-auto object-contain pt-10 " />
                 <section className="w-full bg-white py-12">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex items-center mb-6">
@@ -376,6 +379,8 @@ export default function Excellence() {
                     </div>
                 </section>
             </section>
+            <JuryMember/>
+            <QueryFormSection/>
             <Footer />
         </>
     );
