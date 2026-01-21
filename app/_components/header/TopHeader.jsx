@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function TopHeader() {
     return (
-        <div className="hidden md:block max-w-7xl mx-auto border-b border-[#0000001A] px-4 xl:px-0">
+        <div className="hidden md:block max-w-7xl mx-auto border-b border-[#0000001A] px-4 ">
             <div className="flex justify-between items-center py-2">
                 {/* Left side */}
                 <div className="flex gap-6">
