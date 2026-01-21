@@ -385,7 +385,7 @@ export default function Contact() {
                                 <ContactForm  />
                             </div> */}
                             <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-50px]">
-                                <div className="w-[500px] lg:w-[500px] xl:w-[600px]">
+                                <div className="w-[500px] lg:w-[380px] xl:w-[600px]">
                                     <ContactForm script_url={script_url} />
                                 </div>
                             </div>
@@ -629,6 +629,7 @@ function OfficeCard({ title, text, width = 300, index = 0 }) {
             <p className="md:text-[16px] text-[14px] text-gray-600 leading-relaxed whitespace-pre-line">
                 {text}
             </p>
-        </motion.div>
+        </div>
+
     );
 }

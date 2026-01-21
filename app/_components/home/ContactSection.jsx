@@ -7,7 +7,7 @@ export default function ContactSection() {
             id="contact"
             className="relative w-full py-10 bg-gray-50 scroll-mt-28"
         >
-            <div className="relative max-w-7xl mx-auto px-4">
+            <div className="relative max-w-8xl mx-auto px-4">
                 {/* ================= IMAGE SECTION ================= */}
                 <div className="relative">
                     <Image
@@ -23,7 +23,7 @@ export default function ContactSection() {
 
                     {/* Form Overlay – Desktop */}
                     <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-50px]">
-                        <div className="w-[500px] lg:w-[500px] xl:w-[600px]">
+                        <div className="w-[500px] lg:w-[380px] xl:w-[600px]">
                             <ContactForm />
                         </div>
                     </div>
