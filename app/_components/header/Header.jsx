@@ -36,71 +36,39 @@ export default function Header() {
                             />
                         </div>
                     </Link>
-                </div>
 
-        
-           
-                
-
-                {/* Desktop Menu */}
-                <div className="hidden md:block">
-                    <ul className="flex gap-3 md:gap-4 lg:gap-6 xl:gap-10 text-xs md:text-sm lg:text-base font-normal">
-                        <Link href={"/"}>
-                        <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap">
-                            Home
-                        </li>
-                        </Link>
-                      <Link href={"/Excellence"}>
-                        <li
-                            className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap"
-                            // onClick={() => scrollToSection("about")}
-                        >
-                            About
-                        </li>
-                        </Link>
-                        
-                        <Link href={"/ProgramTraining"}>
-                        <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap">
-                            Service
-                        </li>
-                        </Link>
-                      
-                      
-                        <li
-                            className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap"
-                            onClick={() => scrollToSection("advisory")}
-                        >
-                            Advisory board
-                        </li>
-                    
-                        
-                        <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap" onClick={() => scrollToSection("contact")}> 
-                            Contact
-                        </li>
-                        
-                    </ul>
-                </div>
-
-                {/* Desktop Right Logo */}
-                <div className="hidden md:block shrink-0">
-                    <Image
-                        src="/logos/nova-msme.png"
-                        alt="Nova-MSME"
-                        width={140}
-                        height={56}
-                        className="w-auto h-[32px] md:h-[40px] lg:h-[48px] xl:h-[56px]"
-                    />
-                </div>
-
-                {/* Hamburger / Close Button (Mobile) */}
-                <button
-                    className="md:hidden text-3xl font-bold z-50 transition-transform duration-300"
-                    onClick={() => setOpen(!open)}
-                    aria-label="Toggle Menu"
-                >
-                    {open ? "✕" : "☰"}
-                </button>
-            </div>
+                    {/* Desktop Menu */}
+                    <div className="hidden md:block">
+                        <ul className="flex gap-3 md:gap-4 lg:gap-6 xl:gap-10 text-xs md:text-sm lg:text-base font-normal">
+                            <Link href={"/"}>
+                                <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap">
+                                    Home
+                                </li>
+                            </Link>
+                            <Link href={"/Excellence"}>
+                                <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap">
+                                    About
+                                </li>
+                            </Link>
+                            <Link href={"/ProgramTraining"}>
+                                <li className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap">
+                                    Service
+                                </li>
+                            </Link>
+                            <li
+                                className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap"
+                                onClick={() => scrollToSection("advisory")}
+                            >
+                                Advisory board
+                            </li>
+                            <li
+                                className="cursor-pointer hover:text-[#012A3C] whitespace-nowrap"
+                                onClick={() => scrollToSection("contact")}
+                            >
+                                Contact
+                            </li>
+                        </ul>
+                    </div>
 
                     {/* Desktop Right Logo */}
                     <div className="hidden md:block shrink-0">
@@ -125,17 +93,17 @@ export default function Header() {
 
                 {/* Overlay */}
                 <div
-                    className={`fixed inset-0 bg-black/40 z-40 
-                transition-all duration-300 ease-out
-                ${open ? "opacity-100 visible" : "opacity-0 invisible"}`}
+                    className={`fixed inset-0 bg-black/40 z-40 transition-all duration-300 ease-out ${
+                        open ? "opacity-100 visible" : "opacity-0 invisible"
+                    }`}
                     onClick={() => setOpen(false)}
                 />
 
                 {/* Mobile Side Drawer */}
                 <div
-                    className={`fixed top-0 right-0 h-full w-[85%] max-w-[360px] bg-white z-50
-                transform transition-all duration-300 ease-out
-                ${open ? "translate-x-0 scale-100" : "translate-x-full scale-95"}`}
+                    className={`fixed top-0 right-0 h-full w-[85%] max-w-[360px] bg-white z-50 transform transition-all duration-300 ease-out ${
+                        open ? "translate-x-0 scale-100" : "translate-x-full scale-95"
+                    }`}
                 >
                     {/* Drawer Header */}
                     <div className="flex justify-between items-center px-6 py-4 border-b">
@@ -149,12 +117,9 @@ export default function Header() {
                     </div>
 
                     {/* Navigation */}
-                    <ul className="flex flex-col gap-1 px-6 py-6  text-lg transition-opacity duration-300 delay-100">
+                    <ul className="flex flex-col gap-1 px-6 py-6 text-lg transition-opacity duration-300 delay-100">
                         <li onClick={() => setOpen(false)}>Home</li>
-                        <Link
-                            href={"/Excellence"}
-                            onClick={() => setOpen(false)}
-                        >
+                        <Link href={"/Excellence"} onClick={() => setOpen(false)}>
                             <li>About Us</li>
                         </Link>
                         <Link
