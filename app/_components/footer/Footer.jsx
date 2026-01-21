@@ -105,7 +105,8 @@ export default function Footer() {
 
                         <div className="space-y-3 text-sm">
                             <div className="flex gap-3 justify-center lg:justify-start">
-                                <MapPin size={16} className="mt-1" />
+                                <MapPin className="w-10 h-10 " />
+
                                 <p className="text-left">
                                     Nova Vista Education, 6th Floor, Nukleus,
                                     Plot 29, Sector 142, Noida, Uttar Pradesh
