@@ -12,11 +12,17 @@ export default function QueryFormSection() {
     award: '',
   })
   
-  
+  const [errors , setErrors] = useState({});
+
   const [loading , setLoading] = useState(false);
   const [message , setMessage] = useState('');
 
-  const script_url = 'https://script.google.com/macros/s/AKfycbz82h6yoCcClf05vO2E5rSrxjw1H4wWScpQpN7UVNonUg9kQ35-vU1C5ek6aUhaTsW3jA/exec'
+  const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || '';
+
+  // Regex Patterns
+  const nameRegex = /^[A-Za-z ]{2,50}$/
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+  const mobileRegex = /^[6-9]\d{9}$/
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value})
@@ -27,10 +33,19 @@ export default function QueryFormSection() {
     e.preventDefault();
     setLoading(true);
     setMessage('');
+    if (!script_url) {
+      setMessage('Form is not configured. Please try again later.');
+      setLoading(false);
+      return;
+    }
+    const payload = {
+      ...formData,
+      formSource: 'Nomination',
+    };
     try {
       await fetch(script_url,{
         method: 'POST',
-        body: JSON.stringify(formData)
+        body: JSON.stringify(payload)
       })
       setMessage('Thank you for your submission! We will get back to you soon.');
       setFormData({
@@ -62,7 +77,7 @@ export default function QueryFormSection() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Name of Applicant"
-                className="bg-white text-black px-4 py-3 rounded border"
+                className="bg-white text-black px-4 py-3 rounded"
               />
 
               <input
@@ -70,7 +85,7 @@ export default function QueryFormSection() {
                 value={formData.profession}
                 onChange={handleChange}
                 placeholder="Profession"
-                className="bg-white text-black px-4 py-3 rounded border"
+                className="bg-white text-black px-4 py-3 rounded"
               />
 
               <input
@@ -78,7 +93,7 @@ export default function QueryFormSection() {
                 value={formData.experience}
                 onChange={handleChange}
                 placeholder="Experience & Expertise"
-                className="bg-white text-black px-4 py-3 rounded border"
+                className="bg-white text-black px-4 py-3 rounded"
               />
 
               <input
@@ -86,7 +101,7 @@ export default function QueryFormSection() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email Address"
-                className="bg-white text-black px-4 py-3 rounded border"
+                className="bg-white text-black px-4 py-3 rounded"
               />
 
               <input
@@ -94,7 +109,7 @@ export default function QueryFormSection() {
                 value={formData.mobile}
                 onChange={handleChange}
                 placeholder="Mobile No"
-                className="bg-white text-black px-4 py-3 rounded border"
+                className="bg-white text-black px-4 py-3 rounded"
               />
 
               <textarea
@@ -103,7 +118,7 @@ export default function QueryFormSection() {
                 onChange={handleChange}
                 rows="3"
                 placeholder="Name Of Award (three preferences)"
-                className="bg-white text-black px-4 py-3 rounded border"
+                className="bg-white text-black px-4 py-3 rounded"
               ></textarea>
 
               <button
@@ -134,19 +149,19 @@ export default function QueryFormSection() {
             />
             <div className="bg-white rounded shadow-sm p-4 text-sm w-full max-w-sm text-left mx-auto lg:mx-0">
               <p className="text-[#1B78A1] font-semibold mb-3 text-[18px]">
-                DEMO NATIONAL BANK
+                HDFC BANK LTD
               </p>
               <p className="mb-2 text-[#00000099]">
-                <span className="font-medium text-black">ACCOUNT:</span> Nova Vista
+                <span className="font-medium text-black">ACCOUNT:</span> NOVAVISTA EDUCATION PRIVATE LIMITED
               </p>
               <p className="mb-2 text-[#00000099]">
-                <span className="font-medium text-black">ACCOUNT NUMBER:</span> Ixx-xxx-xxx-xxx
+                <span className="font-medium text-black">ACCOUNT NUMBER:</span> 50200112839472
               </p>
               <p className="mb-2 text-[#00000099]">
-                <span className="font-medium text-black">IFSC CODE:</span> 111xxxxxx
+                <span className="font-medium text-black">IFSC CODE:</span> HDFC0002830
               </p>
               <p className="text-[#00000099]">
-                <span className="font-medium text-black">SWIFT CODE:</span> ABCDEFGH
+                <span className="font-medium text-black">BRANCH:</span> Sector 93A, Noida
               </p>
             </div>
           </div>
