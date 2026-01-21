@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import MotionSection from "../motion/MotionSection";
-import useMotionSettings from "../motion/useMotionSettings";
 
 const itemVariants = {
     hidden: (direction) => ({
@@ -15,7 +14,7 @@ const itemVariants = {
 };
 
 export default function Advisory() {
-    const motionSettings = useMotionSettings();
+    const reduceMotion = useReducedMotion();
 
     return (
         <MotionSection className="relative py-10 mt-5 scroll-mt-20" id="advisory">
@@ -79,10 +78,9 @@ export default function Advisory() {
                             className="flex flex-col items-center text-center gap-3 md:gap-4"
                             custom={index % 2 === 0 ? "left" : "right"}
                             variants={itemVariants}
-                            initial={motionSettings.initial}
-                            animate={motionSettings.animate}
-                            whileInView={motionSettings.whileInView}
-                            viewport={motionSettings.viewport}
+                            initial={reduceMotion ? false : "hidden"}
+                            whileInView={reduceMotion ? undefined : "show"}
+                            viewport={{ amount: 0.2, once: false }}
                             transition={{
                                 duration: 0.5,
                                 ease: "easeOut",
