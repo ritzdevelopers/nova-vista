@@ -52,12 +52,9 @@ export default function Header() {
                             <Link href="/program-training">
                                 <li className="cursor-pointer">Service</li>
                             </Link>
-                            <li
-                                className="cursor-pointer"
-                                onClick={() => scrollToSection("advisory")}
-                            >
-                                Advisory Board
-                            </li>
+                            <Link href="/#advisory">
+                                <li className="cursor-pointer">Advisory Board</li>
+                            </Link>
 
                             <Link href="/Contact">
                                 <li className="cursor-pointer">Contact</li>
@@ -145,12 +142,9 @@ export default function Header() {
                         >
                             <li>Services</li>
                         </Link>
-                        <li
-                            onClick={() => setOpen(false)}
-                            className=" text-[16px]"
-                        >
-                            Advisory Board
-                        </li>
+                        <Link href="/#advisory" onClick={() => setOpen(false)}>
+                            <li className=" text-[16px]">Advisory Board</li>
+                        </Link>
                         <Link href={"/Contact"}>
                             <li className=" text-[16px]">Contact</li>
                         </Link>
