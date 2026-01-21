@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
     Linkedin,
@@ -13,6 +15,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
+    const handleScrollTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
     return (
         <footer className="bg-[#062b3b] text-gray-300">
             <div className="max-w-7xl mx-auto px-6 py-10">
@@ -35,21 +41,20 @@ export default function Footer() {
                         </p>
 
                         <div className="flex gap-3 justify-center sm:justify-start md:justify-center lg:justify-start">
-                            <a href="https://www.linkedin.com/company/108173613/admin/dashboard/" 
-                            className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
+                            <a href="https://www.linkedin.com/company/108173613/admin/dashboard/" target="_blank" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Linkedin size={16} />
                             </a>
-                            <a href="https://www.facebook.com/profile.php?id=61579421194394"className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
+                            <a href="https://www.facebook.com/profile.php?id=61579421194394" target="_blank" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Facebook size={16} />
                             </a>
                             <a href="https://www.instagram.com/novavistaeducation
-" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
+" target="_blank" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Instagram size={16} />
                             </a>
-                            <a href="https://x.com/Novavistaedu" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
+                            <a href="https://x.com/Novavistaedu" target="_blank" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Twitter size={16} />
                             </a>
-                            <a href="https://www.youtube.com/@NovaVistaEducation" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
+                            <a href="https://www.youtube.com/@NovaVistaEducation" target="_blank" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Youtube size={16} />
                             </a>
                         </div>
@@ -61,7 +66,7 @@ export default function Footer() {
                             Quick Links
                         </h3>
                         <ul className="space-y-2 text-sm">
-                            <Link href={"/"}>
+                            <Link href={"/"} onClick={handleScrollTop}>
                                 <li className="hover:text-white cursor-pointer">
                                     Home
                                 </li>
@@ -124,12 +129,22 @@ export default function Footer() {
 
                             <div className="flex gap-3 items-center justify-center lg:justify-start">
                                 <Phone size={16} />
-                                <p>+91 99587 77855</p>
+                                <a
+                                    href="tel:+919958777855"
+                                    className="hover:text-white transition cursor-pointer"
+                                >
+                                    +91 99587 77855
+                                </a>
                             </div>
 
-                            <div className="flex gap-3 items-center justify-center lg:justify-start">
+                            <div className="flex gap-3 items-center justify-center lg:justify-start hover:text-white transition cursor-pointer">
                                 <Mail size={16} />
-                                <p>info@novavistaeducation.com</p>
+                                <a
+                                    href="mailto:info@novavistaeducation.com"
+                                    className="hover:text-white transition cursor-pointer"
+                                >
+                                    info@novavistaeducation.com
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -246,7 +246,7 @@ function ContactForm() {
 
                 <button
                     type="submit"
-                    className="text-white py-2 w-[200px] bg-[#062b3b] hover:bg-gray-800 transition"
+                    className="text-white py-2 w-[200px] bg-[#062b3b] transition cursor-pointer hover:bg-[#ffff] hover:text-[#000] hover:border-2 hover:border-[#062b3b] "
                 >
                     Submit
                 </button>
