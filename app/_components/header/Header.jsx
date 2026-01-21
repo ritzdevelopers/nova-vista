@@ -123,12 +123,14 @@ export default function Header() {
 
                     {/* Navigation */}
                     <ul className="flex flex-col gap-2 px-6 py-6 text-lg">
-                        <li
-                            onClick={() => setOpen(false)}
-                            className=" text-[16px]"
-                        >
-                            Home
-                        </li>
+                        <Link href="/">
+                            <li
+                                onClick={() => setOpen(false)}
+                                className=" text-[16px]"
+                            >
+                                Home
+                            </li>
+                        </Link>
                         <Link
                             href="/Excellence"
                             onClick={() => setOpen(false)}
@@ -149,15 +151,9 @@ export default function Header() {
                         >
                             Advisory Board
                         </li>
-                        <li
-                            className=" text-[16px]"
-                            onClick={() => {
-                                setOpen(false);
-                                setTimeout(() => setOpenMModal(true), 300);
-                            }}
-                        >
-                            Contact
-                        </li>
+                        <Link href={"/Contact"}>
+                            <li className=" text-[16px]">Contact</li>
+                        </Link>
                     </ul>
 
                     <hr />
