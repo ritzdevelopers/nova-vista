@@ -311,7 +311,7 @@ export default function Contact() {
                             <div className="hidden lg:block absolute inset-0 bg-black/20"></div>
 
                             {/* Form Overlay – Desktop */}
-                            <div className="hidden lg:flex absolute inset-0 items-center justify-center  justify-end px-6">
+                            <div className="hidden lg:flex absolute inset-0 items-center justify-center  justify-end px-6 mr-[-40px]">
                                 <ContactForm script_url={script_url} />
                             </div>
                         </div>
