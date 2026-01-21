@@ -37,7 +37,7 @@ export default function ServiceSection() {
                                 </span>
                             </p>
 
-                            <p className="mt-4 uppercase tracking-wide text-xs text-[14px] md:text-[18px] opacity-80 underline">
+                            <p className="mt-4 uppercase tracking-wide text-xs text-[14px] md:text-[18px] o underline">
                                 Admission / Registration
                             </p>
 

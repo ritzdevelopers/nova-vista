@@ -5,7 +5,7 @@ export default function ContactSection() {
     return (
         <section
             id="contact"
-            className="relative w-full py-20 bg-gray-50 scroll-mt-28"
+            className="relative w-full py-10 bg-gray-50 scroll-mt-28"
         >
             <div className="relative max-w-7xl mx-auto px-4">
                 {/* ================= IMAGE SECTION ================= */}
@@ -22,8 +22,10 @@ export default function ContactSection() {
                     <div className="hidden lg:block absolute inset-0 bg-black/20"></div>
 
                     {/* Form Overlay – Desktop */}
-                    <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-40px]">
-                        <ContactForm />
+                    <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-50px]">
+                        <div className="w-[500px] lg:w-[500px] xl:w-[600px]">
+                            <ContactForm />
+                        </div>
                     </div>
                 </div>
 
@@ -36,11 +38,29 @@ export default function ContactSection() {
 
                 {/* ================= OFFICES SECTION ================= */}
                 <div className="mt-5 max-w-3xl">
-                    <h3 className="text-[28px] md:text-[36px] font-semibold mb-6 text-center lg:text-left">
+                    <style
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                            .office-card {
+                                width: 100%;
+                            }
+                            @media (min-width: 1024px) {
+                                .office-cards-container {
+                                    display: flex !important;
+                                    flex-wrap: wrap;
+                                }
+                                .office-card[data-width] {
+                                    width: var(--office-card-width);
+                                }
+                            }
+                        `,
+                        }}
+                    />
+                    <h3 className="text-[28px] md:text-[36px] font-semibold mb-3 text-center lg:text-left">
                         Our Offices
                     </h3>
 
-                    <div className="flex flex-wrap gap-6">
+                    <div className="office-cards-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3">
                         <OfficeCard
                             title="INDIA"
                             width={300}
@@ -87,34 +107,37 @@ Contact: 01718570686, 01787493933`}
 /* ================= CONTACT FORM ================= */
 function ContactForm() {
     return (
-        <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl lg:mt-[500px] py-10">
+        <div
+            className="bg-white w-full max-w-[600px] p-8 rounded-xl shadow-2xl lg:mt-[700px] h-[600px] py-10"
+            style={{ boxShadow: " 0px 4px 16px 0px #0000001A" }}
+        >
             <h2 className="md:text-[36px] text-[28px] font-semibold mb-6 text-center">
                 Contact Us
             </h2>
 
-            <form className="space-y-4">
+            <form className="space-y-7">
                 <input
                     type="text"
                     placeholder="Name"
-                    className="w-full bg-[#FAFAFA] border border-gray-300    rounded-md px-4 py-2 text-sm focus:outline-none "
+                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-sm px-4 py-3 text-sm"
                 />
                 <input
                     type="email"
                     placeholder="Email Address"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none "
+                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-sm px-4 py-3 text-sm"
                 />
                 <input
                     type="text"
                     placeholder="Phone Number"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none  "
+                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-sm px-4 py-3 text-sm"
                 />
                 <textarea
                     placeholder="Message"
                     rows="4"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none "
+                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-sm px-4 py-3 text-sm"
                 ></textarea>
 
-                <button className=" text-white py-2 w-[200px] bg-[#062b3b]  hover:bg-gray-800 transition">
+                <button className="text-white py-2 w-[200px] bg-[#062b3b] hover:bg-gray-800 transition">
                     Submit
                 </button>
             </form>
@@ -126,13 +149,16 @@ function ContactForm() {
 function OfficeCard({ title, text, width = 300 }) {
     return (
         <div
-            className="bg-white py-6 px-4 rounded-lg shadow text-center"
-            style={{ width: `${width}px` }}
+            className="office-card bg-white py-3 px-4 text-center "
+            data-width={width}
+            style={{
+                boxShadow: "0px 4px 16px 0px #0000001A",
+                "--office-card-width": `${width}px`,
+            }}
         >
             <h4 className="font-medium md:text-[18px] text-[16px] mb-2">
                 {title}
             </h4>
-
             <p className="md:text-[16px] text-[14px] text-gray-600 leading-relaxed whitespace-pre-line">
                 {text}
             </p>

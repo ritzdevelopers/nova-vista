@@ -4,9 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import TopHeader from "./TopHeader";
 import Link from "next/link";
+import ContactModal from "./ContactModal";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
+    const [openModal, setOpenMModal] = useState(false);
 
     const scrollToSection = (id) => {
         setOpen(false);
@@ -99,7 +101,18 @@ export default function Header() {
                 >
                     {/* Drawer Header */}
                     <div className="flex justify-between items-center px-6 py-4 border-b">
-                        <h2 className="text-lg font-semibold">Menu</h2>
+                       <Link href="/">
+                        <div className="h-[48px] sm:h-[56px] w-[180px] sm:w-[220px] flex items-center shrink-0">
+                            <Image
+                                src="/logos/nova-vista-logo.svg"
+                                alt="logo"
+                                width={220}
+                                height={56}
+                                priority
+                                className="w-full h-auto"
+                            />
+                        </div>
+                          </Link>
                         <button
                             className="text-3xl"
                             onClick={() => setOpen(false)}
@@ -122,8 +135,7 @@ export default function Header() {
                         </Link>
                         <li onClick={() => setOpen(false)}>Advisory Board</li>
                         <Link href={"/Contact"}>
-                        
-                        <li onClick={() => setOpen(false)}>Contact</li>
+                            <li onClick={() => setOpen(false)}>Contact</li>
                         </Link>
                     </ul>
 
@@ -155,13 +167,16 @@ export default function Header() {
                             </p>
                         </div>
 
-                        <button className="w-full bg-[#012A3C] text-white py-2 rounded">
+                        <button
+                            className="w-full bg-[#012A3C] text-white py-2 "
+                            onClick={() => setOpenMModal(true)}
+                        >
                             Contact Us
                         </button>
                     </div>
 
                     {/* MSME Logo */}
-                    <div className="absolute bottom-6 w-full flex justify-center">
+                    <div className="absolute  w-full flex justify-center">
                         <Image
                             src="/logos/nova-msme.png"
                             alt="Nova-MSME"
@@ -171,6 +186,7 @@ export default function Header() {
                     </div>
                 </div>
             </div>
+            <ContactModal open={openModal} setOpen={setOpenMModal} />
         </>
     );
 }
