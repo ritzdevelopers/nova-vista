@@ -81,32 +81,36 @@ export default function ServiceSection() {
                         </div>
 
                         {/* Right Cards */}
-                        <div className="flex flex-col gap-4 lg:gap-6">
-                            <div className="bg-[#187ba1] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center h-full shadow-lg hover:shadow-xl transition-shadow">
-                                <h3 className="md:text-[24px] text-[20px] font-bold mb-6">
-                                    Excellence Awards
-                                </h3>
+                       {/* Right Cards */}
+<div className="flex flex-col lg:flex-col gap-4 lg:gap-6 sm:flex-row ">
+    <div className="bg-[#187ba1] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-shadow w-full">
+        <h3 className="md:text-[24px] text-[20px] font-semibold mb-6">
+            Excellence Awards
+        </h3>
 
-                                <Link
-                                    href={"/Excellence"}
-                                    className="bg-white text-[#012A3C] px-6 py-3 text-sm md:text-[15px] font-semibold hover:bg-gray-50 transition  shadow-sm"
-                                >
-                                    Click To Know Award Categories
-                                </Link>
-                            </div>
+        <Link
+            href={"/Excellence"}
+            className="bg-white text-[#012A3C] px-6 py-3 text-sm md:text-[15px] font-semibold hover:bg-gray-50 transition shadow-sm"
+        >
+            Click To Know Award Categories
+        </Link>
+    </div>
 
-                            <div className="bg-[#187ba1] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center h-full shadow-lg hover:shadow-xl transition-shadow">
-                                <h3 className="md:text-[24px] text-[20px] font-bold mb-6">
-                                    Professional Training <br /> Programs
-                                </h3>
-                                <Link
-                                    href={"/ProgramTraining"}
-                                    className="bg-white text-[#012A3C] px-8 py-3 text-sm md:text-[15px] font-semibold hover:bg-gray-50 transition  shadow-sm"
-                                >
-                                    Click Here
-                                </Link>
-                            </div>
-                        </div>
+    <div className="bg-[#187ba1] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-shadow w-full">
+       <h3 className="md:text-[24px] text-[18px] font-semibold mb-3 leading-tight">
+    Professional Training <br /> Programs
+</h3>
+
+
+        <Link
+            href={"/ProgramTraining"}
+            className="bg-white text-[#012A3C] px-8 py-3 text-sm md:text-[15px] font-semibold hover:bg-gray-50 transition shadow-sm"
+        >
+            Click Here
+        </Link>
+    </div>
+</div>
+
                     </div>
                     <div className="max-w-7xl mx-auto mt-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
