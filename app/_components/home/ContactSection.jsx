@@ -19,14 +19,16 @@ export default function ContactSection() {
                     <div className="hidden lg:block absolute inset-0 bg-black/20"></div>
 
                     {/* Form Overlay – Desktop */}
-                    <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6">
+                    <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-40px]">
                         <ContactForm />
                     </div>
                 </div>
 
                 {/* ================= FORM – MOBILE ================= */}
-                <div className="flex lg:hidden justify-center mt-8 px-4">
-                    <ContactForm />
+                <div className="flex lg:hidden justify-center items-center mt-8 px-4 w-full">
+                    <div className="w-full flex justify-center items-center">
+                        <ContactForm />
+                    </div>
                 </div>
 
                 {/* ================= OFFICES SECTION ================= */}
@@ -39,31 +41,39 @@ export default function ContactSection() {
                         Our Offices
                     </h3>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:grid-cols-2 gap-6  ">
-                        <OfficeCard
-                            title="INDIA"
-                            text={`Nova Vista Education, 6th Floor,
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6  justify-center">
+                        <div className="w-full ">
+                            <OfficeCard
+                                title="INDIA"
+                                text={`Nova Vista Education, 6th Floor,
 Nukleus, Plot 29, Sector 142,
 Noida, Uttar Pradesh`}
-                        />
+                            />
+                        </div>
 
-                        <OfficeCard
-                            title="GERMANY"
-                            text={`Truderinger Strasse 206,
+                        <div className="w-full ">
+                            <OfficeCard
+                                title="GERMANY"
+                                text={`Truderinger Strasse 206,
 Munich, 81825`}
-                        />
+                            />
+                        </div>
 
-                        <OfficeCard
-                            title="USA"
-                            text={`3314 Windridge Ave,
+                        <div className="w-full ">
+                            <OfficeCard
+                                title="USA"
+                                text={`3314 Windridge Ave,
 Thousand Oaks, CA, 91362`}
-                        />
+                            />
+                        </div>
 
-                        <OfficeCard
-                            title="NEPAL"
-                            text={`Baluwatar 4 Kathmandu,
+                        <div className="w-full ">
+                            <OfficeCard
+                                title="NEPAL"
+                                text={`Baluwatar 4 Kathmandu,
 Nepal - 44616`}
-                        />
+                            />
+                        </div>
                     </div>
 
                     <div className="mt-6">
