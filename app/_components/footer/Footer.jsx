@@ -10,6 +10,7 @@ import {
     Mail,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -58,21 +59,27 @@ export default function Footer() {
                             Quick Links
                         </h3>
                         <ul className="space-y-2 text-sm">
-                            <li className="hover:text-white cursor-pointer">
-                                Home
-                            </li>
-                            <li className="hover:text-white cursor-pointer">
-                                About Us
-                            </li>
+                            <Link href={"/"}>
+                                <li className="hover:text-white cursor-pointer">
+                                    Home
+                                </li>
+                            </Link>
+                            <Link href={"/Excellence"}>
+                                <li className="hover:text-white cursor-pointer mt-1 mb-1">
+                                    About Us
+                                </li>
+                            </Link>
                             <li className="hover:text-white cursor-pointer">
                                 Academic Recognition
                             </li>
                             <li className="hover:text-white cursor-pointer">
                                 Personality Development
                             </li>
-                            <li className="hover:text-white cursor-pointer">
-                                Contact
-                            </li>
+                            <Link href={"/Contact"}>
+                                <li className="hover:text-white cursor-pointer ">
+                                    Contact
+                                </li>
+                            </Link>
                         </ul>
                     </div>
 
