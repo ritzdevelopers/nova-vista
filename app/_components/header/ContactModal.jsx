@@ -153,55 +153,38 @@ export default function ContactModal({ open, setOpen }) {
                 <form onSubmit={handleSubmit} className="space-y-7">
                     <input
                         type="text"
-                        placeholder="Name"
-                        className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+                        placeholder={errors.name ? errors.name : "Name"}
+                        className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.name ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
                         name="name"
-                        value={form.name}
-                        onChange={(e) =>
-                            setForm({ ...form, name: e.target.value })
-                        }
+                        value={form.name ?? ""}
+                        onChange={handleChange}
                     />
-                    {errors.name && (
-                        <p className="text-red-500 text-sm">{errors.name}</p>
-                    )}
 
                     <input
                         type="email"
-                        placeholder="Email Address"
-                        className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+                        placeholder={errors.email ? errors.email : "Email Address"}
+                        className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.email ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
                         name="email"
-                        value={form.email}
-                        onChange={(e) =>
-                            setForm({ ...form, email: e.target.value })
-                        }
+                        value={form.email ?? ""}
+                        onChange={handleChange}
                     />
-                    {errors.email && (
-                        <p className="text-red-500 text-sm">{errors.email}</p>
-                    )}
 
                     <input
                         type="text"
-                        placeholder="Phone Number"
-                        className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
-                        name="phone"
-                        value={form.phone}
-                        onChange={(e) =>
-                            setForm({ ...form, phone: e.target.value })
-                        }
+                        placeholder={errors.mobile ? errors.mobile : "Phone Number"}
+                        className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.mobile ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
+                        name="mobile"
+                        value={form.mobile ?? ""}
+                        onChange={handleChange}
                     />
-                    {errors.phone && (
-                        <p className="text-red-500 text-sm">{errors.phone}</p>
-                    )}
 
                     <textarea
-                        placeholder="Message"
+                        placeholder={errors.message ? errors.message : "Message"}
                         rows="4"
-                        className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+                        className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.message ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
                         name="message"
-                        value={form.message}
-                        onChange={(e) =>
-                            setForm({ ...form, message: e.target.value })
-                        }
+                        value={form.message ?? ""}
+                        onChange={handleChange}
                     ></textarea>
 
                     <div className="flex justify-center">
@@ -222,59 +205,5 @@ export default function ContactModal({ open, setOpen }) {
                 </form>
             </div>
         </div>
-
-        <form onSubmit={handleSubmit} className="space-y-7">
-          <input
-            type="text"
-            placeholder={errors.name ? errors.name : "Name"}
-            className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.name ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
-            name="name"
-            value={form.name ?? ""}
-            onChange={handleChange}
-          />
-
-          <input
-            type="email"
-            placeholder={errors.email ? errors.email : "Email Address"}
-            className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.email ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
-            name="email"
-            value={form.email ?? ""}
-            onChange={handleChange}
-          />
-
-          <input
-            type="text"
-            placeholder={errors.mobile ? errors.mobile : "Phone Number"}
-            className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.mobile ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
-            name="mobile"
-            value={form.mobile ?? ""}
-            onChange={handleChange}
-          />
-
-          <textarea
-            placeholder={errors.message ? errors.message : "Message"}
-            rows="4"
-            className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.message ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
-            name="message"
-            value={form.message ?? ""}
-            onChange={handleChange}
-          ></textarea>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="text-white py-2 w-[200px] bg-[#062b3b] hover:bg-gray-800 transition"
-          >
-            {loading ? "Submitting..." : "Submit"}
-          </button>
-
-          {status && (
-            <p className="text-center text-sm mt-2 text-green-600">
-              {status}
-            </p>
-          )}
-        </form>
-      </div>
-    </div>
-  );
+    );
 }
