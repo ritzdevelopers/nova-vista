@@ -18,6 +18,10 @@ export default function Contact() {
         }),
         show: { opacity: 1, x: 0 },
     };
+    const formVariants = {
+        hidden: { opacity: 0, y: 30 },
+        show: { opacity: 1, y: 0 },
+    };
     const [admission, setAdmission] = useState({
         name: "",
         dob: "",
@@ -385,9 +389,16 @@ export default function Contact() {
                                 <ContactForm  />
                             </div> */}
                             <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-50px]">
-                                <div className="w-[500px] lg:w-[380px] xl:w-[600px]">
+                                <motion.div
+                                    className="w-[500px] lg:w-[380px] xl:w-[600px]"
+                                    variants={formVariants}
+                                    initial={reduceMotion ? false : "hidden"}
+                                    whileInView={reduceMotion ? undefined : "show"}
+                                    viewport={{ amount: 0.2, once: true }}
+                                    transition={{ duration: 0.5, ease: "easeOut" }}
+                                >
                                     <ContactForm script_url={script_url} />
-                                </div>
+                                </motion.div>
                             </div>
                         </div>
 
@@ -395,12 +406,11 @@ export default function Contact() {
                         <div className="flex lg:hidden justify-center mt-8 px-4">
                             <motion.div
                                 className="w-full flex justify-center"
-                                custom="left"
-                                variants={blockVariants}
+                                variants={formVariants}
                                 initial={reduceMotion ? false : "hidden"}
                                 whileInView={reduceMotion ? undefined : "show"}
-                                viewport={{ amount: 0.2, once: false }}
-                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                viewport={{ amount: 0.2, once: true }}
+                                transition={{ duration: 0.5, ease: "easeOut" }}
                             >
                                 <ContactForm script_url={script_url} />
                             </motion.div>
