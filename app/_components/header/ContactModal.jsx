@@ -5,7 +5,7 @@ export default function ContactModal({ open, setOpen }) {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    phone: "",
+    mobile: "",
     message: "",
   });
 
@@ -49,18 +49,22 @@ export default function ContactModal({ open, setOpen }) {
   const validate = () => {
     let newErrors = {};
 
-    if (!form.name.trim()) newErrors.name = "Name is required";
+    if (!(form.name || "").trim()) newErrors.name = "Name is required";
 
-    if (!form.email.trim()) {
+    if (!(form.email || "").trim()) {
       newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(form.email)) {
+    } else if (!/\S+@\S+\.\S+/.test(form.email || "")) {
       newErrors.email = "Enter valid email";
     }
 
-    if (!form.phone.trim()) {
-      newErrors.phone = "Mobile is required";
-    } else if (!/^[6-9]\d{9}$/.test(form.phone)) {
-      newErrors.phone = "Enter valid 10 digit number";
+    if (!(form.mobile || "").trim()) {
+      newErrors.mobile = "Phone Number is required";
+    } else if (!/^[6-9]\d{9}$/.test(form.mobile || "")) {
+      newErrors.mobile = "Enter valid 10 digit number";
+    }
+
+    if (!(form.message || "").trim()) {
+      newErrors.message = "Message is required";
     }
 
     setErrors(newErrors);
@@ -92,7 +96,8 @@ export default function ContactModal({ open, setOpen }) {
       });
 
       setStatus("✅ Submitted successfully!");
-      setForm({ name: "", email: "", phone: "", message: "" });
+      setForm({ name: "", email: "", mobile: "", message: "" });
+      setErrors({});
 
       // Close after short delay
       setTimeout(() => setOpen(false), 800);
@@ -100,6 +105,14 @@ export default function ContactModal({ open, setOpen }) {
       setStatus("❌ Submission failed");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
@@ -141,41 +154,38 @@ export default function ContactModal({ open, setOpen }) {
         <form onSubmit={handleSubmit} className="space-y-7">
           <input
             type="text"
-            placeholder="Name"
-            className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+            placeholder={errors.name ? errors.name : "Name"}
+            className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.name ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
             name="name"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            value={form.name ?? ""}
+            onChange={handleChange}
           />
-          {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
 
           <input
             type="email"
-            placeholder="Email Address"
-            className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+            placeholder={errors.email ? errors.email : "Email Address"}
+            className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.email ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
             name="email"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            value={form.email ?? ""}
+            onChange={handleChange}
           />
-          {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
           <input
             type="text"
-            placeholder="Phone Number"
-            className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
-            name="phone"
-            value={form.phone}
-            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+            placeholder={errors.mobile ? errors.mobile : "Phone Number"}
+            className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.mobile ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
+            name="mobile"
+            value={form.mobile ?? ""}
+            onChange={handleChange}
           />
-          {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
 
           <textarea
-            placeholder="Message"
+            placeholder={errors.message ? errors.message : "Message"}
             rows="4"
-            className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+            className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.message ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
             name="message"
-            value={form.message}
-            onChange={(e) => setForm({ ...form, message: e.target.value })}
+            value={form.message ?? ""}
+            onChange={handleChange}
           ></textarea>
 
           <button
