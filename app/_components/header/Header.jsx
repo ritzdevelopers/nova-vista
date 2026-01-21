@@ -23,7 +23,7 @@ export default function Header() {
             {/* Top Header */}
             <TopHeader />
 
-            <div className="fixed top-0 left-0 right-0 w-full z-40 bg-white">
+            <div className="sticky top-0 left-0 right-0 w-full z-40 bg-white">
                 {/* ===== MAIN HEADER ===== */}
                 <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 relative">
                     {/* Logo */}
@@ -52,12 +52,9 @@ export default function Header() {
                             <Link href="/program-training">
                                 <li className="cursor-pointer">Service</li>
                             </Link>
-                            <li
-                                className="cursor-pointer"
-                                onClick={() => scrollToSection("advisory")}
-                            >
-                                Advisory Board
-                            </li>
+                            <Link href="/#advisory">
+                                <li className="cursor-pointer">Advisory Board</li>
+                            </Link>
 
                             <Link href="/Contact">
                                 <li className="cursor-pointer">Contact</li>
@@ -145,12 +142,9 @@ export default function Header() {
                         >
                             <li>Services</li>
                         </Link>
-                        <li
-                            onClick={() => setOpen(false)}
-                            className=" text-[16px]"
-                        >
-                            Advisory Board
-                        </li>
+                        <Link href="/#advisory" onClick={() => setOpen(false)}>
+                            <li className=" text-[16px]">Advisory Board</li>
+                        </Link>
                         <Link href={"/Contact"}>
                             <li className=" text-[16px]">Contact</li>
                         </Link>
