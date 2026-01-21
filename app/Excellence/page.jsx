@@ -67,15 +67,15 @@ export default function Excellence() {
                 <img
                     src="/static/award.png"
                     alt="Awards"
-                    className="w-[860px] h-[484px] mx-auto object-contain mt-10 "
+                    className="w-full max-w-[860px] h-auto mx-auto object-contain mt-0 md:mt-10 mb-0"
                 />
-                <MotionSection className="w-full bg-white py-12">
+                <MotionSection className="w-full bg-white  md:py-12">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex items-center mb-6">
-                            <h2 className="text-[22px] font-semibold md:text-[28px]  text-gray-800 mr-4">
+                            <h2 className="text-[22px] font-semibold md:text-[28px]  text-gray-800 mr-4 mt-5">
                                 Academic
                             </h2>
-                            <div className="flex-grow h-[2px] bg-gray-300"></div>
+                            <div className="flex-grow h-[2px] bg-gray-300 mt-5"></div>
                         </div>
 
                         {/* ================= GRID CONTENT ================= */}
