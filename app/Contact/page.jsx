@@ -242,7 +242,7 @@ export default function Contact() {
                             </div>
 
                             {/* ================= RIGHT PAYMENT SECTION ================= */}
-                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                            <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
                                 <img
                                     src="/static/scanner.png"
                                     alt="QR Code"
@@ -370,7 +370,7 @@ Contact: 01718570686, 01787493933`}
                 </section>
                 {/* </div> */}
             </section>
-            <Footer />;
+            <Footer />
         </>
     );
 }
