@@ -134,7 +134,7 @@ export default function Contact() {
     return (
         <>
             <Header />
-            <MotionSection className="w-full bg-white py-12 mt-10 md:mt-0">
+            <MotionSection className="w-full bg-white py-12">
                 <motion.h2
                     className="text-center text-[18px]  md:text-[26px] font-semibold mb-10"
                     custom="left"

@@ -76,7 +76,7 @@ export default function ProgramTraining() {
     ];
 
     return (
-        <div className="bg-white mt-10 md:mt-0">
+        <div className="bg-white ">
             <Header />
             <MotionSection className="w-full bg-[#fafafa] py-12 sm:py-16">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6">
