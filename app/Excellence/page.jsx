@@ -19,9 +19,9 @@ export default function Excellence() {
                     {/* Heading */}
                     <div className="max-w-7xl mx-auto">
                         {/* Logos Grid */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 pb-8 pt-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-8 pt-8">
                             {/* Card */}
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
                                 <Image
                                     src="/logos/arni.png"
                                     alt="ARN University"
@@ -31,7 +31,7 @@ export default function Excellence() {
                                 />
                             </div>
 
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
                                 <Image
                                     src="/logos/integral.png"
                                     alt="Integral University"
@@ -41,7 +41,7 @@ export default function Excellence() {
                                 />
                             </div>
 
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
                                 <Image
                                     src="/logos/nau.png"
                                     alt="NAU University"
@@ -51,7 +51,7 @@ export default function Excellence() {
                                 />
                             </div>
 
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
                                 <Image
                                     src="/logos/royalamericanuniversity.png"
                                     alt="Royal American University"
@@ -63,7 +63,11 @@ export default function Excellence() {
                         </div>
                     </div>
                 </div>
-                <img src="/static/award.png" alt="Awards" className="w-[860px] h-[484px] mx-auto object-contain pt-10 " />
+                <img
+                    src="/static/award.png"
+                    alt="Awards"
+                    className="w-[860px] h-[484px] mx-auto object-contain pt-10 "
+                />
                 <section className="w-full bg-white py-12">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex items-center mb-6">
@@ -379,8 +383,8 @@ export default function Excellence() {
                     </div>
                 </section>
             </section>
-            <JuryMember/>
-            <QueryFormSection/>
+            <JuryMember />
+            <QueryFormSection />
             <Footer />
         </>
     );
