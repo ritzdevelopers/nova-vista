@@ -38,7 +38,7 @@ export default function Excellence() {
         alt="Integral University"
         width={200}
         height={80}
-        className="object-contain max-w-[200px] max-h-[120px] w-full h-auto"
+        className="object-contain w-[150px] h-[150px] sm:w-[150px] sm:h-auto"
     />
 </div>
 
