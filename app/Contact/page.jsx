@@ -33,12 +33,55 @@ export default function Contact() {
         duration: "",
         message: "",
     });
+    const [admissionErrors, setAdmissionErrors] = useState({});
     const [admissionLoading, setAdmissionLoading] = useState(false);
     const [admissionMessage, setAdmissionMessage] = useState("");
     const [admissionError, setAdmissionError] = useState(false);
 
+    const admissionRegex = {
+        name: /^[a-zA-Z ]{2,40}$/,
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+        mobile: /^[6-9]\d{9}$/,
+    };
+
+    const validateAdmission = () => {
+        const newErrors = {};
+
+        if (!admissionRegex.name.test(admission.name)) {
+            newErrors.name = "Enter valid name";
+        }
+        if (!admission.dob.trim()) {
+            newErrors.dob = "Enter date of birth";
+        }
+        if (!admissionRegex.email.test(admission.email)) {
+            newErrors.email = "Enter valid email";
+        }
+        if (!admission.country.trim()) {
+            newErrors.country = "Enter country";
+        }
+        if (!admissionRegex.mobile.test(admission.mobile)) {
+            newErrors.mobile = "Enter valid mobile";
+        }
+        if (!admission.qualification.trim()) {
+            newErrors.qualification = "Enter qualification";
+        }
+        if (!admission.course.trim()) {
+            newErrors.course = "Enter course";
+        }
+        if (!admission.duration.trim()) {
+            newErrors.duration = "Enter duration";
+        }
+
+        setAdmissionErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
     const handleAdmissionChange = (e) => {
-        setAdmission({ ...admission, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setAdmission({ ...admission, [name]: value });
+        if (admissionErrors[name]) {
+            setAdmissionErrors((prev) => ({ ...prev, [name]: "" }));
+        }
     };
 
     const handleAdmissionSubmit = async (e) => {
@@ -46,6 +89,10 @@ export default function Contact() {
         setAdmissionLoading(true);
         setAdmissionMessage("");
         setAdmissionError(false);
+        if (!validateAdmission()) {
+            setAdmissionLoading(false);
+            return;
+        }
         if (!script_url) {
             setAdmissionMessage(
                 "Form is not configured. Please try again later.",
@@ -76,6 +123,7 @@ export default function Contact() {
                 duration: "",
                 message: "",
             });
+            setAdmissionErrors({});
         } catch {
             setAdmissionMessage("Something went wrong. Please try again.");
             setAdmissionError(true);
@@ -206,8 +254,12 @@ export default function Contact() {
                                 >
                                     <input
                                         type="text"
-                                        placeholder="Name"
-                                        className="bg-white text-black px-4 py-3 rounded outline-none border border-gray-200"
+                                        placeholder={
+                                            admissionErrors.name
+                                                ? admissionErrors.name
+                                                : "Name"
+                                        }
+                                        className={`bg-white text-black px-4 py-3 rounded outline-none border ${admissionErrors.name ? "border-red-500 placeholder:text-red-500" : "border-gray-200"}`}
                                         name="name"
                                         value={admission.name}
                                         onChange={handleAdmissionChange}
@@ -216,8 +268,12 @@ export default function Contact() {
                                     <input
                                         // type="date"
                                         type="text"
-                                        placeholder="Date of Birth"
-                                        className="bg-white text-black px-4 py-3 rounded outline-none border border-gray-200"
+                                        placeholder={
+                                            admissionErrors.dob
+                                                ? admissionErrors.dob
+                                                : "Date of Birth"
+                                        }
+                                        className={`bg-white text-black px-4 py-3 rounded outline-none border ${admissionErrors.dob ? "border-red-500 placeholder:text-red-500" : "border-gray-200"}`}
                                         name="dob"
                                         value={admission.dob}
                                         onChange={handleAdmissionChange}
@@ -225,8 +281,12 @@ export default function Contact() {
 
                                     <input
                                         type="email"
-                                        placeholder="Email Address"
-                                        className="bg-white text-black px-4 py-3 rounded outline-none border border-gray-200"
+                                        placeholder={
+                                            admissionErrors.email
+                                                ? admissionErrors.email
+                                                : "Email Address"
+                                        }
+                                        className={`bg-white text-black px-4 py-3 rounded outline-none border ${admissionErrors.email ? "border-red-500 placeholder:text-red-500" : "border-gray-200"}`}
                                         name="email"
                                         value={admission.email}
                                         onChange={handleAdmissionChange}
@@ -234,8 +294,12 @@ export default function Contact() {
 
                                     <input
                                         type="text"
-                                        placeholder="Country"
-                                        className="bg-white text-black px-4 py-3 rounded outline-none border border-gray-200"
+                                        placeholder={
+                                            admissionErrors.country
+                                                ? admissionErrors.country
+                                                : "Country"
+                                        }
+                                        className={`bg-white text-black px-4 py-3 rounded outline-none border ${admissionErrors.country ? "border-red-500 placeholder:text-red-500" : "border-gray-200"}`}
                                         name="country"
                                         value={admission.country}
                                         onChange={handleAdmissionChange}
@@ -243,8 +307,12 @@ export default function Contact() {
 
                                     <input
                                         type="text"
-                                        placeholder="Mobile Number"
-                                        className="bg-white text-black px-4 py-3 rounded outline-none border border-gray-200"
+                                        placeholder={
+                                            admissionErrors.mobile
+                                                ? admissionErrors.mobile
+                                                : "Mobile Number"
+                                        }
+                                        className={`bg-white text-black px-4 py-3 rounded outline-none border ${admissionErrors.mobile ? "border-red-500 placeholder:text-red-500" : "border-gray-200"}`}
                                         name="mobile"
                                         value={admission.mobile}
                                         onChange={handleAdmissionChange}
@@ -252,8 +320,12 @@ export default function Contact() {
 
                                     <input
                                         type="text"
-                                        placeholder="Qualification"
-                                        className="bg-white text-black px-4 py-3 rounded outline-none border border-gray-200"
+                                        placeholder={
+                                            admissionErrors.qualification
+                                                ? admissionErrors.qualification
+                                                : "Qualification"
+                                        }
+                                        className={`bg-white text-black px-4 py-3 rounded outline-none border ${admissionErrors.qualification ? "border-red-500 placeholder:text-red-500" : "border-gray-200"}`}
                                         name="qualification"
                                         value={admission.qualification}
                                         onChange={handleAdmissionChange}
@@ -261,8 +333,12 @@ export default function Contact() {
 
                                     <input
                                         type="text"
-                                        placeholder="Course"
-                                        className="sm:col-span-2 bg-white text-black px-4 py-3 rounded outline-none border border-gray-200"
+                                        placeholder={
+                                            admissionErrors.course
+                                                ? admissionErrors.course
+                                                : "Course"
+                                        }
+                                        className={`sm:col-span-2 bg-white text-black px-4 py-3 rounded outline-none border ${admissionErrors.course ? "border-red-500 placeholder:text-red-500" : "border-gray-200"}`}
                                         name="course"
                                         value={admission.course}
                                         onChange={handleAdmissionChange}
@@ -270,8 +346,12 @@ export default function Contact() {
 
                                     <input
                                         type="text"
-                                        placeholder="Course Duration"
-                                        className="sm:col-span-2 bg-white text-black px-4 py-3 rounded outline-none border border-gray-200"
+                                        placeholder={
+                                            admissionErrors.duration
+                                                ? admissionErrors.duration
+                                                : "Course Duration"
+                                        }
+                                        className={`sm:col-span-2 bg-white text-black px-4 py-3 rounded outline-none border ${admissionErrors.duration ? "border-red-500 placeholder:text-red-500" : "border-gray-200"}`}
                                         name="duration"
                                         value={admission.duration}
                                         onChange={handleAdmissionChange}
@@ -505,15 +585,47 @@ function ContactForm({ script_url }) {
     const [message, setMessage] = useState("");
     const [messageError, setMessageError] = useState(false);
 
+    const regex = {
+        name: /^[a-zA-Z ]{2,40}$/,
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+        phone: /^[6-9]\d{9}$/,
+        message: /^.{10,}$/,
+    };
+
+    const validate = () => {
+        const newErrors = {};
+
+        if (!regex.name.test(formData.name)) {
+            newErrors.name = "Enter valid name";
+        }
+        if (!regex.email.test(formData.email)) {
+            newErrors.email = "Enter valid email";
+        }
+        if (!regex.phone.test(formData.phone)) {
+            newErrors.phone = "Enter valid Phone Number";
+        }
+        if (!regex.message.test(formData.message)) {
+            newErrors.message = "Enter valid Message";
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+        if (errors[name]) {
+            setErrors((prev) => ({ ...prev, [name]: "" }));
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
         setMessage("");
         setMessageError(false);
+        if (!validate()) return;
+        setLoading(true);
         if (!script_url) {
             setMessage("Form is not configured. Please try again later.");
             setMessageError(true);
@@ -547,6 +659,7 @@ function ContactForm({ script_url }) {
                 phone: "",
                 message: "",
             });
+            setErrors({});
         }
     };
     return (
@@ -561,32 +674,32 @@ function ContactForm({ script_url }) {
             <form className="space-y-7" onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Name"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+                    placeholder={errors.name ? errors.name : "Name"}
+                    className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.name ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                 />
                 <input
                     type="email"
-                    placeholder="Email Address"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+                    placeholder={errors.email ? errors.email : "Email Address"}
+                    className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.email ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                 />
                 <input
                     type="text"
-                    placeholder="Phone Number"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+                    placeholder={errors.phone ? errors.phone : "Phone Number"}
+                    className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.phone ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                 />
                 <textarea
-                    placeholder="Message"
+                    placeholder={errors.message ? errors.message : "Message"}
                     rows="4"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+                    className={`w-full bg-[#FAFAFA] border rounded-md px-4 py-2 text-sm focus:outline-none ${errors.message ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
