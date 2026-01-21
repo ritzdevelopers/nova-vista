@@ -33,14 +33,15 @@ export default function Excellence() {
                             </div>
 
                             <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
-                                <Image
-                                    src="/logos/integral.png"
-                                    alt="Integral University"
-                                    width={200}
-                                    height={80}
-                                    className="w-auto h-auto object-contain"
-                                />
-                            </div>
+    <Image
+        src="/logos/integral.png"
+        alt="Integral University"
+        width={200}
+        height={80}
+        className="object-contain max-w-[200px] max-h-[120px] w-full h-auto"
+    />
+</div>
+
 
                             <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
                                 <Image
