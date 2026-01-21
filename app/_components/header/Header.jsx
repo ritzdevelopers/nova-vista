@@ -23,7 +23,7 @@ export default function Header() {
             {/* Top Header */}
             <TopHeader />
 
-            <div className="fixed top-0 left-0 right-0 w-full z-40 bg-white">
+            <div className=" top-0 left-0 right-0 w-full z-40 bg-white">
                 {/* ===== MAIN HEADER ===== */}
                 <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 relative">
                     {/* Logo */}
