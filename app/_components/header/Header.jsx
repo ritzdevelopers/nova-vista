@@ -101,18 +101,18 @@ export default function Header() {
                 >
                     {/* Drawer Header */}
                     <div className="flex justify-between items-center px-6 py-4 border-b">
-                       <Link href="/">
-                        <div className="h-[48px] sm:h-[56px] w-[180px] sm:w-[220px] flex items-center shrink-0">
-                            <Image
-                                src="/logos/nova-vista-logo.svg"
-                                alt="logo"
-                                width={220}
-                                height={56}
-                                priority
-                                className="w-full h-auto"
-                            />
-                        </div>
-                          </Link>
+                        <Link href="/">
+                            <div className="h-[48px] sm:h-[56px] w-[180px] sm:w-[220px] flex items-center shrink-0">
+                                <Image
+                                    src="/logos/nova-vista-logo.svg"
+                                    alt="logo"
+                                    width={220}
+                                    height={56}
+                                    priority
+                                    className="w-full h-auto"
+                                />
+                            </div>
+                        </Link>
                         <button
                             className="text-3xl"
                             onClick={() => setOpen(false)}
@@ -122,20 +122,35 @@ export default function Header() {
                     </div>
 
                     {/* Navigation */}
-                    <ul className="flex flex-col gap-4 px-6 py-6 text-lg">
-                        <li onClick={() => setOpen(false)}>Home</li>
-                        <Link href="/Excellence" onClick={() => setOpen(false)}>
+                    <ul className="flex flex-col gap-2 px-6 py-6 text-lg">
+                        <li
+                            onClick={() => setOpen(false)}
+                            className=" text-[16px]"
+                        >
+                            Home
+                        </li>
+                        <Link
+                            href="/Excellence"
+                            onClick={() => setOpen(false)}
+                            className=" text-[16px]"
+                        >
                             <li>About Us</li>
                         </Link>
                         <Link
                             href="/ProgramTraining"
+                            className=" text-[16px]"
                             onClick={() => setOpen(false)}
                         >
                             <li>Services</li>
                         </Link>
-                        <li onClick={() => setOpen(false)}>Advisory Board</li>
-                        <li 
-                            className="cursor-pointer"
+                        <li
+                            onClick={() => setOpen(false)}
+                            className=" text-[16px]"
+                        >
+                            Advisory Board
+                        </li>
+                        <li
+                            className=" text-[16px]"
                             onClick={() => {
                                 setOpen(false);
                                 setTimeout(() => setOpenMModal(true), 300);
@@ -148,8 +163,8 @@ export default function Header() {
                     <hr />
 
                     {/* Contact Info */}
-                    <div className="px-6 py-6 text-sm space-y-4">
-                        <h3 className="font-semibold">Contact Info</h3>
+                    <div className="px-6 py-6  space-y-4">
+                        <h3 className="text-[16px]">Contact Info</h3>
 
                         <div className="flex items-center gap-3">
                             <Image
@@ -158,7 +173,9 @@ export default function Header() {
                                 width={16}
                                 height={16}
                             />
-                            <p>info@novavistaeducation.com</p>
+                            <p className=" text-[16px] text-gray-500">
+                                info@novavistaeducation.com
+                            </p>
                         </div>
 
                         <div className="flex items-start gap-3">
@@ -168,7 +185,7 @@ export default function Header() {
                                 width={16}
                                 height={16}
                             />
-                            <p>
+                            <p className=" text-[16px] text-gray-500">
                                 6th Floor, Nukleus, Plot 29, Sector 142, Noida
                             </p>
                         </div>
