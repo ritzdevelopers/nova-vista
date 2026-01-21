@@ -251,44 +251,36 @@ export default function Contact() {
                                 />
 
                                 <div className="bg-white rounded shadow-sm p-4 text-sm w-full max-w-sm text-left">
-                                    <p className="text-[#1B78A1] font-semibold mb-3">
-                                        DEMO NATIONAL BANK
+                                    <p className="text-[#1B78A1] font-semibold mb-3 text-[18px]">
+                                        HDFC BANK LTD
                                     </p>
 
-                                    <p className="mb-2">
-                                        <span className="font-semibold">
+                                    <p className="mb-2 text-[#00000099]">
+                                        <span className="font-medium text-black">
                                             ACCOUNT:
                                         </span>{" "}
-                                        <span className="text-[18px] font-medium text-[#00000099]">
-                                            Nova Vista
-                                        </span>
+                                        NOVAVISTA EDUCATION PRIVATE LIMITED
                                     </p>
 
-                                    <p className="mb-2 flex flex-wrap items-center gap-2">
-                                        <span className="font-semibold">
+                                    <p className="mb-2 text-[#00000099]">
+                                        <span className="font-medium text-black">
                                             ACCOUNT NUMBER:
-                                        </span>
-                                        <span className="text-[18px] font-medium text-[#00000099]">
-                                            Ixx-xxx-xxx-xxx
-                                        </span>
+                                        </span>{" "}
+                                        50200112839472
                                     </p>
 
-                                    <p className="mb-2">
-                                        <span className="font-semibold">
+                                    <p className="mb-2 text-[#00000099]">
+                                        <span className="font-medium text-black">
                                             IFSC CODE:
                                         </span>{" "}
-                                        <span className="text-[18px] font-medium text-[#00000099]">
-                                            111xxxxxx
-                                        </span>
+                                        HDFC0002830
                                     </p>
 
-                                    <p>
-                                        <span className="font-semibold">
-                                            SWIFT CODE:
+                                    <p className="text-[#00000099]">
+                                        <span className="font-medium text-black">
+                                            BRANCH:
                                         </span>{" "}
-                                        <span className="text-[18px] font-medium text-[#00000099]">
-                                            ABCDEFGH
-                                        </span>
+                                        Sector 93A, Noida
                                     </p>
                                 </div>
                             </div>
