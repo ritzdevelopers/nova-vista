@@ -615,13 +615,19 @@ function OfficeCard({ title, text, width = 300, index = 0 }) {
     };
 
     return (
-        <div
+        <motion.div
             className="office-card bg-white py-3 px-4 text-center "
             data-width={width}
             style={{
                 boxShadow: "0px 4px 16px 0px #0000001A",
                 "--office-card-width": `${width}px`,
             }}
+            custom={index % 2 === 0 ? "left" : "right"}
+            variants={itemVariants}
+            initial={reduceMotion ? false : "hidden"}
+            whileInView={reduceMotion ? undefined : "show"}
+            viewport={{ amount: 0.2, once: false }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
         >
             <h4 className="font-medium md:text-[18px] text-[16px] mb-2">
                 {title}

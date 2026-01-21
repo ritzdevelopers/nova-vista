@@ -17,13 +17,20 @@ export default function Advisory() {
     const reduceMotion = useReducedMotion();
 
     return (
-        <MotionSection className="relative py-10 mt-5 scroll-mt-20" id="advisory">
+        <MotionSection
+            className="relative py-10 mt-5 scroll-mt-20"
+            id="advisory"
+        >
             {/* Half Black Background */}
             <div className="absolute top-0 left-0 w-full h-[60%] lg:bg-black bg-white z-0"></div>
 
             {/* Content */}
             <div className="relative z-10 px-4 sm:px-6 max-w-8xl mx-auto">
-                <h2 className="md:text-[36px] text-[28px] text-black lg:text-black xl:text-white text-center mb-6">
+                <h2
+                    className="text-[28px] md:text-[36px] 
+               text-black lg:text-white 
+               text-center mb-6"
+                >
                     Advisory Board
                 </h2>
 
@@ -35,7 +42,6 @@ export default function Advisory() {
              max-w-7xl 
              mx-auto"
                 >
-
                     {[
                         {
                             img: "/static/Prof.MaheshGandhi.png",

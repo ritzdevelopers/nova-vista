@@ -25,7 +25,7 @@ export default function Header() {
 
             <div className="sticky top-0 z-40 bg-white">
                 {/* ===== MAIN HEADER ===== */}
-                <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-4 relative">
+                <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 relative">
                     {/* Logo */}
                     <Link href="/">
                         <div className="h-[48px] sm:h-[56px] w-[180px] sm:w-[220px] flex items-center shrink-0">
@@ -47,7 +47,7 @@ export default function Header() {
                                 <li className="cursor-pointer ">Home</li>
                             </Link>
                             <Link href="/Excellence">
-                                <li className="cursor-pointer">About</li>
+                                <li className="cursor-pointer">About Us</li>
                             </Link>
                             <Link href="/ProgramTraining">
                                 <li className="cursor-pointer">Service</li>
@@ -125,7 +125,7 @@ export default function Header() {
                     <ul className="flex flex-col gap-4 px-6 py-6 text-lg">
                         <li onClick={() => setOpen(false)}>Home</li>
                         <Link href="/Excellence" onClick={() => setOpen(false)}>
-                            <li>About</li>
+                            <li>About Us</li>
                         </Link>
                         <Link
                             href="/ProgramTraining"
@@ -134,9 +134,15 @@ export default function Header() {
                             <li>Services</li>
                         </Link>
                         <li onClick={() => setOpen(false)}>Advisory Board</li>
-                        <Link href={"/Contact"}>
-                            <li onClick={() => setOpen(false)}>Contact</li>
-                        </Link>
+                        <li 
+                            className="cursor-pointer"
+                            onClick={() => {
+                                setOpen(false);
+                                setTimeout(() => setOpenMModal(true), 300);
+                            }}
+                        >
+                            Contact
+                        </li>
                     </ul>
 
                     <hr />
@@ -169,7 +175,10 @@ export default function Header() {
 
                         <button
                             className="w-full bg-[#012A3C] text-white py-2 "
-                            onClick={() => setOpenMModal(true)}
+                            onClick={() => {
+                                setOpen(false);
+                                setTimeout(() => setOpenMModal(true), 300);
+                            }}
                         >
                             Contact Us
                         </button>

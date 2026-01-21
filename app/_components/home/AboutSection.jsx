@@ -21,7 +21,7 @@ export default function AboutSection() {
             className="w-full bg-[linear-gradient(90deg,#ffffff_0%,#ffffff_55%,#f7e3bf_100%)]"
         >
             <div className="container-fluid max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-center py-12 md:py-16">
+                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center py-12 md:py-16">
 
                     {/* Image */}
                     <motion.div
