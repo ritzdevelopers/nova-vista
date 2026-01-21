@@ -40,7 +40,7 @@ export default function QueryFormSection() {
     }
     const payload = {
       ...formData,
-      formSource: 'Nomination',
+      formType: 'Nomination Form',
     };
     try {
       await fetch(script_url,{
