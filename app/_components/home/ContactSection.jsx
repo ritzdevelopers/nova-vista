@@ -5,7 +5,7 @@ export default function ContactSection() {
     return (
         <section
             id="contact"
-            className="relative w-full py-20 bg-gray-50 scroll-mt-28"
+            className="relative w-full py-10 bg-gray-50 scroll-mt-28"
         >
             <div className="relative max-w-7xl mx-auto px-4">
                 {/* ================= IMAGE SECTION ================= */}

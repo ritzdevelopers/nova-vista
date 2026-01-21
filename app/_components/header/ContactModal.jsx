@@ -4,7 +4,8 @@ export default function ContactModal({ open, setOpen }) {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    mobile: "",
+    phone: "",
+    message: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -29,10 +30,10 @@ export default function ContactModal({ open, setOpen }) {
       newErrors.email = "Enter valid email";
     }
 
-    if (!form.mobile.trim()) {
-      newErrors.mobile = "Mobile is required";
-    } else if (!/^[6-9]\d{9}$/.test(form.mobile)) {
-      newErrors.mobile = "Enter valid 10 digit number";
+    if (!form.phone.trim()) {
+      newErrors.phone = "Mobile is required";
+    } else if (!/^[6-9]\d{9}$/.test(form.phone)) {
+      newErrors.phone = "Enter valid 10 digit number";
     }
 
     setErrors(newErrors);
@@ -64,7 +65,7 @@ export default function ContactModal({ open, setOpen }) {
       });
 
       setStatus("✅ Submitted successfully!");
-      setForm({ name: "", email: "", mobile: "" });
+      setForm({ name: "", email: "", phone: "", message: "" });
 
       // Close after short delay
       setTimeout(() => setOpen(false), 800);
@@ -81,11 +82,14 @@ export default function ContactModal({ open, setOpen }) {
       transition-opacity duration-300
       ${open ? "opacity-100 visible" : "opacity-0 invisible"}`}
     >
-      <div
-        className={`bg-white w-full max-w-md rounded-lg p-6 relative
-        transform transition-all duration-300
-        ${open ? "scale-100 translate-y-0" : "scale-95 translate-y-6"}`}
-      >
+    <div
+  className={`bg-white 
+  w-[310px] sm:w-full max-w-md 
+  rounded-lg p-6 relative
+  transform transition-all duration-300
+  ${open ? "scale-100 translate-y-0" : "scale-95 translate-y-6"}`}
+>
+
         <button
           onClick={() => setOpen(false)}
           className="absolute top-3 right-3 text-gray-500 hover:text-black"
@@ -93,39 +97,54 @@ export default function ContactModal({ open, setOpen }) {
           ✕
         </button>
 
-        <h2 className="text-[22px] font-semibold text-[#012A3C] mb-4 text-center">
+        <h2 className="md:text-[36px] text-[28px] font-semibold mb-6 text-center">
           Contact Us
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-7">
           <input
-            placeholder="Full Name"
-            className="w-full border rounded px-3 py-2"
+            type="text"
+            placeholder="Name"
+            className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+            name="name"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
           {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
 
           <input
-            placeholder="Email"
-            className="w-full border rounded px-3 py-2"
+            type="email"
+            placeholder="Email Address"
+            className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+            name="email"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
           {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
           <input
-            placeholder="Mobile"
-            className="w-full border rounded px-3 py-2"
-            value={form.mobile}
-            onChange={(e) => setForm({ ...form, mobile: e.target.value })}
+            type="text"
+            placeholder="Phone Number"
+            className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+            name="phone"
+            value={form.phone}
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
           />
-          {errors.mobile && <p className="text-red-500 text-sm">{errors.mobile}</p>}
+          {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+
+          <textarea
+            placeholder="Message"
+            rows="4"
+            className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none"
+            name="message"
+            value={form.message}
+            onChange={(e) => setForm({ ...form, message: e.target.value })}
+          ></textarea>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#012A3C] text-white py-2 rounded"
+            className="text-white py-2 w-[200px] bg-[#062b3b] hover:bg-gray-800 transition"
           >
             {loading ? "Submitting..." : "Submit"}
           </button>

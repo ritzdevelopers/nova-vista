@@ -10,11 +10,12 @@ import {
     Mail,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
     return (
         <footer className="bg-[#062b3b] text-gray-300">
-            <div className="max-w-7xl mx-auto px-6 py-14">
+            <div className="max-w-7xl mx-auto px-6 py-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                     {/* LEFT */}
                     <div className="flex flex-col items-center text-center sm:col-span-2 lg:col-span-1 sm:items-start sm:text-left md:items-center md:text-center lg:items-start lg:text-left">
@@ -27,7 +28,7 @@ export default function Footer() {
                                 priority
                             />
                         </div>
-                        <p className="text-sm leading-relaxed mb-6">
+                        <p className="text-sm leading-relaxed mb-6 mt-4">
                             Our team is here to help you take the next step —
                             whether it’s academic recognition or skill
                             enhancement.
@@ -58,21 +59,27 @@ export default function Footer() {
                             Quick Links
                         </h3>
                         <ul className="space-y-2 text-sm">
-                            <li className="hover:text-white cursor-pointer">
-                                Home
-                            </li>
-                            <li className="hover:text-white cursor-pointer">
-                                About Us
-                            </li>
+                            <Link href={"/"}>
+                                <li className="hover:text-white cursor-pointer">
+                                    Home
+                                </li>
+                            </Link>
+                            <Link href={"/Excellence"}>
+                                <li className="hover:text-white cursor-pointer mt-1 mb-1">
+                                    About Us
+                                </li>
+                            </Link>
                             <li className="hover:text-white cursor-pointer">
                                 Academic Recognition
                             </li>
                             <li className="hover:text-white cursor-pointer">
                                 Personality Development
                             </li>
-                            <li className="hover:text-white cursor-pointer">
-                                Contact
-                            </li>
+                            <Link href={"/Contact"}>
+                                <li className="hover:text-white cursor-pointer ">
+                                    Contact
+                                </li>
+                            </Link>
                         </ul>
                     </div>
 
@@ -99,7 +106,7 @@ export default function Footer() {
 
                     {/* CONTACT */}
                     <div className="text-center sm:col-span-2 lg:col-span-1 sm:text-center lg:text-left">
-                        <h3 className="text-white font-semibold mb-4">
+                        <h3 className="text-white font-semibold mb-1">
                             Contact Us
                         </h3>
 
@@ -129,7 +136,7 @@ export default function Footer() {
 
             {/* BOTTOM */}
             <div className="border-t border-white/10 py-4 text-center text-xs text-gray-400">
-                © 2025 novavista. All rights reserved. Digital media planned by
+                © 2025 NOVA VISTA. All rights reserved. Digital media planned by
                 Ritz Media World
             </div>
         </footer>
