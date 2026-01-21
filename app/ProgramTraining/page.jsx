@@ -4,6 +4,7 @@ import ContactBanner from '../_components/programtraining/ContactBanner'
 import TrustedSection from '../_components/programtraining/TrustedSection'
 import QueryFormSection from '../_components/programtraining/QueryFormSection'
 import Footer from '../_components/footer/Footer'
+import MotionSection from '../_components/motion/MotionSection'
 
 export default function ProgramTraining() {
   const workshops = [
@@ -64,15 +65,14 @@ export default function ProgramTraining() {
   return (
     <div className="bg-white">
       <Header />
-      <section
+      <MotionSection
         className="w-full bg-[#fafafa] py-12 sm:py-16"
       
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <h2
-            className="text-center text-4xl sm:text-4xl font-semibold tracking-wide text-[#11111]"
+            className="text-center text-4xl sm:text-4xl font-semibold tracking-wide text-[#111111]"
             style={{
-              case: 'titleCase',
               lineHeight: '100%',
             }}
           >
@@ -107,7 +107,7 @@ export default function ProgramTraining() {
                   <p
                     className="mt-2 text-center text-sm text-[#11111199] font-light"
                     style={{
-                      case: 'titleCase',
+                      textTransform: 'capitalize',
                       lineHeight: '100%',
                     }}
                   >
@@ -124,7 +124,7 @@ export default function ProgramTraining() {
             ))}
           </div>
         </div>
-      </section>
+      </MotionSection>
       
       <ContactBanner />
       <TrustedSection />

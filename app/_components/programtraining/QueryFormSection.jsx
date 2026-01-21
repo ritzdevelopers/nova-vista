@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react'
+import MotionSection from '../motion/MotionSection'
 
 export default function QueryFormSection() {
   const [formData , setFormData] = useState({
@@ -63,7 +64,7 @@ export default function QueryFormSection() {
     }
   }
   return (
-    <section className="w-full bg-white py-12 sm:py-16">
+    <MotionSection className="w-full bg-white py-12 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 items-start">
           <div className="bg-[#0B6E99] text-white p-6 sm:p-8">
@@ -167,6 +168,6 @@ export default function QueryFormSection() {
           </div>
         </div>
       </div>
-    </section>
+    </MotionSection>
   )
 }

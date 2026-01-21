@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
+import MotionSection from "../motion/MotionSection";
 
 export default function ContactSection() {
     const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || '';
 
     return (
-        <section
+        <MotionSection
             id="contact"
             className="relative w-full py-20 bg-gray-50 scroll-mt-28"
         >
@@ -84,7 +85,7 @@ Contact: 01718570686, 01787493933`}
                     </div>
                 </div>
             </div>
-        </section>
+        </MotionSection>
     );
 }
 
@@ -143,7 +144,7 @@ function ContactForm({ script_url }) {
 
     return (
         <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl lg:mt-[500px] py-10">
-            <h2 className="md:text-[36px] text-[28px] font-semibold mb-6 text-center">
+            <h2 className="md:text-[36px] text-[36px] font-medium mb-6 text-center">
                 Contact Us
             </h2>
 

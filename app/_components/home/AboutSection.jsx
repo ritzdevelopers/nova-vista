@@ -1,8 +1,9 @@
 import Image from "next/image";
+import MotionSection from "../motion/MotionSection";
 
 export default function AboutSection() {
     return (
-        <div
+        <MotionSection
             id="about"
             className="w-full bg-gradient-to-br from-[#FFF]  to-[#FFEEBE]"
         >
@@ -40,6 +41,6 @@ export default function AboutSection() {
                     </div>
                 </div>
             </div>
-        </div>
+        </MotionSection>
     );
 }

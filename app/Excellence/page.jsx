@@ -4,12 +4,13 @@ import Header from "../_components/header/Header";
 import Footer from "../_components/footer/Footer";
 import QueryFormSection from "../_components/programtraining/QueryFormSection";
 import JuryMember from "./JuryMember";
+import MotionSection from "../_components/motion/MotionSection";
 
 export default function Excellence() {
     return (
         <>
             <Header />
-            <section className="w-full bg-white">
+            <MotionSection className="w-full bg-white">
                 <div className="max-w-7xl mx-auto px-4 flex justify-center items-center">
                     <h2 className="text-center text-[22px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold tracking-wide leading-tight text-[#111111] my-8 w-full">
                         Certificate, Diploma, Degree Programs From
@@ -68,7 +69,7 @@ export default function Excellence() {
                     alt="Awards"
                     className="w-[860px] h-[484px] mx-auto object-contain pt-10 "
                 />
-                <section className="w-full bg-white py-12">
+                <MotionSection className="w-full bg-white py-12">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex items-center mb-6">
                             <h2 className="text-[22px] font-semibold md:text-[28px]  text-gray-800 mr-4">
@@ -381,8 +382,8 @@ export default function Excellence() {
                             </div>
                         </div>
                     </div>
-                </section>
-            </section>
+                </MotionSection>
+            </MotionSection>
             <JuryMember />
             <QueryFormSection />
             <Footer />
