@@ -3,14 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import MotionSection from "../motion/MotionSection";
 
 export default function ServiceSection() {
     return (
-        <>
-            <div
-                id="services"
-                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-0"
-            >
+        <MotionSection
+            id="services"
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-0"
+        >
                 <h1 className="font-semibold md:text-[36px] text-center mb-6 text-[28px] mt-8">
                     Our Services
                 </h1>
@@ -177,7 +177,6 @@ export default function ServiceSection() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </>
+        </MotionSection>
     );
 }

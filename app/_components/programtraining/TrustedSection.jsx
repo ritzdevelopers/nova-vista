@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
+import MotionSection from '../motion/MotionSection'
 
 const testimonials = [
   {
@@ -38,7 +39,7 @@ export default function TrustedSection() {
   const titleParts = data.title.split('&').map((part) => part.trim()).filter(Boolean)
 
   return (
-    <section className="w-full bg-[#F7F7F7] py-16 overflow-hidden">
+    <MotionSection className="w-full bg-[#F7F7F7] py-16 overflow-hidden">
       <div className="max-w-5xl mx-auto px-4">
         <div className="bg-white rounded-[28px] px-10 py-12 text-center relative">
 
@@ -86,6 +87,6 @@ export default function TrustedSection() {
           </div>
         </div>
       </div>
-    </section>
+    </MotionSection>
   )
 }

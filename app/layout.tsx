@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
+import LenisProvider from "./_components/LenisProvider";
 
 
 
@@ -32,7 +33,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} ${montserrat.variable} ${montserrat_mono.variable} antialiased`}
       >
-        {children}
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );

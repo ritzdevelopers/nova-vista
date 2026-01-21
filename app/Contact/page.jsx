@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Header from "../_components/header/Header";
 import Footer from "../_components/footer/Footer";
+import MotionSection from "../_components/motion/MotionSection";
 
 export default function Contact() {
     const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || '';
@@ -67,7 +68,7 @@ export default function Contact() {
     return (
         <>
             <Header />
-            <section className="w-full bg-white py-12">
+            <MotionSection className="w-full bg-white py-12">
                 <h2 className="text-center text-[18px]  md:text-[26px] font-semibold mb-10">
                     Certificate, Diploma, Degree Programs From
                 </h2>
@@ -124,7 +125,7 @@ export default function Contact() {
                     </div>
                 </div>
 
-                <section className="w-full  py-12 sm:py-16">
+                <MotionSection className="w-full  py-12 sm:py-16">
                     <div className="max-w-6xl mx-auto px-4 sm:px-6">
                         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10 items-start">
                             {/* ================= LEFT FORM ================= */}
@@ -293,9 +294,9 @@ export default function Contact() {
                             </div>
                         </div>
                     </div>
-                </section>
+                </MotionSection>
 
-                <section className="relative w-full bg-gray-50 mt-10 ">
+                <MotionSection className="relative w-full bg-gray-50 mt-10 ">
                     <div className="relative max-w-7xl mx-auto px-4">
                         {/* ================= IMAGE SECTION ================= */}
                         <div className="relative">
@@ -367,9 +368,9 @@ Contact: 01718570686, 01787493933`}
                             </div>
                         </div>
                     </div>
-                </section>
+                </MotionSection>
                 {/* </div> */}
-            </section>
+            </MotionSection>
             <Footer />
         </>
     );
