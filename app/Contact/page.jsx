@@ -385,7 +385,7 @@ export default function Contact() {
                                     <button
                                         type="submit"
                                         disabled={admissionLoading}
-                                        className="sm:col-span-2 mt-2 bg-[#062b3b] text-white py-3 w-full sm:w-[180px]   transition"
+                                        className="sm:col-span-2 mt-2 bg-[#062b3b] text-white py-3 w-full sm:w-[180px]  transition cursor-pointer hover:bg-[#ffff] hover:text-[#000] hover:border-2 hover:border-[#062b3b]"
                                     >
                                         {admissionLoading
                                             ? "Submitting..."
