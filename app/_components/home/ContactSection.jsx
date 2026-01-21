@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const formVariants = {
@@ -153,6 +153,54 @@ Contact: 01718570686, 01787493933`}
 
 /* ================= CONTACT FORM ================= */
 function ContactForm() {
+    const [values, setValues] = useState({
+        name: "",
+        email: "",
+        mobile: "",
+        message: "",
+    });
+
+    const [errors, setErrors] = useState({});
+
+    const regex = {
+        name: /^[a-zA-Z ]{2,40}$/,
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+        mobile: /^[6-9]\d{9}$/,
+        message: /^.{1,}$/,
+    };
+
+    const validate = () => {
+        const newErrors = {};
+
+        if (!regex.name.test(values.name))
+            newErrors.name = "Enter valid name";
+
+        if (!regex.email.test(values.email))
+            newErrors.email = "Enter valid email";
+
+        if (!regex.mobile.test(values.mobile))
+            newErrors.mobile = "Enter valid Phone Number";
+
+        if (!regex.message.test(values.message))
+            newErrors.message = "Enter valid Message";
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setValues((prev) => ({ ...prev, [name]: value }));
+        if (errors[name]) {
+            setErrors((prev) => ({ ...prev, [name]: "" }));
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        validate();
+    };
+
     return (
         <div
             className="bg-white w-full max-w-[600px] p-8 rounded-xl shadow-2xl lg:mt-[700px] h-[600px] py-10"
@@ -162,29 +210,44 @@ function ContactForm() {
                 Contact Us
             </h2>
 
-            <form className="space-y-7">
+            <form className="space-y-7" onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Name"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-sm px-4 py-3 text-sm"
+                    placeholder={errors.name ? errors.name : "Name"}
+                    className={`w-full bg-[#FAFAFA] border rounded-sm px-4 py-3 text-sm ${errors.name ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
+                    name="name"
+                    value={values.name}
+                    onChange={handleChange}
                 />
                 <input
                     type="email"
-                    placeholder="Email Address"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-sm px-4 py-3 text-sm"
+                    placeholder={errors.email ? errors.email : "Email Address"}
+                    className={`w-full bg-[#FAFAFA] border rounded-sm px-4 py-3 text-sm ${errors.email ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
                 />
                 <input
                     type="text"
-                    placeholder="Phone Number"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-sm px-4 py-3 text-sm"
+                    placeholder={errors.mobile ? errors.mobile : "Phone Number"}
+                    className={`w-full bg-[#FAFAFA] border rounded-sm px-4 py-3 text-sm ${errors.mobile ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
+                    name="mobile"
+                    value={values.mobile}
+                    onChange={handleChange}
                 />
                 <textarea
-                    placeholder="Message"
+                    placeholder={errors.message ? errors.message : "Message"}
                     rows="4"
-                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-sm px-4 py-3 text-sm"
+                    className={`w-full bg-[#FAFAFA] border rounded-sm px-4 py-3 text-sm ${errors.message ? "border-red-500 placeholder:text-red-500" : "border-gray-300"}`}
+                    name="message"
+                    value={values.message}
+                    onChange={handleChange}
                 ></textarea>
 
-                <button className="text-white py-2 w-[200px] bg-[#062b3b] hover:bg-gray-800 transition">
+                <button
+                    type="submit"
+                    className="text-white py-2 w-[200px] bg-[#062b3b] hover:bg-gray-800 transition"
+                >
                     Submit
                 </button>
             </form>
