@@ -1,4 +1,7 @@
+"use client";
+
 import React from 'react'
+import { motion, useReducedMotion } from "framer-motion";
 import Header from '../_components/header/Header'
 import ContactBanner from '../_components/programtraining/ContactBanner'
 import TrustedSection from '../_components/programtraining/TrustedSection'
@@ -7,6 +10,16 @@ import Footer from '../_components/footer/Footer'
 import MotionSection from '../_components/motion/MotionSection'
 
 export default function ProgramTraining() {
+  const reduceMotion = useReducedMotion();
+
+  const cardVariants = {
+    hidden: (direction) => ({
+      opacity: 0,
+      x: direction === "left" ? -40 : 40,
+    }),
+    show: { opacity: 1, x: 0 },
+  };
+
   const workshops = [
     {
       title: 'Personality Development For Employability',
@@ -70,17 +83,23 @@ export default function ProgramTraining() {
       
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <h2
+          <motion.h2
             className="text-center text-4xl sm:text-4xl font-semibold tracking-wide text-[#111111]"
             style={{
               lineHeight: '100%',
             }}
+            custom="left"
+            variants={cardVariants}
+            initial={reduceMotion ? false : "hidden"}
+            whileInView={reduceMotion ? undefined : "show"}
+            viewport={{ amount: 0.2, once: false }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             WORKSHOPS
-          </h2>
+          </motion.h2>
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {workshops.map((workshop, index) => (
-              <article
+              <motion.article
                 key={workshop.title}
                 className={`bg-white shadow-lg border border-gray-100 overflow-hidden h-full ${
                   index === 2 ? "md:col-span-2 md:mx-auto md:w-[70%] xl:col-span-1 xl:w-auto" : ""
@@ -92,6 +111,12 @@ export default function ProgramTraining() {
                   borderBottomLeftRadius: index > 0 ? '60px' : '0px',
                   borderWidth: '1px',
                 }}
+                custom={index % 2 === 0 ? "left" : "right"}
+                variants={cardVariants}
+                initial={reduceMotion ? false : "hidden"}
+                whileInView={reduceMotion ? undefined : "show"}
+                viewport={{ amount: 0.2, once: false }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.05 }}
               >
                 <div className="h-[220px] sm:h-[240px] md:h-[260px] w-auto font-medium">
                   <img
@@ -120,7 +145,7 @@ export default function ProgramTraining() {
                     ))}
                   </ul>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>

@@ -2,12 +2,22 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import Header from "../_components/header/Header";
 import Footer from "../_components/footer/Footer";
 import MotionSection from "../_components/motion/MotionSection";
 
 export default function Contact() {
     const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || '';
+    const reduceMotion = useReducedMotion();
+
+    const blockVariants = {
+        hidden: (direction) => ({
+            opacity: 0,
+            x: direction === "left" ? -40 : 40,
+        }),
+        show: { opacity: 1, x: 0 },
+    };
     const [admission, setAdmission] = useState({
         name: "",
         dob: "",
@@ -69,9 +79,17 @@ export default function Contact() {
         <>
             <Header />
             <MotionSection className="w-full bg-white py-12">
-                <h2 className="text-center text-[18px]  md:text-[26px] font-semibold mb-10">
+                <motion.h2
+                    className="text-center text-[18px]  md:text-[26px] font-semibold mb-10"
+                    custom="left"
+                    variants={blockVariants}
+                    initial={reduceMotion ? false : "hidden"}
+                    whileInView={reduceMotion ? undefined : "show"}
+                    viewport={{ amount: 0.2, once: false }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
                     Certificate, Diploma, Degree Programs From
-                </h2>
+                </motion.h2>
                 {/* <div className=" px-4"> */}
                 {/* Heading */}
 
@@ -82,7 +100,15 @@ export default function Contact() {
                         {/* Logos Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-8 pt-8">
                             {/* Card */}
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
+                            <motion.div
+                                className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]"
+                                custom="left"
+                                variants={blockVariants}
+                                initial={reduceMotion ? false : "hidden"}
+                                whileInView={reduceMotion ? undefined : "show"}
+                                viewport={{ amount: 0.2, once: false }}
+                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+                            >
                                 <Image
                                     src="/logos/arni.png"
                                     alt="ARN University"
@@ -90,9 +116,17 @@ export default function Contact() {
                                     height={80}
                                     className="w-auto h-auto object-contain"
                                 />
-                            </div>
+                            </motion.div>
 
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
+                            <motion.div
+                                className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]"
+                                custom="right"
+                                variants={blockVariants}
+                                initial={reduceMotion ? false : "hidden"}
+                                whileInView={reduceMotion ? undefined : "show"}
+                                viewport={{ amount: 0.2, once: false }}
+                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                            >
                                 <Image
                                     src="/logos/integral.png"
                                     alt="Integral University"
@@ -100,9 +134,17 @@ export default function Contact() {
                                     height={80}
                                     className="object-contain w-[150px] h-[150px] sm:w-[150px] sm:h-auto"
                                 />
-                            </div>
+                            </motion.div>
 
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
+                            <motion.div
+                                className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]"
+                                custom="left"
+                                variants={blockVariants}
+                                initial={reduceMotion ? false : "hidden"}
+                                whileInView={reduceMotion ? undefined : "show"}
+                                viewport={{ amount: 0.2, once: false }}
+                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+                            >
                                 <Image
                                     src="/logos/nau.png"
                                     alt="NAU University"
@@ -110,9 +152,17 @@ export default function Contact() {
                                     height={80}
                                     className="w-auto h-auto object-contain"
                                 />
-                            </div>
+                            </motion.div>
 
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
+                            <motion.div
+                                className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]"
+                                custom="right"
+                                variants={blockVariants}
+                                initial={reduceMotion ? false : "hidden"}
+                                whileInView={reduceMotion ? undefined : "show"}
+                                viewport={{ amount: 0.2, once: false }}
+                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                            >
                                 <Image
                                     src="/logos/royalamericanuniversity.png"
                                     alt="Royal American University"
@@ -120,7 +170,7 @@ export default function Contact() {
                                     height={80}
                                     className="w-auto h-auto object-contain"
                                 />
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
@@ -129,7 +179,15 @@ export default function Contact() {
                     <div className="max-w-6xl mx-auto px-4 sm:px-6">
                         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10 items-start">
                             {/* ================= LEFT FORM ================= */}
-                            <div className="bg-[#0B6E99] text-white  p-6 sm:p-8">
+                            <motion.div
+                                className="bg-[#0B6E99] text-white  p-6 sm:p-8"
+                                custom="left"
+                                variants={blockVariants}
+                                initial={reduceMotion ? false : "hidden"}
+                                whileInView={reduceMotion ? undefined : "show"}
+                                viewport={{ amount: 0.2, once: false }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                            >
                                 <h3 className="text-[22px] sm:text-[36px] font-semibold mb-6">
                                     Online Admission/Registration
                                 </h3>
@@ -240,10 +298,18 @@ export default function Contact() {
                                 <p className="text-[15px]">
                                     [Remittance For India (INR/USD)]
                                 </p>
-                            </div>
+                            </motion.div>
 
                             {/* ================= RIGHT PAYMENT SECTION ================= */}
-                            <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+                            <motion.div
+                                className="flex flex-col items-center text-center lg:items-start lg:text-left"
+                                custom="right"
+                                variants={blockVariants}
+                                initial={reduceMotion ? false : "hidden"}
+                                whileInView={reduceMotion ? undefined : "show"}
+                                viewport={{ amount: 0.2, once: false }}
+                                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                            >
                                 <img
                                     src="/static/scanner.png"
                                     alt="QR Code"
@@ -283,7 +349,7 @@ export default function Contact() {
                                         Sector 93A, Noida
                                     </p>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </MotionSection>
@@ -304,14 +370,32 @@ export default function Contact() {
                             <div className="hidden lg:block absolute inset-0 bg-black/20"></div>
 
                             {/* Form Overlay – Desktop */}
-                            <div className="hidden lg:flex absolute inset-0 items-center justify-center  justify-end px-6 mr-[-40px]">
+                            <motion.div
+                                className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-40px]"
+                                custom="right"
+                                variants={blockVariants}
+                                initial={reduceMotion ? false : "hidden"}
+                                whileInView={reduceMotion ? undefined : "show"}
+                                viewport={{ amount: 0.2, once: false }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                            >
                                 <ContactForm script_url={script_url} />
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* ================= FORM – MOBILE ================= */}
                         <div className="flex lg:hidden justify-center mt-8 px-4">
-                            <ContactForm script_url={script_url} />
+                            <motion.div
+                                className="w-full flex justify-center"
+                                custom="left"
+                                variants={blockVariants}
+                                initial={reduceMotion ? false : "hidden"}
+                                whileInView={reduceMotion ? undefined : "show"}
+                                viewport={{ amount: 0.2, once: false }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                            >
+                                <ContactForm script_url={script_url} />
+                            </motion.div>
                         </div>
 
                         {/* ================= OFFICES SECTION ================= */}
@@ -322,6 +406,7 @@ export default function Contact() {
 
                             <div className="flex flex-wrap gap-6">
                                 <OfficeCard
+                                    index={0}
                                     title="INDIA"
                                     width={300}
                                     text={`Nova Vista Education, 6th Floor,
@@ -330,6 +415,7 @@ Noida, Uttar Pradesh`}
                                 />
 
                                 <OfficeCard
+                                    index={1}
                                     title="GERMANY"
                                     width={300}
                                     text={`Truderinger Strasse 206,
@@ -337,6 +423,7 @@ Munich, 81825`}
                                 />
 
                                 <OfficeCard
+                                    index={2}
                                     title="USA"
                                     width={300}
                                     text={`3314 Windridge Ave,
@@ -344,6 +431,7 @@ Thousand Oaks, CA, 91362`}
                                 />
 
                                 <OfficeCard
+                                    index={3}
                                     title="NEPAL"
                                     width={300}
                                     text={`Baluwatar 4 Kathmandu,
@@ -351,6 +439,7 @@ Nepal - 44616`}
                                 />
 
                                 <OfficeCard
+                                    index={4}
                                     title="BANGLADESH"
                                     width={615}
                                     text={`Shimanto Square Market, Shop No. 262,
@@ -481,11 +570,27 @@ function ContactForm({ script_url }) {
 }
 
 /* ================= OFFICE CARD ================= */
-function OfficeCard({ title, text, width = 300 }) {
+function OfficeCard({ title, text, width = 300, index = 0 }) {
+    const reduceMotion = useReducedMotion();
+
+    const itemVariants = {
+        hidden: (direction) => ({
+            opacity: 0,
+            x: direction === "left" ? -30 : 30,
+        }),
+        show: { opacity: 1, x: 0 },
+    };
+
     return (
-        <div
+        <motion.div
             className="bg-white py-6 px-4 rounded-lg shadow text-center"
             style={{ width: `${width}px` }}
+            custom={index % 2 === 0 ? "left" : "right"}
+            variants={itemVariants}
+            initial={reduceMotion ? false : "hidden"}
+            whileInView={reduceMotion ? undefined : "show"}
+            viewport={{ amount: 0.2, once: false }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}
         >
             <h4 className="font-medium md:text-[18px] text-[16px] mb-2">
                 {title}
@@ -494,6 +599,6 @@ function OfficeCard({ title, text, width = 300 }) {
             <p className="md:text-[16px] text-[14px] text-gray-600 leading-relaxed whitespace-pre-line">
                 {text}
             </p>
-        </div>
+        </motion.div>
     );
 }

@@ -2,10 +2,20 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import MotionSection from "../motion/MotionSection";
 
 export default function ContactSection() {
     const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || '';
+    const reduceMotion = useReducedMotion();
+
+    const blockVariants = {
+        hidden: (direction) => ({
+            opacity: 0,
+            x: direction === "left" ? -40 : 40,
+        }),
+        show: { opacity: 1, x: 0 },
+    };
 
     return (
         <MotionSection
@@ -27,16 +37,32 @@ export default function ContactSection() {
                     <div className="hidden lg:block absolute inset-0 bg-black/20"></div>
 
                     {/* Form Overlay – Desktop */}
-                    <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-40px]">
+                    <motion.div
+                        className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-40px]"
+                        custom="right"
+                        variants={blockVariants}
+                        initial={reduceMotion ? false : "hidden"}
+                        whileInView={reduceMotion ? undefined : "show"}
+                        viewport={{ amount: 0.2, once: false }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         <ContactForm script_url={script_url} />
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* ================= FORM – MOBILE ================= */}
-                <div className="flex lg:hidden justify-center items-center mt-8 px-4 w-full">
-                    <div className="w-full flex justify-center items-center">
+                <div className="block lg:hidden justify-center items-center mt-8 px-4 w-full">
+                    <motion.div
+                        className="w-full flex justify-center items-center"
+                        custom="left"
+                        variants={blockVariants}
+                        initial={reduceMotion ? false : "hidden"}
+                        whileInView={reduceMotion ? undefined : "show"}
+                        viewport={{ amount: 0.2, once: false }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         <ContactForm script_url={script_url} />
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* ================= OFFICES SECTION ================= */}
@@ -47,6 +73,7 @@ export default function ContactSection() {
 
                     <div className="flex flex-wrap gap-6">
                         <OfficeCard
+                            index={0}
                             title="INDIA"
                             width={300}
                             text={`Nova Vista Education, 6th Floor,
@@ -55,6 +82,7 @@ Noida, Uttar Pradesh`}
                         />
 
                         <OfficeCard
+                            index={1}
                             title="GERMANY"
                             width={300}
                             text={`Truderinger Strasse 206,
@@ -62,6 +90,7 @@ Munich, 81825`}
                         />
 
                         <OfficeCard
+                            index={2}
                             title="USA"
                             width={300}
                             text={`3314 Windridge Ave,
@@ -69,6 +98,7 @@ Thousand Oaks, CA, 91362`}
                         />
 
                         <OfficeCard
+                            index={3}
                             title="NEPAL"
                             width={300}
                             text={`Baluwatar 4 Kathmandu,
@@ -76,6 +106,7 @@ Nepal - 44616`}
                         />
 
                         <OfficeCard
+                            index={4}
                             title="BANGLADESH"
                             width={615}
                             text={`Shimanto Square Market, Shop No. 262,
@@ -143,7 +174,7 @@ function ContactForm({ script_url }) {
     };
 
     return (
-        <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl lg:mt-[500px] py-10">
+        <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl py-10">
             <h2 className="md:text-[36px] text-[36px] font-medium mb-6 text-center">
                 Contact Us
             </h2>
@@ -152,7 +183,7 @@ function ContactForm({ script_url }) {
                 <input
                     type="text"
                     placeholder="Name"
-                    className="w-full bg-[#FAFAFA] border border-gray-300    rounded-md px-4 py-2 text-sm focus:outline-none "
+                    className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none "
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -200,11 +231,27 @@ function ContactForm({ script_url }) {
 }
 
 /* ================= OFFICE CARD ================= */
-function OfficeCard({ title, text, width = 300 }) {
+function OfficeCard({ title, text, width = 300, index = 0 }) {
+    const reduceMotion = useReducedMotion();
+
+    const itemVariants = {
+        hidden: (direction) => ({
+            opacity: 0,
+            x: direction === "left" ? -30 : 30,
+        }),
+        show: { opacity: 1, x: 0 },
+    };
+
     return (
-        <div
+        <motion.div
             className="bg-white py-6 px-4 rounded-lg shadow text-center"
             style={{ width: `${width}px` }}
+            custom={index % 2 === 0 ? "left" : "right"}
+            variants={itemVariants}
+            initial={reduceMotion ? false : "hidden"}
+            whileInView={reduceMotion ? undefined : "show"}
+            viewport={{ amount: 0.2, once: false }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}
         >
             <h4 className="font-medium md:text-[18px] text-[16px] mb-2">
                 {title}
@@ -213,6 +260,6 @@ function OfficeCard({ title, text, width = 300 }) {
             <p className="md:text-[16px] text-[14px] text-gray-600 leading-relaxed whitespace-pre-line">
                 {text}
             </p>
-        </div>
+        </motion.div>
     );
 }

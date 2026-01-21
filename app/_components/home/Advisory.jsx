@@ -1,8 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import MotionSection from "../motion/MotionSection";
 
+const itemVariants = {
+    hidden: (direction) => ({
+        opacity: 0,
+        x: direction === "left" ? -40 : 40,
+    }),
+    show: { opacity: 1, x: 0 },
+};
+
 export default function Advisory() {
+    const reduceMotion = useReducedMotion();
+
     return (
         <MotionSection className="relative py-10 mt-5 scroll-mt-20" id="advisory">
             {/* Half Black Background */}
@@ -60,9 +73,19 @@ export default function Advisory() {
                             country: "India",
                         },
                     ].map((item, index) => (
-                        <div
+                        <motion.div
                             key={index}
                             className="flex flex-col items-center text-center gap-3 md:gap-4"
+                            custom={index % 2 === 0 ? "left" : "right"}
+                            variants={itemVariants}
+                            initial={reduceMotion ? false : "hidden"}
+                            whileInView={reduceMotion ? undefined : "show"}
+                            viewport={{ amount: 0.2, once: false }}
+                            transition={{
+                                duration: 0.5,
+                                ease: "easeOut",
+                                delay: index * 0.05,
+                            }}
                         >
                             <Image
                                 src={item.img}
@@ -77,7 +100,7 @@ export default function Advisory() {
                             <p className="text-gray-600 text-[14px] sm:text-[15px] md:text-[16px] mt-[-6px]">
                                 {item.country}
                             </p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
