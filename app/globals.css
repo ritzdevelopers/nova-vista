@@ -27,9 +27,25 @@
 }
 
 
-html,
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#__next,
+body > div {
   max-width: 100%;
   overflow-x: hidden;
 }

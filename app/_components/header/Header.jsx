@@ -23,8 +23,7 @@ export default function Header() {
             {/* Top Header */}
             <TopHeader />
 
-            <div className="sticky top-0 z-40 bg-white">
-              
+            <div className="fixed top-0 left-0 right-0 w-full z-40 bg-white">
                 {/* ===== MAIN HEADER ===== */}
                 <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 relative">
                     {/* Logo */}
@@ -50,7 +49,7 @@ export default function Header() {
                             <Link href="/Excellence">
                                 <li className="cursor-pointer">About Us</li>
                             </Link>
-                            <Link href="/ProgramTraining">
+                            <Link href="/program-training">
                                 <li className="cursor-pointer">Service</li>
                             </Link>
                             <li
@@ -140,7 +139,7 @@ export default function Header() {
                             <li>About Us</li>
                         </Link>
                         <Link
-                            href="/ProgramTraining"
+                            href="/program-training"
                             className=" text-[16px]"
                             onClick={() => setOpen(false)}
                         >
