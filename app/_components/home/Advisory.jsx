@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Advisory() {
     return (
-        <section className="relative py-10 mt-5" id="advisory">
+        <section className="relative py-10 mt-5 scroll-mt-20" id="advisory">
             {/* Half Black Background */}
             <div className="absolute top-0 left-0 w-full h-[60%] lg:bg-black bg-white z-0"></div>
 

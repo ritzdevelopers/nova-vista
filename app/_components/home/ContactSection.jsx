@@ -3,7 +3,7 @@ import React from "react";
 
 export default function ContactSection() {
     return (
-        <section id="contact" className="relative w-full py-20 bg-gray-50">
+        <section id="contact" className="relative w-full py-20 bg-gray-50 scroll-mt-28">
             <div className="relative max-w-7xl mx-auto px-4">
                 {/* ================= IMAGE SECTION ================= */}
                 <div className="relative">
@@ -32,7 +32,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* ================= OFFICES SECTION ================= */}
-                <div className="mt-16 max-w-3xl ">
+                <div className="mt-5 max-w-3xl ">
                     <h3
                         className="text-[28px] md:text-[36px] 
                font-semibold mb-6 
@@ -41,8 +41,8 @@ export default function ContactSection() {
                         Our Offices
                     </h3>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6  justify-center">
-                        <div className="w-full ">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 justify-items-start">
+                        <div className="inline-flex">
                             <OfficeCard
                                 title="INDIA"
                                 text={`Nova Vista Education, 6th Floor,
@@ -51,7 +51,7 @@ Noida, Uttar Pradesh`}
                             />
                         </div>
 
-                        <div className="w-full ">
+                        <div className="inline-flex">
                             <OfficeCard
                                 title="GERMANY"
                                 text={`Truderinger Strasse 206,
@@ -59,7 +59,7 @@ Munich, 81825`}
                             />
                         </div>
 
-                        <div className="w-full ">
+                        <div className="inline-flex">
                             <OfficeCard
                                 title="USA"
                                 text={`3314 Windridge Ave,
@@ -67,7 +67,7 @@ Thousand Oaks, CA, 91362`}
                             />
                         </div>
 
-                        <div className="w-full ">
+                        <div className="inline-flex">
                             <OfficeCard
                                 title="NEPAL"
                                 text={`Baluwatar 4 Kathmandu,
