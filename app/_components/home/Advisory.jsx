@@ -5,12 +5,19 @@ import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import MotionSection from "../motion/MotionSection";
 
+const containerVariants = {
+    hidden: { opacity: 1 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.12,
+        },
+    },
+};
+
 const itemVariants = {
-    hidden: (direction) => ({
-        opacity: 0,
-        x: direction === "left" ? -40 : 40,
-    }),
-    show: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0 },
 };
 
 export default function Advisory() {
@@ -34,13 +41,17 @@ export default function Advisory() {
                     Advisory Board
                 </h2>
 
-                <div
+                <motion.div
                     className="grid 
              grid-cols-[repeat(auto-fit,minmax(100px,1fr))] 
              gap-4 sm:gap-5 lg:gap-6 
              justify-items-center 
              max-w-7xl 
              mx-auto"
+                    variants={containerVariants}
+                    initial={reduceMotion ? false : "hidden"}
+                    whileInView={reduceMotion ? undefined : "show"}
+                    viewport={{ amount: 0.2, once: true }}
                 >
                     {[
                         {
@@ -82,16 +93,8 @@ export default function Advisory() {
                         <motion.div
                             key={index}
                             className="flex flex-col items-center text-center gap-3 md:gap-4"
-                            custom={index % 2 === 0 ? "left" : "right"}
                             variants={itemVariants}
-                            initial={reduceMotion ? false : "hidden"}
-                            whileInView={reduceMotion ? undefined : "show"}
-                            viewport={{ amount: 0.2, once: false }}
-                            transition={{
-                                duration: 0.5,
-                                ease: "easeOut",
-                                delay: index * 0.05,
-                            }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
                         >
                             <Image
                                 src={item.img}
@@ -108,7 +111,7 @@ export default function Advisory() {
                             </p>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </MotionSection>
     );
