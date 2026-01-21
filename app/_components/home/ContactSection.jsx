@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 export default function ContactSection() {
+    const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || '';
+
     return (
         <section
             id="contact"
@@ -23,14 +27,14 @@ export default function ContactSection() {
 
                     {/* Form Overlay – Desktop */}
                     <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-40px]">
-                        <ContactForm />
+                        <ContactForm script_url={script_url} />
                     </div>
                 </div>
 
                 {/* ================= FORM – MOBILE ================= */}
                 <div className="flex lg:hidden justify-center items-center mt-8 px-4 w-full">
                     <div className="w-full flex justify-center items-center">
-                        <ContactForm />
+                        <ContactForm script_url={script_url} />
                     </div>
                 </div>
 
@@ -85,38 +89,110 @@ Contact: 01718570686, 01787493933`}
 }
 
 /* ================= CONTACT FORM ================= */
-function ContactForm() {
+function ContactForm({ script_url }) {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: ""
+    });
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState("");
+    const [messageError, setMessageError] = useState(false);
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setMessage("");
+        setMessageError(false);
+        if (!script_url) {
+            setMessage("Form is not configured. Please try again later.");
+            setMessageError(true);
+            setLoading(false);
+            return;
+        }
+
+        const payload = {
+            ...formData,
+            formType: "Contact Form",
+        };
+
+        try {
+            await fetch(script_url, {
+                method: "POST",
+                body: JSON.stringify(payload),
+            });
+            setMessage("Thank you for your submission! We will get back to you soon.");
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                message: ""
+            });
+        } catch (error) {
+            setMessage("Something went wrong. Please try again.");
+            setMessageError(true);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl lg:mt-[500px] py-10">
             <h2 className="md:text-[36px] text-[28px] font-semibold mb-6 text-center">
                 Contact Us
             </h2>
 
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Name"
                     className="w-full bg-[#FAFAFA] border border-gray-300    rounded-md px-4 py-2 text-sm focus:outline-none "
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                 />
                 <input
                     type="email"
                     placeholder="Email Address"
                     className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none "
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                 />
                 <input
                     type="text"
                     placeholder="Phone Number"
                     className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none  "
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                 />
                 <textarea
                     placeholder="Message"
                     rows="4"
                     className="w-full bg-[#FAFAFA] border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none "
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                 ></textarea>
 
-                <button className=" text-white py-2 w-[200px] bg-[#062b3b]  hover:bg-gray-800 transition">
-                    Submit
+                <button
+                    type="submit"
+                    disabled={loading}
+                    className=" text-white py-2 w-[200px] bg-[#062b3b]  hover:bg-gray-800 transition"
+                >
+                    {loading ? "Submitting..." : "Submit"}
                 </button>
+                {message && (
+                    <p className={`${messageError ? "text-red-600" : "text-green-600"} text-sm`}>
+                        {message}
+                    </p>
+                )}
             </form>
         </div>
     );
