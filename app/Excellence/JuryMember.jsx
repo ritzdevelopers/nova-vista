@@ -9,11 +9,22 @@ export default function JuryMember() {
 
             {/* Content */}
             <div className="relative z-10 px-4 sm:px-6 max-w-8xl mx-auto">
-                <h2 className="md:text-[36px] text-[28px] text-black lg:text-black xl:text-white text-center mb-6">
+                <h2 className="md:text-[36px] 
+    text-[28px] 
+    text-black 
+    lg:text-white 
+    text-center 
+    mb-6">
                     Jury Members
                 </h2>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:gap-2 xl:gap-1 items-center mt-6">
+                <div className="grid 
+             grid-cols-[repeat(auto-fit,minmax(100px,1fr))] 
+             gap-4 sm:gap-5 lg:gap-6 
+             justify-items-center 
+             max-w-6xl 
+             mx-auto 
+             mt-6">
                     {[
                         {
                             img: "/static/SanaAbbasi.svg",
@@ -40,7 +51,7 @@ export default function JuryMember() {
                             name: "Timothy Jung",
                             country: "India",
                         },
-                        
+
                     ].map((item, index) => (
                         <div
                             key={index}
@@ -51,7 +62,7 @@ export default function JuryMember() {
                                 alt={item.name}
                                 width={200}
                                 height={200}
-                                className="w-[140px] h-[160px] sm:w-[160px] sm:h-[180px] md:w-[190px] md:h-[210px] object-cover rounded-xl shadow-lg"
+                                className="w-[140px] h-[160px] sm:w-[160px] sm:h-[180px] md:w-[190px] md:h-[210px] object-cover rounded-md shadow-lg"
                             />
                             <h3 className="mt-2 font-medium text-gray-900 text-[15px] sm:text-[16px] md:text-[17px]">
                                 {item.name}
