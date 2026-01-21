@@ -33,7 +33,11 @@ export default function ContactSection() {
 
                 {/* ================= OFFICES SECTION ================= */}
                 <div className="mt-16 max-w-3xl ">
-                    <h3 className="md:text-[36px] text-[28px] font-semibold mb-6 text-center lg:text-left">
+                    <h3
+                        className="text-[28px] md:text-[36px] 
+               font-semibold mb-6 
+               text-center lg:text-left"
+                    >
                         Our Offices
                     </h3>
 
@@ -89,10 +93,7 @@ Contact: 01718570686, 01787493933`}
 /* ================= CONTACT FORM ================= */
 function ContactForm() {
     return (
-        <div
-            className="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl lg:mt-[500px] py-14 "
-            // style={{ marginRight: "-25px" }}
-        >
+        <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl lg:mt-[500px] py-10">
             <h2 className="md:text-[36px] text-[28px] font-semibold mb-6 text-center">
                 Contact Us
             </h2>
@@ -130,8 +131,8 @@ function ContactForm() {
 /* ================= OFFICE CARD ================= */
 function OfficeCard({ title, text }) {
     return (
-        <div className="bg-white py-6 px-4 rounded-lg shadow text-center h-[153px]">
-            <h4 className="font-semibold md:text-[18px] text-[16px]mb-2">
+        <div className="bg-white py-6 px-4 rounded-lg shadow text-center">
+            <h4 className="font-medium md:text-[18px] text-[16px]mb-2">
                 {title}
             </h4>
             <p className="md:text-[16px] text-[14px] text-gray-600 leading-relaxed whitespace-pre-line">
