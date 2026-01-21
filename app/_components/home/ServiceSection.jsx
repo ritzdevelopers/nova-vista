@@ -3,14 +3,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
+import MotionSection from "../motion/MotionSection";
+import useMotionSettings from "../motion/useMotionSettings";
 
 export default function ServiceSection() {
+    const motionSettings = useMotionSettings();
+
+    const textVariants = {
+        hidden: (direction) => ({
+            opacity: 0,
+            x: direction === "left" ? -40 : 40,
+        }),
+        show: { opacity: 1, x: 0 },
+    };
+
     return (
-        <>
-            <div
-                id="services"
-                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-0"
-            >
+        <MotionSection
+            id="services"
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-0"
+        >
                 <h1 className="font-semibold md:text-[36px] text-center mb-6 text-[28px] mt-8">
                     Our Services
                 </h1>
@@ -23,7 +35,16 @@ export default function ServiceSection() {
                             backgroundImage: "url('/static/aboutbg.png')",
                         }}
                     >
-                        <div className="flex flex-col items-center text-center gap-4 max-w-xl">
+                        <motion.div
+                            className="flex flex-col items-center text-center gap-4 max-w-xl"
+                            custom="left"
+                            variants={textVariants}
+                            initial={motionSettings.initial}
+                            animate={motionSettings.animate}
+                            whileInView={motionSettings.whileInView}
+                            viewport={motionSettings.viewport}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
                             <h2 className="md:text-[36px] text-[28px] font-semibold">
                                 Job Oriented Courses
                             </h2>
@@ -47,7 +68,7 @@ export default function ServiceSection() {
                             >
                                 Apply Now
                             </Link>
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* Right Image */}
@@ -71,7 +92,16 @@ export default function ServiceSection() {
                             />
                             <div className="absolute inset-0 bg-black/30"></div>
                             {/* Overlay Text */}
-                            <div className="absolute top-8 right-6 md:right-10 flex flex-col items-end text-right max-w-md">
+                            <motion.div
+                                className="absolute top-8 right-6 md:right-10 flex flex-col items-end text-right max-w-md"
+                                custom="right"
+                                variants={textVariants}
+                                initial={motionSettings.initial}
+                                animate={motionSettings.animate}
+                                whileInView={motionSettings.whileInView}
+                                viewport={motionSettings.viewport}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                            >
                                 <h2 className="text-white font-semibold text-center md:text-[24px] text-[18px] mb-4 leading-tight shadow-sm">
                                     Honorary Doctorates <br /> and D.Litt
                                 </h2>
@@ -85,13 +115,22 @@ export default function ServiceSection() {
                                     <br className="hidden md:block" /> achievers
                                     and eminent persons
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Right Cards */}
                         {/* Right Cards */}
                         <div className="flex flex-col lg:flex-col gap-4 lg:gap-6 sm:flex-row ">
-                            <div className="bg-[#187ba1] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-shadow w-full">
+                            <motion.div
+                                className="bg-[#187ba1] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-shadow w-full"
+                                custom="left"
+                                variants={textVariants}
+                                initial={motionSettings.initial}
+                                animate={motionSettings.animate}
+                                whileInView={motionSettings.whileInView}
+                                viewport={motionSettings.viewport}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                            >
                                 <h3 className="md:text-[24px] text-[18px] font-semibold mb-6">
                                     Excellence Awards
                                 </h3>
@@ -102,9 +141,18 @@ export default function ServiceSection() {
                                 >
                                     Click To Know Award Categories
                                 </Link>
-                            </div>
+                            </motion.div>
 
-                            <div className="bg-[#187ba1] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-shadow w-full">
+                            <motion.div
+                                className="bg-[#187ba1] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-shadow w-full"
+                                custom="right"
+                                variants={textVariants}
+                                initial={motionSettings.initial}
+                                animate={motionSettings.animate}
+                                whileInView={motionSettings.whileInView}
+                                viewport={motionSettings.viewport}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                            >
                                 <h3 className="md:text-[24px] text-[18px] font-semibold mb-3 leading-tight">
                                     Professional Training <br /> Programs
                                 </h3>
@@ -115,7 +163,7 @@ export default function ServiceSection() {
                                 >
                                     Click Here
                                 </Link>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                     <div className="max-w-7xl mx-auto mt-6">
@@ -136,16 +184,23 @@ export default function ServiceSection() {
 
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
 
-                                <p
+                                <motion.p
                                     className="absolute bottom-2 
                   text-[18px] md:text-[24px] 
                   leading-6 md:leading-7 
                   text-white px-4 sm:px-6 py-5"
+                                    custom="left"
+                                    variants={textVariants}
+                                    initial={motionSettings.initial}
+                                    animate={motionSettings.animate}
+                                    whileInView={motionSettings.whileInView}
+                                    viewport={motionSettings.viewport}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
                                 >
                                     Establishment of
                                     Schools/Colleges/Universities & Off-Shore
                                     Campuses
-                                </p>
+                                </motion.p>
                             </div>
 
                             {/* Second Image */}
@@ -164,20 +219,26 @@ export default function ServiceSection() {
 
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
 
-                                <p
+                                <motion.p
                                     className="absolute bottom-2 
                   text-[18px] md:text-[24px] 
                   leading-6 md:leading-7 
                   text-white px-4 sm:px-6 py-5 mb-2"
+                                    custom="right"
+                                    variants={textVariants}
+                                    initial={motionSettings.initial}
+                                    animate={motionSettings.animate}
+                                    whileInView={motionSettings.whileInView}
+                                    viewport={motionSettings.viewport}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
                                 >
                                     Twinning, Exchange and dual certification
                                     programs
-                                </p>
+                                </motion.p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </>
+        </MotionSection>
     );
 }

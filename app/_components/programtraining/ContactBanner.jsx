@@ -1,12 +1,13 @@
 'use client'
 
 import React, { useState } from 'react'
+import MotionSection from '../motion/MotionSection'
 
 export default function ContactBanner() {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <section
+    <MotionSection
       className="w-full relative overflow-visible mt-10 sm:mt-[60px]"
       style={{
         background: "linear-gradient(276.15deg, #1D79A2 0%, #012A3C 100%)",
@@ -84,6 +85,6 @@ export default function ContactBanner() {
           "
         />
       </div>
-    </section>
+    </MotionSection>
   )
 }

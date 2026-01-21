@@ -1,6 +1,9 @@
 "use client";
 
 import React, { useState } from 'react'
+import { motion } from "framer-motion";
+import MotionSection from '../motion/MotionSection'
+import useMotionSettings from "../motion/useMotionSettings";
 
 export default function QueryFormSection() {
   const [formData , setFormData] = useState({
@@ -18,6 +21,15 @@ export default function QueryFormSection() {
   const [message , setMessage] = useState('');
 
   const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || '';
+  const motionSettings = useMotionSettings();
+
+  const blockVariants = {
+    hidden: (direction) => ({
+      opacity: 0,
+      x: direction === "left" ? -40 : 40,
+    }),
+    show: { opacity: 1, x: 0 },
+  };
 
   // Regex Patterns
   const nameRegex = /^[A-Za-z ]{2,50}$/
@@ -63,10 +75,19 @@ export default function QueryFormSection() {
     }
   }
   return (
-    <section className="w-full bg-white py-12 sm:py-16">
+    <MotionSection className="w-full bg-white py-12 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 items-start">
-          <div className="bg-[#0B6E99] text-white p-6 sm:p-8">
+          <motion.div
+            className="bg-[#0B6E99] text-white p-6 sm:p-8"
+            custom="left"
+            variants={blockVariants}
+            initial={motionSettings.initial}
+            animate={motionSettings.animate}
+            whileInView={motionSettings.whileInView}
+            viewport={motionSettings.viewport}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <p className="text-sm tracking-wide mb-2">Have A Query?</p>
             <h3 className="text-[28px] md:text-[36px] font-semibold mb-6">
               Submit Your Nomination
@@ -131,9 +152,18 @@ export default function QueryFormSection() {
 
               {message && <p className="text-green-300 text-sm">{message}</p>}
             </form>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <motion.div
+            className="flex flex-col items-center text-center lg:items-start lg:text-left"
+            custom="right"
+            variants={blockVariants}
+            initial={motionSettings.initial}
+            animate={motionSettings.animate}
+            whileInView={motionSettings.whileInView}
+            viewport={motionSettings.viewport}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
             <h4
               className="text-[18px] font-semibold mb-2 tracking-wide"
             >
@@ -164,9 +194,9 @@ export default function QueryFormSection() {
                 <span className="font-medium text-black">BRANCH:</span> Sector 93A, Noida
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </MotionSection>
   )
 }
