@@ -1,13 +1,38 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
+
+const formVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0 },
+};
+
+const cardsContainerVariants = {
+    hidden: { opacity: 1 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.12,
+        },
+    },
+};
+
+const cardVariants = {
+    hidden: { opacity: 0, y: 24 },
+    show: { opacity: 1, y: 0 },
+};
 
 export default function ContactSection() {
+    const reduceMotion = useReducedMotion();
+
     return (
         <section
             id="contact"
-            className="relative w-full py-10 bg-gray-50 scroll-mt-28"
+            className="relative w-full py-10 scroll-mt-28"
         >
-            <div className="relative max-w-8xl mx-auto px-4">
+            <div className="relative max-w-[1280px] mx-auto px-4">
                 {/* ================= IMAGE SECTION ================= */}
                 <div className="relative">
                     <Image
@@ -22,17 +47,33 @@ export default function ContactSection() {
                     <div className="hidden lg:block absolute inset-0 bg-black/20"></div>
 
                     {/* Form Overlay – Desktop */}
-                    <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-50px]">
-                        <div className="w-[500px] lg:w-[380px] xl:w-[600px]">
-                            <ContactForm />
-                        </div>
-                    </div>
+                <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-50px]">
+                    <motion.div
+                        className="w-[500px] lg:w-[380px] xl:w-[600px]"
+                        variants={formVariants}
+                        initial={reduceMotion ? false : "hidden"}
+                        whileInView={reduceMotion ? undefined : "show"}
+                        viewport={{ amount: 0.2, once: true }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+                        <ContactForm />
+                    </motion.div>
+                </div>
                 </div>
 
                 {/* ================= FORM – MOBILE ================= */}
                 <div className="flex lg:hidden justify-center items-center mt-8 px-4 w-full">
                     <div className="w-full flex justify-center items-center">
-                        <ContactForm />
+                        <motion.div
+                            className="w-full flex justify-center"
+                            variants={formVariants}
+                            initial={reduceMotion ? false : "hidden"}
+                            whileInView={reduceMotion ? undefined : "show"}
+                            viewport={{ amount: 0.2, once: true }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                        >
+                            <ContactForm />
+                        </motion.div>
                     </div>
                 </div>
 
@@ -60,7 +101,13 @@ export default function ContactSection() {
                         Our Offices
                     </h3>
 
-                    <div className="office-cards-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3">
+                    <motion.div
+                        className="office-cards-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3"
+                        variants={cardsContainerVariants}
+                        initial={reduceMotion ? false : "hidden"}
+                        whileInView={reduceMotion ? undefined : "show"}
+                        viewport={{ amount: 0.2, once: true }}
+                    >
                         <OfficeCard
                             title="INDIA"
                             width={300}
@@ -97,7 +144,7 @@ Nepal - 44616`}
 2nd Floor, Dhanmondi, Dhaka.
 Contact: 01718570686, 01787493933`}
                         />
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
@@ -148,13 +195,14 @@ function ContactForm() {
 /* ================= OFFICE CARD ================= */
 function OfficeCard({ title, text, width = 300 }) {
     return (
-        <div
+        <motion.div
             className="office-card bg-white py-3 px-4 text-center "
             data-width={width}
             style={{
                 boxShadow: "0px 4px 16px 0px #0000001A",
                 "--office-card-width": `${width}px`,
             }}
+            variants={cardVariants}
         >
             <h4 className="font-medium md:text-[18px] text-[16px] mb-2">
                 {title}
@@ -162,6 +210,6 @@ function OfficeCard({ title, text, width = 300 }) {
             <p className="md:text-[16px] text-[14px] text-gray-600 leading-relaxed whitespace-pre-line">
                 {text}
             </p>
-        </div>
+        </motion.div>
     );
 }
