@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import MotionSection from "../motion/MotionSection";
+import useMotionSettings from "../motion/useMotionSettings";
 
 const blockVariants = {
     hidden: (direction) => ({
@@ -13,7 +14,7 @@ const blockVariants = {
 };
 
 export default function AboutSection() {
-    const reduceMotion = useReducedMotion();
+    const motionSettings = useMotionSettings();
 
     return (
         <MotionSection
@@ -28,9 +29,10 @@ export default function AboutSection() {
                         className="flex justify-center"
                         custom="left"
                         variants={blockVariants}
-                        initial={reduceMotion ? false : "hidden"}
-                        whileInView={reduceMotion ? undefined : "show"}
-                        viewport={{ amount: 0.2, once: false }}
+                        initial={motionSettings.initial}
+                        animate={motionSettings.animate}
+                        whileInView={motionSettings.whileInView}
+                        viewport={motionSettings.viewport}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                         <Image
@@ -47,9 +49,10 @@ export default function AboutSection() {
                         className="space-y-6 text-center"
                         custom="right"
                         variants={blockVariants}
-                        initial={reduceMotion ? false : "hidden"}
-                        whileInView={reduceMotion ? undefined : "show"}
-                        viewport={{ amount: 0.2, once: false }}
+                        initial={motionSettings.initial}
+                        animate={motionSettings.animate}
+                        whileInView={motionSettings.whileInView}
+                        viewport={motionSettings.viewport}
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                     >
                         <h1 className="md:text-[36px] font-semibold text-[28px]">

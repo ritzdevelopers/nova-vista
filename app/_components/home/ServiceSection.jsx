@@ -3,11 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import MotionSection from "../motion/MotionSection";
+import useMotionSettings from "../motion/useMotionSettings";
 
 export default function ServiceSection() {
-    const reduceMotion = useReducedMotion();
+    const motionSettings = useMotionSettings();
 
     const textVariants = {
         hidden: (direction) => ({
@@ -38,9 +39,10 @@ export default function ServiceSection() {
                             className="flex flex-col items-center text-center gap-4 max-w-xl"
                             custom="left"
                             variants={textVariants}
-                            initial={reduceMotion ? false : "hidden"}
-                            whileInView={reduceMotion ? undefined : "show"}
-                            viewport={{ amount: 0.2, once: false }}
+                            initial={motionSettings.initial}
+                            animate={motionSettings.animate}
+                            whileInView={motionSettings.whileInView}
+                            viewport={motionSettings.viewport}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                         >
                             <h2 className="md:text-[36px] text-[28px] font-semibold">
@@ -94,9 +96,10 @@ export default function ServiceSection() {
                                 className="absolute top-8 right-6 md:right-10 flex flex-col items-end text-right max-w-md"
                                 custom="right"
                                 variants={textVariants}
-                                initial={reduceMotion ? false : "hidden"}
-                                whileInView={reduceMotion ? undefined : "show"}
-                                viewport={{ amount: 0.2, once: false }}
+                                initial={motionSettings.initial}
+                                animate={motionSettings.animate}
+                                whileInView={motionSettings.whileInView}
+                                viewport={motionSettings.viewport}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
                             >
                                 <h2 className="text-white font-semibold text-center md:text-[24px] text-[18px] mb-4 leading-tight shadow-sm">
@@ -122,9 +125,10 @@ export default function ServiceSection() {
                                 className="bg-[#187ba1] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-shadow w-full"
                                 custom="left"
                                 variants={textVariants}
-                                initial={reduceMotion ? false : "hidden"}
-                                whileInView={reduceMotion ? undefined : "show"}
-                                viewport={{ amount: 0.2, once: false }}
+                                initial={motionSettings.initial}
+                                animate={motionSettings.animate}
+                                whileInView={motionSettings.whileInView}
+                                viewport={motionSettings.viewport}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
                             >
                                 <h3 className="md:text-[24px] text-[18px] font-semibold mb-6">
@@ -143,9 +147,10 @@ export default function ServiceSection() {
                                 className="bg-[#187ba1] text-white rounded-xl p-6 flex flex-col justify-center items-center text-center shadow-lg hover:shadow-xl transition-shadow w-full"
                                 custom="right"
                                 variants={textVariants}
-                                initial={reduceMotion ? false : "hidden"}
-                                whileInView={reduceMotion ? undefined : "show"}
-                                viewport={{ amount: 0.2, once: false }}
+                                initial={motionSettings.initial}
+                                animate={motionSettings.animate}
+                                whileInView={motionSettings.whileInView}
+                                viewport={motionSettings.viewport}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
                             >
                                 <h3 className="md:text-[24px] text-[18px] font-semibold mb-3 leading-tight">
@@ -186,9 +191,10 @@ export default function ServiceSection() {
                   text-white px-4 sm:px-6 py-5"
                                     custom="left"
                                     variants={textVariants}
-                                    initial={reduceMotion ? false : "hidden"}
-                                    whileInView={reduceMotion ? undefined : "show"}
-                                    viewport={{ amount: 0.2, once: false }}
+                                    initial={motionSettings.initial}
+                                    animate={motionSettings.animate}
+                                    whileInView={motionSettings.whileInView}
+                                    viewport={motionSettings.viewport}
                                     transition={{ duration: 0.6, ease: "easeOut" }}
                                 >
                                     Establishment of
@@ -220,9 +226,10 @@ export default function ServiceSection() {
                   text-white px-4 sm:px-6 py-5 mb-2"
                                     custom="right"
                                     variants={textVariants}
-                                    initial={reduceMotion ? false : "hidden"}
-                                    whileInView={reduceMotion ? undefined : "show"}
-                                    viewport={{ amount: 0.2, once: false }}
+                                    initial={motionSettings.initial}
+                                    animate={motionSettings.animate}
+                                    whileInView={motionSettings.whileInView}
+                                    viewport={motionSettings.viewport}
                                     transition={{ duration: 0.6, ease: "easeOut" }}
                                 >
                                     Twinning, Exchange and dual certification

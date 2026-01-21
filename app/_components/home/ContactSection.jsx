@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import MotionSection from "../motion/MotionSection";
+import useMotionSettings from "../motion/useMotionSettings";
 
 export default function ContactSection() {
     const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || '';
-    const reduceMotion = useReducedMotion();
+    const motionSettings = useMotionSettings();
 
     const blockVariants = {
         hidden: (direction) => ({
@@ -41,9 +42,10 @@ export default function ContactSection() {
                         className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-40px]"
                         custom="right"
                         variants={blockVariants}
-                        initial={reduceMotion ? false : "hidden"}
-                        whileInView={reduceMotion ? undefined : "show"}
-                        viewport={{ amount: 0.2, once: false }}
+                        initial={motionSettings.initial}
+                        animate={motionSettings.animate}
+                        whileInView={motionSettings.whileInView}
+                        viewport={motionSettings.viewport}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                         <ContactForm script_url={script_url} />
@@ -56,9 +58,10 @@ export default function ContactSection() {
                         className="w-full flex justify-center items-center"
                         custom="left"
                         variants={blockVariants}
-                        initial={reduceMotion ? false : "hidden"}
-                        whileInView={reduceMotion ? undefined : "show"}
-                        viewport={{ amount: 0.2, once: false }}
+                        initial={motionSettings.initial}
+                        animate={motionSettings.animate}
+                        whileInView={motionSettings.whileInView}
+                        viewport={motionSettings.viewport}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                         <ContactForm script_url={script_url} />
@@ -232,7 +235,7 @@ function ContactForm({ script_url }) {
 
 /* ================= OFFICE CARD ================= */
 function OfficeCard({ title, text, width = 300, index = 0 }) {
-    const reduceMotion = useReducedMotion();
+    const motionSettings = useMotionSettings();
 
     const itemVariants = {
         hidden: (direction) => ({
@@ -248,9 +251,10 @@ function OfficeCard({ title, text, width = 300, index = 0 }) {
             style={{ width: `${width}px` }}
             custom={index % 2 === 0 ? "left" : "right"}
             variants={itemVariants}
-            initial={reduceMotion ? false : "hidden"}
-            whileInView={reduceMotion ? undefined : "show"}
-            viewport={{ amount: 0.2, once: false }}
+            initial={motionSettings.initial}
+            animate={motionSettings.animate}
+            whileInView={motionSettings.whileInView}
+            viewport={motionSettings.viewport}
             transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}
         >
             <h4 className="font-medium md:text-[18px] text-[16px] mb-2">

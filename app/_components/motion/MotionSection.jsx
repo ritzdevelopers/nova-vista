@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import useMotionSettings from "./useMotionSettings";
 
 const variants = {
     hidden: { opacity: 0, y: 24 },
@@ -9,28 +9,15 @@ const variants = {
 };
 
 export default function MotionSection({ children, className, ...props }) {
-    const reduceMotion = useReducedMotion();
-    const [canAnimate, setCanAnimate] = useState(false);
-
-    useEffect(() => {
-        if (reduceMotion) {
-            setCanAnimate(false);
-            return;
-        }
-
-        if (typeof window !== "undefined" && "IntersectionObserver" in window) {
-            setCanAnimate(true);
-        } else {
-            setCanAnimate(false);
-        }
-    }, [reduceMotion]);
+    const motionSettings = useMotionSettings();
 
     return (
         <motion.section
             className={className}
-            initial={false}
-            whileInView={canAnimate ? "show" : undefined}
-            viewport={{ amount: 0.2, once: false }}
+            initial={motionSettings.initial}
+            animate={motionSettings.animate}
+            whileInView={motionSettings.whileInView}
+            viewport={motionSettings.viewport}
             variants={variants}
             transition={{ duration: 0.6, ease: "easeOut" }}
             {...props}

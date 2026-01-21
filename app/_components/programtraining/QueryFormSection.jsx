@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from 'react'
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import MotionSection from '../motion/MotionSection'
+import useMotionSettings from "../motion/useMotionSettings";
 
 export default function QueryFormSection() {
   const [formData , setFormData] = useState({
@@ -20,7 +21,7 @@ export default function QueryFormSection() {
   const [message , setMessage] = useState('');
 
   const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || '';
-  const reduceMotion = useReducedMotion();
+  const motionSettings = useMotionSettings();
 
   const blockVariants = {
     hidden: (direction) => ({
@@ -81,9 +82,10 @@ export default function QueryFormSection() {
             className="bg-[#0B6E99] text-white p-6 sm:p-8"
             custom="left"
             variants={blockVariants}
-            initial={reduceMotion ? false : "hidden"}
-            whileInView={reduceMotion ? undefined : "show"}
-            viewport={{ amount: 0.2, once: false }}
+            initial={motionSettings.initial}
+            animate={motionSettings.animate}
+            whileInView={motionSettings.whileInView}
+            viewport={motionSettings.viewport}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <p className="text-sm tracking-wide mb-2">Have A Query?</p>
@@ -156,9 +158,10 @@ export default function QueryFormSection() {
             className="flex flex-col items-center text-center lg:items-start lg:text-left"
             custom="right"
             variants={blockVariants}
-            initial={reduceMotion ? false : "hidden"}
-            whileInView={reduceMotion ? undefined : "show"}
-            viewport={{ amount: 0.2, once: false }}
+            initial={motionSettings.initial}
+            animate={motionSettings.animate}
+            whileInView={motionSettings.whileInView}
+            viewport={motionSettings.viewport}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           >
             <h4
