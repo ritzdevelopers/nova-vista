@@ -5,16 +5,16 @@ import { motion, useReducedMotion } from "framer-motion";
 import MotionSection from '../motion/MotionSection'
 
 export default function QueryFormSection() {
-  const [formData , setFormData] = useState({
-    name: '',
-    profession: '',
-    experience: '',
-    email: '',
-    mobile: '',
-    award: '',
-  })
+  const [formData, setFormData] = useState({
+    name: "",
+    profession: "",
+    experience: "",
+    email: "",
+    mobile: "",
+    award: "",
+  });
   
-  const [errors , setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
   const [loading , setLoading] = useState(false);
   const [message , setMessage] = useState('');
@@ -36,12 +36,30 @@ export default function QueryFormSection() {
   const mobileRegex = /^[6-9]\d{9}$/
 
   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value})
-
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   }
+
+  const validate = () => {
+    const newErrors = {};
+
+    if (!nameRegex.test(formData.name)) newErrors.name = "Enter valid name";
+    if (!formData.profession.trim()) newErrors.profession = "Enter profession";
+    if (!formData.experience.trim()) newErrors.experience = "Enter experience";
+    if (!emailRegex.test(formData.email)) newErrors.email = "Enter valid email";
+    if (!mobileRegex.test(formData.mobile)) newErrors.mobile = "Enter valid mobile";
+    if (!formData.award.trim()) newErrors.award = "Enter award preference";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    if (!validate()) return;
     setLoading(true);
     setMessage('');
     if (!script_url) {
@@ -95,40 +113,44 @@ export default function QueryFormSection() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Name of Applicant"
-                className="bg-white text-black px-4 py-3 rounded"
+                placeholder={errors.name ? errors.name : "Name of Applicant"}
+                className={`bg-white text-black px-4 py-3 rounded border ${errors.name ? "border-red-500 placeholder:text-red-500" : "border-transparent"}`}
               />
 
               <input
                 name="profession"
                 value={formData.profession}
                 onChange={handleChange}
-                placeholder="Profession"
-                className="bg-white text-black px-4 py-3 rounded"
+                placeholder={errors.profession ? errors.profession : "Profession"}
+                className={`bg-white text-black px-4 py-3 rounded border ${errors.profession ? "border-red-500 placeholder:text-red-500" : "border-transparent"}`}
               />
 
               <input
                 name="experience"
                 value={formData.experience}
                 onChange={handleChange}
-                placeholder="Experience & Expertise"
-                className="bg-white text-black px-4 py-3 rounded"
+                placeholder={
+                  errors.experience
+                    ? errors.experience
+                    : "Experience & Expertise"
+                }
+                className={`bg-white text-black px-4 py-3 rounded border ${errors.experience ? "border-red-500 placeholder:text-red-500" : "border-transparent"}`}
               />
 
               <input
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Email Address"
-                className="bg-white text-black px-4 py-3 rounded"
+                placeholder={errors.email ? errors.email : "Email Address"}
+                className={`bg-white text-black px-4 py-3 rounded border ${errors.email ? "border-red-500 placeholder:text-red-500" : "border-transparent"}`}
               />
 
               <input
                 name="mobile"
                 value={formData.mobile}
                 onChange={handleChange}
-                placeholder="Mobile No"
-                className="bg-white text-black px-4 py-3 rounded"
+                placeholder={errors.mobile ? errors.mobile : "Mobile No"}
+                className={`bg-white text-black px-4 py-3 rounded border ${errors.mobile ? "border-red-500 placeholder:text-red-500" : "border-transparent"}`}
               />
 
               <textarea
@@ -136,8 +158,12 @@ export default function QueryFormSection() {
                 value={formData.award}
                 onChange={handleChange}
                 rows="3"
-                placeholder="Name Of Award (three preferences)"
-                className="bg-white text-black px-4 py-3 rounded"
+                placeholder={
+                  errors.award
+                    ? errors.award
+                    : "Name Of Award (three preferences)"
+                }
+                className={`bg-white text-black px-4 py-3 rounded border ${errors.award ? "border-red-500 placeholder:text-red-500" : "border-transparent"}`}
               ></textarea>
 
               <button
