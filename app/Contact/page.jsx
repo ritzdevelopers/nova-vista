@@ -635,7 +635,7 @@ function OfficeCard({ title, text, width = 300, index = 0 }) {
             <p className="md:text-[16px] text-[14px] text-gray-600 leading-relaxed whitespace-pre-line">
                 {text}
             </p>
-        </div>
+        </motion.div>
 
     );
 }
