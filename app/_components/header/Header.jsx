@@ -24,6 +24,7 @@ export default function Header() {
             <TopHeader />
 
             <div className="sticky top-0 z-40 bg-white">
+                <TopHeader/>
                 {/* ===== MAIN HEADER ===== */}
                 <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 relative">
                     {/* Logo */}
