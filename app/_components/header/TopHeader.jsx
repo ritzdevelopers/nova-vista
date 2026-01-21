@@ -21,7 +21,7 @@ export default function TopHeader() {
                         <div className="flex items-center gap-2">
                             <Image src="/icons/location.svg" alt="location" width={16} height={16} />
                             <p className="text-[14px] text-gray-500">
-                                6th Floor, Nukles, Plot 29, Sector 142, Noida
+                                6th Floor, Nukleus, Plot 29, Sector 142, Noida
                             </p>
                         </div>
                     </div>
