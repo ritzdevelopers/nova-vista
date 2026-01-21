@@ -1,6 +1,52 @@
-import React from 'react'
+"use client";
+
+import React, { useState } from 'react'
 
 export default function QueryFormSection() {
+  const [formData , setFormData] = useState({
+    name: '',
+    profession: '',
+    experience: '',
+    email: '',
+    mobile: '',
+    award: '',
+  })
+  
+  
+  const [loading , setLoading] = useState(false);
+  const [message , setMessage] = useState('');
+
+  const script_url = 'https://script.google.com/macros/s/AKfycbz82h6yoCcClf05vO2E5rSrxjw1H4wWScpQpN7UVNonUg9kQ35-vU1C5ek6aUhaTsW3jA/exec'
+
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.name]: e.target.value})
+
+  }
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage('');
+    try {
+      await fetch(script_url,{
+        method: 'POST',
+        body: JSON.stringify(formData)
+      })
+      setMessage('Thank you for your submission! We will get back to you soon.');
+      setFormData({
+        name: '',
+        profession: '',
+        experience: '',
+        email: '',
+        mobile: '',
+        award: '',
+      })
+    } catch (error) {
+      setMessage('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  }
   return (
     <section className="w-full bg-white py-12 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -10,43 +56,65 @@ export default function QueryFormSection() {
             <h3 className="text-[28px] md:text-[36px] font-semibold mb-6">
               Submit Your Nomination
             </h3>
-            <form className="grid grid-cols-1 gap-4 text-[#00000099] font-light">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 text-[#00000099] font-light">
               <input
-                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Name of Applicant"
-                className="bg-white text-black px-4 py-3 rounded outline-none border border-[#E5E5E5]"
+                className="bg-white text-black px-4 py-3 rounded border"
               />
+
               <input
-                type="text"
+                name="profession"
+                value={formData.profession}
+                onChange={handleChange}
                 placeholder="Profession"
-                className="bg-white text-black px-4 py-3 rounded outline-none border border-[#E5E5E5]"
+                className="bg-white text-black px-4 py-3 rounded border"
               />
+
               <input
-                type="text"
+                name="experience"
+                value={formData.experience}
+                onChange={handleChange}
                 placeholder="Experience & Expertise"
-                className="bg-white text-black px-4 py-3 rounded outline-none border border-[#E5E5E5]"
+                className="bg-white text-black px-4 py-3 rounded border"
               />
+
               <input
-                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Email Address"
-                className="bg-white text-black px-4 py-3 rounded outline-none border border-[#E5E5E5]"
+                className="bg-white text-black px-4 py-3 rounded border"
               />
+
               <input
-                type="text"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
                 placeholder="Mobile No"
-                className="bg-white text-black px-4 py-3 rounded outline-none border border-[#E5E5E5]"
+                className="bg-white text-black px-4 py-3 rounded border"
               />
+
               <textarea
+                name="award"
+                value={formData.award}
+                onChange={handleChange}
                 rows="3"
-                placeholder="Name Of Award ( Please mention three preferences for nomination)"
-                className="bg-white text-black px-4 py-3 rounded outline-none border border-[#E5E5E5]"
+                placeholder="Name Of Award (three preferences)"
+                className="bg-white text-black px-4 py-3 rounded border"
               ></textarea>
+
               <button
                 type="submit"
-                className="bg-[#012A3C] text-white pt-[21px] pr-[14px] pb-[21px] pl-[14px] w-full sm:w-[180px] hover:bg-gray-800 transition font-medium"
+                disabled={loading}
+                className="bg-[#012A3C] text-white py-3 w-full sm:w-[180px]"
               >
-                Submit
+                {loading ? "Submitting..." : "Submit"}
               </button>
+
+              {message && <p className="text-green-300 text-sm">{message}</p>}
             </form>
           </div>
 
