@@ -79,9 +79,9 @@ export default function Contact() {
                     {/* Heading */}
                     <div className="max-w-7xl mx-auto">
                         {/* Logos Grid */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 pb-8 pt-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-8 pt-8">
                             {/* Card */}
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
                                 <Image
                                     src="/logos/arni.png"
                                     alt="ARN University"
@@ -91,7 +91,7 @@ export default function Contact() {
                                 />
                             </div>
 
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
                                 <Image
                                     src="/logos/integral.png"
                                     alt="Integral University"
@@ -101,7 +101,7 @@ export default function Contact() {
                                 />
                             </div>
 
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
                                 <Image
                                     src="/logos/nau.png"
                                     alt="NAU University"
@@ -111,7 +111,7 @@ export default function Contact() {
                                 />
                             </div>
 
-                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[200px]">
+                            <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
                                 <Image
                                     src="/logos/royalamericanuniversity.png"
                                     alt="Royal American University"
@@ -322,14 +322,15 @@ export default function Contact() {
                         </div>
 
                         {/* ================= OFFICES SECTION ================= */}
-                        <div className="mt-16 max-w-3xl ">
-                            <h3 className="md:text-[36px] text-[28px] font-semibold mb-6">
+                        <div className="mt-5 max-w-3xl">
+                            <h3 className="text-[28px] md:text-[36px] font-semibold mb-6 text-center lg:text-left">
                                 Our Offices
                             </h3>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:grid-cols-2 gap-6  ">
+                            <div className="flex flex-wrap gap-6">
                                 <OfficeCard
                                     title="INDIA"
+                                    width={300}
                                     text={`Nova Vista Education, 6th Floor,
 Nukleus, Plot 29, Sector 142,
 Noida, Uttar Pradesh`}
@@ -337,26 +338,28 @@ Noida, Uttar Pradesh`}
 
                                 <OfficeCard
                                     title="GERMANY"
+                                    width={300}
                                     text={`Truderinger Strasse 206,
 Munich, 81825`}
                                 />
 
                                 <OfficeCard
                                     title="USA"
+                                    width={300}
                                     text={`3314 Windridge Ave,
 Thousand Oaks, CA, 91362`}
                                 />
 
                                 <OfficeCard
                                     title="NEPAL"
+                                    width={300}
                                     text={`Baluwatar 4 Kathmandu,
 Nepal - 44616`}
                                 />
-                            </div>
 
-                            <div className="mt-6">
                                 <OfficeCard
                                     title="BANGLADESH"
+                                    width={615}
                                     text={`Shimanto Square Market, Shop No. 262,
 2nd Floor, Dhanmondi, Dhaka.
 Contact: 01718570686, 01787493933`}
@@ -485,12 +488,16 @@ function ContactForm({ script_url }) {
 }
 
 /* ================= OFFICE CARD ================= */
-function OfficeCard({ title, text }) {
+function OfficeCard({ title, text, width = 300 }) {
     return (
-        <div className="bg-white py-6 px-4 rounded-lg shadow text-center">
-            <h4 className="font-semibold md:text-[18px] text-[16px]mb-2">
+        <div
+            className="bg-white py-6 px-4 rounded-lg shadow text-center"
+            style={{ width: `${width}px` }}
+        >
+            <h4 className="font-medium md:text-[18px] text-[16px] mb-2">
                 {title}
             </h4>
+
             <p className="md:text-[16px] text-[14px] text-gray-600 leading-relaxed whitespace-pre-line">
                 {text}
             </p>
