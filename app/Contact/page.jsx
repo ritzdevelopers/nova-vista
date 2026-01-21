@@ -8,7 +8,7 @@ import Footer from "../_components/footer/Footer";
 import MotionSection from "../_components/motion/MotionSection";
 
 export default function Contact() {
-    const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || '';
+    const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || "";
     const reduceMotion = useReducedMotion();
 
     const blockVariants = {
@@ -163,7 +163,11 @@ export default function Contact() {
                                 initial={reduceMotion ? false : "hidden"}
                                 whileInView={reduceMotion ? undefined : "show"}
                                 viewport={{ amount: 0.2, once: false }}
-                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                    delay: 0.05,
+                                }}
                             >
                                 <Image
                                     src="/logos/arni.png"
@@ -181,7 +185,11 @@ export default function Contact() {
                                 initial={reduceMotion ? false : "hidden"}
                                 whileInView={reduceMotion ? undefined : "show"}
                                 viewport={{ amount: 0.2, once: false }}
-                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                    delay: 0.1,
+                                }}
                             >
                                 <Image
                                     src="/logos/integral.png"
@@ -199,7 +207,11 @@ export default function Contact() {
                                 initial={reduceMotion ? false : "hidden"}
                                 whileInView={reduceMotion ? undefined : "show"}
                                 viewport={{ amount: 0.2, once: false }}
-                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                    delay: 0.15,
+                                }}
                             >
                                 <Image
                                     src="/logos/nau.png"
@@ -217,7 +229,11 @@ export default function Contact() {
                                 initial={reduceMotion ? false : "hidden"}
                                 whileInView={reduceMotion ? undefined : "show"}
                                 viewport={{ amount: 0.2, once: false }}
-                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                    delay: 0.2,
+                                }}
                             >
                                 <Image
                                     src="/logos/royalamericanuniversity.png"
@@ -403,7 +419,11 @@ export default function Contact() {
                                 initial={reduceMotion ? false : "hidden"}
                                 whileInView={reduceMotion ? undefined : "show"}
                                 viewport={{ amount: 0.2, once: false }}
-                                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                                transition={{
+                                    duration: 0.6,
+                                    ease: "easeOut",
+                                    delay: 0.1,
+                                }}
                             >
                                 <img
                                     src="/static/scanner.png"
@@ -664,7 +684,7 @@ function ContactForm({ script_url }) {
     };
     return (
         <div
-            className="bg-white w-full max-w-[600px] p-8 rounded-xl shadow-2xl lg:mt-[700px] h-[600px] py-10"
+            className="bg-white w-full max-w-[600px] p-8 rounded-xl shadow-2xl lg:mt-[700px] h-[550px] lg:h-[600px] py-10"
             style={{ boxShadow: "0px 4px 16px 0px #0000001A" }}
         >
             <h2 className="md:text-[36px] text-[28px] font-semibold mb-6 text-center">
@@ -706,12 +726,13 @@ function ContactForm({ script_url }) {
                 ></textarea>
 
                 <button
-                    type="submit"
-                    disabled={loading}
-                    className="text-white py-2 w-[200px] bg-[#062b3b] hover:bg-gray-800 transition"
-                >
-                    {loading ? "Submitting..." : "Submit"}
-                </button>
+    type="submit"
+    disabled={loading}
+    className="block mx-auto text-white py-2 w-[200px] bg-[#062b3b] hover:bg-gray-800 transition"
+>
+    {loading ? "Submitting..." : "Submit"}
+</button>
+
 
                 {message && (
                     <p
@@ -759,6 +780,5 @@ function OfficeCard({ title, text, width = 300, index = 0 }) {
                 {text}
             </p>
         </motion.div>
-
     );
 }

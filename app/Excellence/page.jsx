@@ -33,15 +33,14 @@ export default function Excellence() {
                             </div>
 
                             <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
-    <Image
-        src="/logos/integral.png"
-        alt="Integral University"
-        width={200}
-        height={80}
-        className="object-contain w-[150px] h-[150px] sm:w-[150px] sm:h-auto"
-    />
-</div>
-
+                                <Image
+                                    src="/logos/integral.png"
+                                    alt="Integral University"
+                                    width={200}
+                                    height={80}
+                                    className="object-contain w-[150px] h-[150px] sm:w-[150px] sm:h-auto"
+                                />
+                            </div>
 
                             <div className="flex items-center justify-center bg-white shadow-md rounded-lg p-6 h-[250px]">
                                 <Image
@@ -68,7 +67,7 @@ export default function Excellence() {
                 <img
                     src="/static/award.png"
                     alt="Awards"
-                    className="w-[860px] h-[484px] mx-auto object-contain pt-10 "
+                    className="w-[860px] h-[484px] mx-auto object-contain mt-10 "
                 />
                 <MotionSection className="w-full bg-white py-12">
                     <div className="max-w-7xl mx-auto px-4">
