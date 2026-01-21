@@ -31,20 +31,19 @@ export default function ServiceSection() {
                             <p className="md:text-[26px] text-[18px] leading-8 font-semibold">
                                 <span>(Certificate / Diploma / Degree)</span>
                                 <br />
-                                <span className="mt-3 inline-block">
+                                <span className="mt-3 inline-block text-center">
                                     Certified By The National And International
-                                    <br />
                                     Universities (Online / Offline)
                                 </span>
                             </p>
 
-                            <p className="mt-4 uppercase tracking-wide text-xs sm:text-sm md:text-base opacity-80 underline">
+                            <p className="mt-4 uppercase tracking-wide text-xs text-[14px] md:text-[18px] opacity-80 underline">
                                 Admission / Registration
                             </p>
 
                             <Link
                                 href="/Contact"
-                                className="mt-4 inline-flex justify-center bg-white md:text-[16px] text-[12px] text-[#012A3C] md:px-8 md:py-3 py-2 px-4 font-semibold hover:bg-gray-100 transition  min-w-[160px]"
+                                className="mt-4 inline-flex justify-center bg-white md:text-[16px] text-[12px] text-[#012A3C] md:px-8 md:py-3 py-2 px-4 font-medium hover:bg-gray-100 transition  min-w-[160px]"
                             >
                                 Apply Now
                             </Link>
@@ -80,7 +79,7 @@ export default function ServiceSection() {
                                 <div
                                     className="bg-white text-black py-3 px-5 shadow-lg 
                 text-[14px] md:text-[16px] font-medium leading-snug text-center
-                w-[257px] md:w-auto mx-auto"
+                w-[265px] md:w-auto mx-auto"
                                 >
                                     Non-Academic Awards for{" "}
                                     <br className="hidden md:block" /> achievers
@@ -112,7 +111,7 @@ export default function ServiceSection() {
 
                                 <Link
                                     href={"/ProgramTraining"}
-                                    className="bg-white text-[#012A3C] px-8 py-3 text-[14px] md:text-[16px] font-semibold hover:bg-gray-50 transition shadow-sm"
+                                    className="bg-white text-[#012A3C] px-8 py-3 text-[14px] md:text-[16px] font-medium hover:bg-gray-50 transition shadow-sm"
                                 >
                                     Click Here
                                 </Link>
