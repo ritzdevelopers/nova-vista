@@ -8,7 +8,7 @@ export default function TopHeader() {
     return (
         <>
             <div className="border-b border-[#0000001A]">
-                <div className="hidden md:block max-w-7xl mx-auto  px-4">
+                <div className="hidden md:block max-w-7xl mx-auto  px-6">
                     <div className="flex justify-between items-center py-2">
                         {/* Left side */}
                         <div className="flex gap-6">

@@ -35,19 +35,20 @@ export default function Footer() {
                         </p>
 
                         <div className="flex gap-3 justify-center sm:justify-start md:justify-center lg:justify-start">
-                            <a className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
+                            <a href="https://www.linkedin.com/company/108173613/admin/dashboard/" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Linkedin size={16} />
                             </a>
-                            <a className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
+                            <a href="https://www.facebook.com/profile.php?id=61579421194394"className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Facebook size={16} />
                             </a>
-                            <a className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
+                            <a href="https://www.instagram.com/novavistaeducation
+" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Instagram size={16} />
                             </a>
-                            <a className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
+                            <a href="https://x.com/Novavistaedu" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Twitter size={16} />
                             </a>
-                            <a className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
+                            <a href="https://www.youtube.com/@NovaVistaEducation" className="bg-white text-[#062b3b] p-2 rounded-md hover:scale-105 transition">
                                 <Youtube size={16} />
                             </a>
                         </div>

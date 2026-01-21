@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function ContactModal({ open, setOpen }) {
   const [form, setForm] = useState({
@@ -15,8 +16,34 @@ export default function ContactModal({ open, setOpen }) {
   const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || "";
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "auto";
-    return () => (document.body.style.overflow = "auto");
+    if (open) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      
+      // Prevent background scrolling
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      
+      // Prevent touch scrolling on mobile
+      const preventTouchMove = (e) => {
+        if (!e.target.closest('.modal-content')) {
+          e.preventDefault();
+        }
+      };
+      document.addEventListener('touchmove', preventTouchMove, { passive: false });
+      
+      return () => {
+        // Restore scroll position
+        document.body.style.overflow = "auto";
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        window.scrollTo(0, scrollY);
+        document.removeEventListener('touchmove', preventTouchMove);
+      };
+    }
   }, [open]);
 
   const validate = () => {
@@ -83,7 +110,7 @@ export default function ContactModal({ open, setOpen }) {
       ${open ? "opacity-100 visible" : "opacity-0 invisible"}`}
     >
     <div
-  className={`bg-white 
+  className={`modal-content bg-white 
   w-[310px] sm:w-full max-w-md 
   rounded-lg p-6 relative
   transform transition-all duration-300
@@ -97,9 +124,19 @@ export default function ContactModal({ open, setOpen }) {
           ✕
         </button>
 
-        <h2 className="md:text-[36px] text-[28px] font-semibold mb-6 text-center">
-          Contact Us
-        </h2>
+        <div className="flex flex-col items-start gap-3 mb-6">
+          {/* <Image
+            src="/logos/nova-vista-logo.svg"
+            alt="logo"
+            width={220}
+            height={56}
+            priority
+            className="w-auto h-[28px] md:h-[36px]"
+          /> */}
+          <h2 className="md:text-[36px] text-[28px] font-semibold">
+            Contact Us
+          </h2>
+        </div>
 
         <form onSubmit={handleSubmit} className="space-y-7">
           <input
