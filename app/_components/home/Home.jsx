@@ -6,7 +6,7 @@ import ContactSection from "./ContactSection";
 import Footer from "../footer/Footer";
 export default function Home() {
     return (
-        <div className="relative overflow-x-hidden">
+        <div>
             <HeroSection />
             <AboutSection />
             <ServiceSection />
