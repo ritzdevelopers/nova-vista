@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import TopHeader from "./TopHeader";
 import Link from "next/link";
@@ -9,6 +9,26 @@ import ContactModal from "./ContactModal";
 export default function Header() {
     const [open, setOpen] = useState(false);
     const [openModal, setOpenMModal] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+            setIsScrolled(scrollPosition > 50);
+        };
+
+        // Initial check
+        handleScroll();
+
+        // Listen to both scroll events (for Lenis compatibility)
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        document.addEventListener("scroll", handleScroll, { passive: true });
+        
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            document.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     const scrollToSection = (id) => {
         setOpen(false);
@@ -21,9 +41,17 @@ export default function Header() {
     return (
         <>
             {/* Top Header */}
-            <TopHeader />
+            <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isScrolled 
+                        ? "-translate-y-full opacity-0 pointer-events-none" 
+                        : "translate-y-0 opacity-100 pointer-events-auto"
+                }`}
+            >
+                <TopHeader />
+            </div>
 
-            <div className=" top-0 left-0 right-0 w-full z-40 bg-white">
+            <div className="sticky top-0 left-0 right-0 w-full z-50 bg-white ">
                 {/* ===== MAIN HEADER ===== */}
                 <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 relative">
                     {/* Logo */}
