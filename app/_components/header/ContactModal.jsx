@@ -16,6 +16,8 @@ export default function ContactModal({ open, setOpen }) {
   const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || "";
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    
     if (open) {
       // Save current scroll position
       const scrollY = window.scrollY;
@@ -36,7 +38,7 @@ export default function ContactModal({ open, setOpen }) {
       
       return () => {
         // Restore scroll position
-        document.body.style.overflow = "auto";
+        document.body.style.overflow = "";
         document.body.style.position = "";
         document.body.style.top = "";
         document.body.style.width = "";

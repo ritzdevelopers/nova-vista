@@ -5,8 +5,10 @@ export default function Home() {
     <div>
       {/* Header component  */}
       <Header />
-      {/* Home component  */}
-      <HomePage />
+      {/* Home component - padding for fixed header */}
+      <div className="pt-[72px] md:pt-[121px]">
+        <HomePage />
+      </div>
     </div>
   );
 }

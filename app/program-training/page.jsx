@@ -78,7 +78,8 @@ export default function ProgramTraining() {
     return (
         <div className="bg-white ">
             <Header />
-            <MotionSection className="w-full bg-[#fafafa] py-12 sm:py-16">
+            <div className="pt-[72px] md:pt-[121px]">
+                <MotionSection className="w-full bg-[#fafafa] py-12 sm:py-16">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6">
                     <motion.h2
                         className="text-center text-4xl sm:text-4xl font-semibold tracking-wide text-[#111111]"
@@ -158,10 +159,11 @@ export default function ProgramTraining() {
                 </div>
             </MotionSection>
 
-            <ContactBanner />
-            <TrustedSection />
-            <QueryFormSection />
-            <Footer />
+                <ContactBanner />
+                <TrustedSection />
+                <QueryFormSection />
+                <Footer />
+            </div>
         </div>
     );
 }

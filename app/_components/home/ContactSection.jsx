@@ -26,7 +26,6 @@ const cardVariants = {
 
 export default function ContactSection() {
     const reduceMotion = useReducedMotion();
-
     return (
         <section
             id="contact"
@@ -47,18 +46,18 @@ export default function ContactSection() {
                     <div className="hidden lg:block absolute inset-0 bg-black/20"></div>
 
                     {/* Form Overlay – Desktop */}
-                <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-50px]">
-                    <motion.div
-                        className="w-[500px] lg:w-[380px] xl:w-[600px]"
-                        variants={formVariants}
-                        initial={reduceMotion ? false : "hidden"}
-                        whileInView={reduceMotion ? undefined : "show"}
-                        viewport={{ amount: 0.2, once: true }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                    >
-                        <ContactForm />
-                    </motion.div>
-                </div>
+                    <div className="hidden lg:flex absolute inset-0 items-center justify-end px-6 mr-[-50px]">
+                        <motion.div
+                            className="w-[500px] lg:w-[380px] xl:w-[600px]"
+                            variants={formVariants}
+                            initial={reduceMotion ? false : "hidden"}
+                            whileInView={reduceMotion ? undefined : "show"}
+                            viewport={{ amount: 0.2, once: true }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                        >
+                            <ContactForm />
+                        </motion.div>
+                    </div>
                 </div>
 
                 {/* ================= FORM – MOBILE ================= */}
@@ -153,6 +152,7 @@ Contact: 01718570686, 01787493933`}
 
 /* ================= CONTACT FORM ================= */
 function ContactForm() {
+    const script_url = process.env.NEXT_PUBLIC_SCRIPT_URL || "";
     const [values, setValues] = useState({
         name: "",
         email: "",
@@ -161,6 +161,9 @@ function ContactForm() {
     });
 
     const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState("");
+    const [messageError, setMessageError] = useState(false);
 
     const regex = {
         name: /^[a-zA-Z ]{2,40}$/,
@@ -172,17 +175,29 @@ function ContactForm() {
     const validate = () => {
         const newErrors = {};
 
-        if (!regex.name.test(values.name))
-            newErrors.name = "Enter valid name";
+        if (!values.name.trim()) {
+            newErrors.name = "Name is required";
+        } else if (!regex.name.test(values.name)) {
+            newErrors.name = "Enter valid name (2-40 characters, letters only)";
+        }
 
-        if (!regex.email.test(values.email))
-            newErrors.email = "Enter valid email";
+        if (!values.email.trim()) {
+            newErrors.email = "Email is required";
+        } else if (!regex.email.test(values.email)) {
+            newErrors.email = "Enter valid email address";
+        }
 
-        if (!regex.mobile.test(values.mobile))
-            newErrors.mobile = "Enter valid Phone Number";
+        if (!values.mobile.trim()) {
+            newErrors.mobile = "Phone Number is required";
+        } else if (!regex.mobile.test(values.mobile)) {
+            newErrors.mobile = "Enter valid 10 digit phone number";
+        }
 
-        if (!regex.message.test(values.message))
-            newErrors.message = "Enter valid Message";
+        if (!values.message.trim()) {
+            newErrors.message = "Message is required";
+        } else if (!regex.message.test(values.message)) {
+            newErrors.message = "Message cannot be empty";
+        }
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -196,9 +211,50 @@ function ContactForm() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        validate();
+        setMessage("");
+        setMessageError(false);
+        
+        if (!validate()) {
+            setMessage("Please fill all fields correctly.");
+            setMessageError(true);
+            return;
+        }
+
+        if (!script_url) {
+            setMessage("Form is not configured. Please try again later.");
+            setMessageError(true);
+            return;
+        }
+
+        setLoading(true);
+
+        const payload = {
+            ...values,
+            formType: "Contact Form"
+        };
+
+        try {
+            await fetch(script_url, {
+                method: "POST",
+                body: JSON.stringify(payload),
+            });
+
+            setMessage("Thank you for your submission! We will get back to you soon.");
+            setValues({
+                name: "",
+                email: "",
+                mobile: "",
+                message: "",
+            });
+            setErrors({});
+        } catch (error) {
+            setMessage("Something went wrong. Please try again.");
+            setMessageError(true);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -246,10 +302,23 @@ function ContactForm() {
 
                 <button
                     type="submit"
-                    className="text-white py-2 w-[200px] bg-[#062b3b] transition cursor-pointer hover:bg-[#ffff] hover:text-[#000] hover:border-2 hover:border-[#062b3b] "
+                    disabled={loading}
+                    className={`text-white py-2 w-[200px] bg-[#062b3b] transition ${
+                        loading 
+                            ? "opacity-50 cursor-not-allowed" 
+                            : "cursor-pointer hover:bg-[#ffff] hover:text-[#000] hover:border-2 hover:border-[#062b3b]"
+                    }`}
                 >
-                    Submit
+                    {loading ? "Submitting..." : "Submit"}
                 </button>
+
+                {message && (
+                    <p
+                        className={`${messageError ? "text-red-600" : "text-green-600"} text-sm text-center mt-2`}
+                    >
+                        {message}
+                    </p>
+                )}
             </form>
         </div>
     );

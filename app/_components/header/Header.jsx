@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import TopHeader from "./TopHeader";
 import Link from "next/link";
@@ -9,6 +9,21 @@ import ContactModal from "./ContactModal";
 export default function Header() {
     const [open, setOpen] = useState(false);
     const [openModal, setOpenMModal] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+
+        // Check initial scroll position
+        handleScroll();
+        
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const scrollToSection = (id) => {
         setOpen(false);
@@ -23,7 +38,11 @@ export default function Header() {
             {/* Top Header */}
             <TopHeader />
 
-            <div className=" top-0 left-0 right-0 w-full z-40 bg-white">
+            <div 
+                className={`fixed left-0 right-0 w-full z-40 bg-white shadow-sm transition-all duration-300 ${
+                    isScrolled ? "top-0" : "md:top-[49px] top-0"
+                }`}
+            >
                 {/* ===== MAIN HEADER ===== */}
                 <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 relative">
                     {/* Logo */}
@@ -46,7 +65,7 @@ export default function Header() {
                             <Link href="/">
                                 <li className="cursor-pointer ">Home</li>
                             </Link>
-                            <Link href="/Excellence">
+                            <Link href="/excellence">
                                 <li className="cursor-pointer">About Us</li>
                             </Link>
                             <Link href="/program-training">
@@ -56,7 +75,7 @@ export default function Header() {
                                 <li className="cursor-pointer">Advisory Board</li>
                             </Link>
 
-                            <Link href="/Contact">
+                            <Link href="/contact">
                                 <li className="cursor-pointer">Contact</li>
                             </Link>
                         </ul>
@@ -129,7 +148,7 @@ export default function Header() {
                             </li>
                         </Link>
                         <Link
-                            href="/Excellence"
+                            href="/excellence"
                             onClick={() => setOpen(false)}
                             className=" text-[16px]"
                         >
@@ -145,7 +164,7 @@ export default function Header() {
                         <Link href="/#advisory" onClick={() => setOpen(false)}>
                             <li className=" text-[16px]">Advisory Board</li>
                         </Link>
-                        <Link href={"/Contact"}>
+                        <Link href={"/contact"}>
                             <li className=" text-[16px]">Contact</li>
                         </Link>
                     </ul>

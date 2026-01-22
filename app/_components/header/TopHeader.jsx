@@ -1,14 +1,37 @@
+"use client";
+
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactModal from "./ContactModal";
 
 export default function TopHeader() {
     const [open, setOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+
+        // Check initial scroll position
+        handleScroll();
+        
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <>
-            <div className="border-b border-[#0000001A]">
-                <div className="hidden md:block max-w-7xl mx-auto  px-6">
+            <div
+                className={`fixed top-0 left-0 right-0 w-full bg-white border-b border-[#0000001A] z-50 transition-all duration-300 ease-in-out ${
+                    isScrolled 
+                        ? "-translate-y-full opacity-0 pointer-events-none" 
+                        : "translate-y-0 opacity-100"
+                } hidden md:block`}
+            >
+                <div className="max-w-7xl mx-auto px-6">
                     <div className="flex justify-between items-center py-2">
                         {/* Left side */}
                         <div className="flex gap-6">

@@ -43,7 +43,9 @@ export default function Advisory() {
 
                 <motion.div
                     className="grid 
-             grid-cols-[repeat(auto-fit,minmax(100px,1fr))] 
+             grid-cols-[repeat(auto-fit,minmax(100px,1fr))]
+             md:grid-cols-[repeat(auto-fit,minmax(150px,1fr))]
+             lg:grid-cols-[repeat(auto-fit,minmax(100px,1fr))]
              gap-4 sm:gap-5 lg:gap-6 
              justify-items-center 
              max-w-7xl 
