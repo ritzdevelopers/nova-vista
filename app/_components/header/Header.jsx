@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import TopHeader from "./TopHeader";
 import Link from "next/link";
@@ -9,6 +9,26 @@ import ContactModal from "./ContactModal";
 export default function Header() {
     const [open, setOpen] = useState(false);
     const [openModal, setOpenMModal] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        // Set mounted to true after component mounts (client-side only)
+        setMounted(true);
+        
+        // Check initial scroll position
+        const checkScroll = () => {
+            const scrollPosition = window.scrollY;
+            setIsScrolled(scrollPosition > 50);
+        };
+        
+        // Set initial scroll state
+        checkScroll();
+
+        // Add scroll listener
+        window.addEventListener("scroll", checkScroll);
+        return () => window.removeEventListener("scroll", checkScroll);
+    }, []);
 
     const scrollToSection = (id) => {
         setOpen(false);
@@ -20,10 +40,22 @@ export default function Header() {
 
     return (
         <>
-            {/* Top Header */}
-            <TopHeader />
+            <div className="fixed top-0 left-0 right-0 z-40">
+                {/* Top Header - Hidden on scroll and mobile */}
+                <div
+                    className={`${
+                        mounted && isScrolled 
+                            ? "opacity-0 h-0 overflow-hidden pointer-events-none" 
+                            : "opacity-100"
+                    }`}
+                >
+                    <TopHeader />
+                </div>
 
-            <div className=" top-0 left-0 right-0 w-full z-40 bg-white">
+                {/* Main Header - Always visible and fixed */}
+                <div className={`w-full bg-white transition-all duration-300 ${
+                    mounted && isScrolled ? "shadow-md" : ""
+                }`}>
                 {/* ===== MAIN HEADER ===== */}
                 <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 relative">
                     {/* Logo */}
@@ -82,6 +114,7 @@ export default function Header() {
                         {open ? "✕" : "☰"}
                     </button>
                 </div>
+                </div>
 
                 {/* Overlay */}
                 <div
@@ -92,7 +125,7 @@ export default function Header() {
 
                 {/* ===== MOBILE DRAWER ===== */}
                 <div
-                    className={`fixed top-0 right-0 h-full w-[85%] max-w-[360px] bg-white z-50
+                    className={`fixed top-0 right-0 h-full w-[85%] max-w-[360px] bg-white z-[60]
                     transform transition-transform duration-300
                     ${open ? "translate-x-0" : "translate-x-full"}`}
                 >
@@ -202,6 +235,16 @@ export default function Header() {
                     </div>
                 </div>
             </div>
+            
+            {/* Spacer to prevent content from going under fixed header */}
+            <div 
+                className={`transition-all duration-300 ${
+                    mounted && isScrolled 
+                        ? "h-[73px]" // Main header only when scrolled
+                        : "h-[73px] md:h-[114px]" // Main header on mobile, both headers on desktop
+                }`}
+            />
+            
             <ContactModal open={openModal} setOpen={setOpenMModal} />
         </>
     );
