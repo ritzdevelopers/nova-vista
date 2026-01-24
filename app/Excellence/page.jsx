@@ -10,7 +10,8 @@ export default function Excellence() {
     return (
         <>
             <Header />
-            <MotionSection className="w-full bg-white">
+            <div className="pt-[72px] md:pt-[121px]">
+                <MotionSection className="w-full bg-white">
                 <div className="max-w-7xl mx-auto px-4 flex justify-center items-center ">
                     <h2 className="text-center text-[22px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold tracking-wide leading-tight text-[#111111] my-8 w-full">
                         Certificate, Diploma, Degree Programs From
@@ -384,9 +385,10 @@ export default function Excellence() {
                     </div>
                 </MotionSection>
             </MotionSection>
-            <JuryMember />
-            <QueryFormSection />
-            <Footer />
+                <JuryMember />
+                <QueryFormSection />
+                <Footer />
+            </div>
         </>
     );
 }

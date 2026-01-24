@@ -134,7 +134,8 @@ export default function Contact() {
     return (
         <>
             <Header />
-            <MotionSection className="w-full bg-white py-12">
+            <div className="pt-[72px] md:pt-[121px]">
+                <MotionSection className="w-full bg-white py-12">
                 <motion.h2
                     className="text-center text-[18px]  md:text-[26px] font-semibold mb-10"
                     custom="left"
@@ -589,6 +590,7 @@ Contact: 01718570686, 01787493933`}
                 {/* </div> */}
             </MotionSection>
             <Footer />
+            </div>
         </>
     );
 }

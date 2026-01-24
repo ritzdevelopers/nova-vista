@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import TopHeader from "./TopHeader";
 import Link from "next/link";
@@ -78,7 +79,7 @@ export default function Header() {
                             <Link href="/">
                                 <li className="cursor-pointer ">Home</li>
                             </Link>
-                            <Link href="/Excellence">
+                            <Link href="/excellence">
                                 <li className="cursor-pointer">About Us</li>
                             </Link>
                             <Link href="/program-training">
@@ -88,7 +89,7 @@ export default function Header() {
                                 <li className="cursor-pointer">Advisory Board</li>
                             </Link>
 
-                            <Link href="/Contact">
+                            <Link href="/contact">
                                 <li className="cursor-pointer">Contact</li>
                             </Link>
                         </ul>
@@ -162,7 +163,7 @@ export default function Header() {
                             </li>
                         </Link>
                         <Link
-                            href="/Excellence"
+                            href="/excellence"
                             onClick={() => setOpen(false)}
                             className=" text-[16px]"
                         >
@@ -178,7 +179,7 @@ export default function Header() {
                         <Link href="/#advisory" onClick={() => setOpen(false)}>
                             <li className=" text-[16px]">Advisory Board</li>
                         </Link>
-                        <Link href={"/Contact"}>
+                        <Link href={"/contact"}>
                             <li className=" text-[16px]">Contact</li>
                         </Link>
                     </ul>
